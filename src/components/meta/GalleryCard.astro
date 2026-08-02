@@ -12,7 +12,10 @@ const { item } = Astro.props;
 	<span class="gallery-card__index">{item.indexLabel}</span>
 	<span class="gallery-card__arrow">↗</span>
 	<span class="gallery-card__title">{item.title}</span>
-	<span class="gallery-card__subtitle">{item.subtitle}</span>
+	<span class="gallery-card__subtitle">
+		<span class:list={["status-dot", `status-dot--${item.status}`]} />
+		{item.subtitle}
+	</span>
 </a>
 
 <style>
@@ -90,5 +93,33 @@ const { item } = Astro.props;
 		opacity: 0.75;
 		border-top: 1px solid currentColor;
 		padding-top: var(--space-2);
+	}
+
+	.status-dot {
+		display: inline-block;
+		width: 6px;
+		height: 6px;
+		margin-right: 0.5em;
+		border-radius: 50%;
+		background: currentColor;
+		vertical-align: middle;
+	}
+
+	.status-dot--active {
+		box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 25%, transparent);
+	}
+
+	.status-dot--pending {
+		animation: status-pulse 1.6s ease-in-out infinite;
+	}
+
+	@keyframes status-pulse {
+		0%,
+		100% {
+			opacity: 0.3;
+		}
+		50% {
+			opacity: 1;
+		}
 	}
 </style>

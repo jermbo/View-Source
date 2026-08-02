@@ -1,6 +1,11 @@
 ---
 import "../styles/global.css";
 import { worlds } from "../data/worlds";
+import chakraPetchBold from "@fontsource/chakra-petch/files/chakra-petch-latin-700-normal.woff2?url";
+import rajdhaniSemibold from "@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2?url";
+import rajdhaniBold from "@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2?url";
+import plexSansRegular from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2?url";
+import plexMonoRegular from "@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2?url";
 
 interface Props {
 	title: string;
@@ -22,6 +27,11 @@ const navItems = worlds.map((world) => {
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+		<link rel="preload" as="font" type="font/woff2" href={chakraPetchBold} crossorigin />
+		<link rel="preload" as="font" type="font/woff2" href={rajdhaniSemibold} crossorigin />
+		<link rel="preload" as="font" type="font/woff2" href={rajdhaniBold} crossorigin />
+		<link rel="preload" as="font" type="font/woff2" href={plexSansRegular} crossorigin />
+		<link rel="preload" as="font" type="font/woff2" href={plexMonoRegular} crossorigin />
 		<title>{title}</title>
 	</head>
 	<body>

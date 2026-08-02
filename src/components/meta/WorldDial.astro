@@ -1,0 +1,110 @@
+---
+import type { GalleryWorldItem } from "./gallery";
+
+interface Props {
+	items: GalleryWorldItem[];
+}
+
+const { items } = Astro.props;
+
+const radius = 54;
+const circumference = 2 * Math.PI * radius;
+const gapLength = 8;
+const segmentLength = circumference / items.length - gapLength;
+
+const segments = items.map((item, index) => ({
+	tone: item.tone,
+	dasharray: `${segmentLength} ${circumference - segmentLength}`,
+	dashoffset: -((circumference / items.length) * index),
+}));
+
+const total = String(items.length).padStart(2, "0");
+---
+
+<div class="world-dial">
+	<svg class="world-dial__svg" viewBox="0 0 120 120">
+		<circle class="world-dial__track" cx="60" cy="60" r={radius} />
+		{
+			segments.map((segment) => (
+				<circle
+					class:list={["world-dial__segment", `world-dial__segment--${segment.tone}`]}
+					cx="60"
+					cy="60"
+					r={radius}
+					stroke-dasharray={segment.dasharray}
+					stroke-dashoffset={segment.dashoffset}
+				/>
+			))
+		}
+	</svg>
+	<div class="world-dial__readout">
+		<span class="world-dial__value">{total}</span>
+		<span class="world-dial__label">Worlds</span>
+	</div>
+</div>
+
+<style>
+	.world-dial {
+		position: relative;
+		width: 120px;
+		height: 120px;
+	}
+
+	.world-dial__svg {
+		position: absolute;
+		inset: 0;
+		width: 100%;
+		height: 100%;
+		transform: rotate(-90deg);
+	}
+
+	.world-dial__track {
+		fill: none;
+		stroke: color-mix(in srgb, var(--text-on-dark) 15%, transparent);
+		stroke-width: 6;
+	}
+
+	.world-dial__segment {
+		fill: none;
+		stroke-width: 6;
+		stroke-linecap: round;
+	}
+
+	.world-dial__segment--terracotta {
+		stroke: var(--color-terracotta);
+	}
+
+	.world-dial__segment--mustard {
+		stroke: var(--color-mustard);
+	}
+
+	.world-dial__segment--sage {
+		stroke: var(--color-sage);
+	}
+
+	.world-dial__readout {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 2px;
+		color: var(--text-on-dark);
+	}
+
+	.world-dial__value {
+		font-family: var(--font-poster);
+		font-weight: 700;
+		font-size: 2rem;
+		line-height: 1;
+	}
+
+	.world-dial__label {
+		font-family: var(--font-mono);
+		font-size: 0.6rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		opacity: 0.6;
+	}
+</style>

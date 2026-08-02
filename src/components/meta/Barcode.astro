@@ -1,0 +1,35 @@
+---
+interface Props {
+	seed: string;
+}
+
+const { seed } = Astro.props;
+
+const barGap = 2;
+const bars = Array.from(seed).map((char, index) => ((char.charCodeAt(0) + index * 7) % 4) + 1);
+
+let cursor = 0;
+const rects = bars.map((width) => {
+	const x = cursor;
+	cursor += width + barGap;
+	return { x, width };
+});
+const totalWidth = cursor - barGap;
+---
+
+<svg class="barcode" viewBox={`0 0 ${totalWidth} 20`} preserveAspectRatio="none" aria-hidden="true">
+	{rects.map((rect) => <rect x={rect.x} y="0" width={rect.width} height="20" />)}
+</svg>
+
+<style>
+	.barcode {
+		display: block;
+		width: 64px;
+		height: 16px;
+		flex-shrink: 0;
+	}
+
+	.barcode rect {
+		fill: currentColor;
+	}
+</style>

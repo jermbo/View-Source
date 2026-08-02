@@ -1,6 +1,7 @@
 ---
 import MetaLayout from "../layouts/MetaLayout.astro";
 import HeroSplit from "../components/meta/HeroSplit.astro";
+import WorldDial from "../components/meta/WorldDial.astro";
 import GalleryFeature from "../components/meta/GalleryFeature.astro";
 import GalleryBand from "../components/meta/GalleryBand.astro";
 import GalleryEmpty from "../components/meta/GalleryEmpty.astro";
@@ -29,12 +30,14 @@ const worldItems: GalleryWorldItem[] = orderedWorlds.map((world, index) => {
 	const subtitle = world.projects.length
 		? `${world.projects.length} project${world.projects.length === 1 ? "" : "s"}`
 		: "in progress";
+	const status = world.projects.length ? "active" : "pending";
 
 	return {
 		kind: "world",
 		indexLabel: String(index + 1).padStart(2, "0"),
 		title: world.name,
 		subtitle,
+		status,
 		href: `/${world.slug}/`,
 		tone: tones[index % tones.length],
 	};
@@ -55,7 +58,9 @@ const bandItems: GalleryItem[] = [...restWorldItems, ...placeholderItems];
 ---
 
 <MetaLayout title="View-Source">
-	<HeroSplit hero={hero} />
+	<HeroSplit hero={hero}>
+		<WorldDial items={worldItems} slot="accessory" />
+	</HeroSplit>
 	{
 		featuredItem && (
 			<div class="projects-panel">

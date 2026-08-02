@@ -1,4 +1,5 @@
 export type GalleryTone = "terracotta" | "mustard" | "sage";
+export type GalleryStatus = "active" | "pending";
 
 export interface GalleryStat {
 	value: string;
@@ -10,6 +11,7 @@ export interface GalleryWorldItem {
 	indexLabel: string;
 	title: string;
 	subtitle: string;
+	status: GalleryStatus;
 	href: string;
 	tone: GalleryTone;
 	stat?: GalleryStat;

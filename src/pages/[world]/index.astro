@@ -35,6 +35,7 @@ const galleryItems = world.projects.map((project, index) => ({
 	indexLabel: String(index + 1).padStart(2, "0"),
 	title: project.name,
 	subtitle: project.pitch,
+	status: "active" as const,
 	href: `/${world.slug}/${project.slug}/`,
 	tone: tones[index % tones.length],
 }));

@@ -11,7 +11,10 @@ const { item } = Astro.props;
 <div class="gallery-card-placeholder">
 	<span class="gallery-card-placeholder__index">{item.indexLabel}</span>
 	<span class="gallery-card-placeholder__label">TBD</span>
-	<span class="gallery-card-placeholder__subtitle">Not started</span>
+	<span class="gallery-card-placeholder__subtitle">
+		<span class="gallery-card-placeholder__dot" />
+		Not started
+	</span>
 </div>
 
 <style>
@@ -63,5 +66,15 @@ const { item } = Astro.props;
 		text-transform: uppercase;
 		border-top: 1px dashed currentColor;
 		padding-top: var(--space-2);
+	}
+
+	.gallery-card-placeholder__dot {
+		display: inline-block;
+		width: 6px;
+		height: 6px;
+		margin-right: 0.5em;
+		border-radius: 50%;
+		border: 1px solid currentColor;
+		vertical-align: middle;
 	}
 </style>
