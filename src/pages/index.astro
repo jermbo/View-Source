@@ -1,17 +1,96 @@
 ---
+import { getCollection } from "astro:content";
+import MetaLayout from "../layouts/MetaLayout.astro";
+import HeroSplit from "../components/meta/HeroSplit.astro";
+import GalleryFeature from "../components/meta/GalleryFeature.astro";
+import GalleryBand from "../components/meta/GalleryBand.astro";
+import GalleryEmpty from "../components/meta/GalleryEmpty.astro";
+import LogBand from "../components/meta/LogBand.astro";
+import type { HeroContent } from "../components/meta/hero";
+import type { GalleryItem, GalleryWorldItem } from "../components/meta/gallery";
+import type { LogItem } from "../components/meta/log";
+import { worlds } from "../data/worlds";
 
+const hero: HeroContent = {
+	indexLabel: "00",
+	kicker: "View-Source",
+	titleLine1: "Give it",
+	titleLine2: "some taste.",
+	description:
+		"Ask an agent to design something and you'll get the same clean, safe, forgettable page every time. So this is a running test: fake clients, sealed off from each other, each with its own markup, its own CSS, its own rules. Built to see how much taste an agent can fake before it stops working.",
+};
+
+const tones = ["terracotta", "mustard", "sage"] as const;
+const featuredSlug = "web-design-eras";
+
+const featuredWorld = worlds.find((world) => world.slug === featuredSlug);
+const otherWorlds = worlds.filter((world) => world.slug !== featuredSlug);
+const orderedWorlds = featuredWorld ? [featuredWorld, ...otherWorlds] : worlds;
+
+const worldItems: GalleryWorldItem[] = orderedWorlds.map((world, index) => {
+	const subtitle = world.projects.length
+		? `${world.projects.length} project${world.projects.length === 1 ? "" : "s"}`
+		: "in progress";
+	const status = world.projects.length ? "active" : "pending";
+
+	return {
+		kind: "world",
+		indexLabel: String(index + 1).padStart(2, "0"),
+		title: world.name,
+		subtitle,
+		status,
+		href: `/${world.slug}/`,
+		tone: tones[index % tones.length],
+	};
+});
+
+const [firstWorldItem, ...restWorldItems] = worldItems;
+const featuredItem: GalleryWorldItem | undefined = firstWorldItem && {
+	...firstWorldItem,
+	stat: { value: "06", label: "eras" },
+};
+
+const placeholderItems: GalleryItem[] = Array.from({ length: 5 }, (_, index) => ({
+	kind: "placeholder",
+	indexLabel: String(worldItems.length + index + 1).padStart(2, "0"),
+}));
+
+const bandItems: GalleryItem[] = [...restWorldItems, ...placeholderItems];
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric" });
+
+const logEntries = await getCollection("log", (entry) => !entry.data.draft && entry.id.startsWith("main/"));
+const logItems: LogItem[] = logEntries
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+	.slice(0, 4)
+	.map((entry) => ({
+		date: dateFormatter.format(entry.data.date),
+		title: entry.data.title,
+		href: `/log/#${entry.id.replace(/^main\//, "")}`,
+	}));
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MetaLayout title="View-Source">
+	<HeroSplit hero={hero} />
+	{
+		featuredItem && (
+			<div class="projects-panel">
+				<GalleryFeature item={featuredItem} />
+				<GalleryBand items={bandItems} />
+				{logItems.length > 0 && <LogBand items={logItems} viewAllHref="/log/" />}
+			</div>
+		)
+	}
+	{!featuredItem && <GalleryEmpty message="No worlds yet." />}
+</MetaLayout>
+
+<style>
+	.projects-panel {
+		container-type: inline-size;
+		min-height: 0;
+		height: 100%;
+		display: grid;
+		grid-template-rows: minmax(0, 1.6fr) minmax(0, 1.1fr) minmax(0, 0.6fr);
+		gap: var(--space-4);
+	}
+</style>

@@ -1,0 +1,42 @@
+---
+import type { HeroContent } from "./hero";
+import HeroRail from "./HeroRail.astro";
+import HeroPanel from "./HeroPanel.astro";
+
+interface Props {
+	hero: HeroContent;
+}
+
+const { hero } = Astro.props;
+---
+
+<section class="hero-card">
+	<HeroRail hero={hero} />
+	<HeroPanel hero={hero} />
+</section>
+
+<style>
+	.hero-card {
+		container-type: size;
+		position: relative;
+		background: var(--surface-hero);
+		color: var(--text-on-dark);
+		border-radius: var(--radius-panel);
+		overflow: hidden;
+		min-height: 0;
+	}
+
+	.hero-card::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		background: repeating-linear-gradient(
+			to bottom,
+			color-mix(in srgb, var(--text-on-dark) 6%, transparent) 0px,
+			color-mix(in srgb, var(--text-on-dark) 6%, transparent) 1px,
+			transparent 1px,
+			transparent 3px
+		);
+	}
+</style>

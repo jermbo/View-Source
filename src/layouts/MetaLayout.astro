@@ -1,0 +1,100 @@
+---
+import "../styles/global.css";
+import chakraPetchBold from "@fontsource/chakra-petch/files/chakra-petch-latin-700-normal.woff2?url";
+import rajdhaniSemibold from "@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2?url";
+import rajdhaniBold from "@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2?url";
+import plexSansRegular from "@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-400-normal.woff2?url";
+import plexMonoRegular from "@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2?url";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+const currentPath = Astro.url.pathname;
+const isLogCurrent = currentPath.startsWith("/log") ? "page" : undefined;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="preload" as="font" type="font/woff2" href={chakraPetchBold} crossorigin />
+		<link rel="preload" as="font" type="font/woff2" href={rajdhaniSemibold} crossorigin />
+		<link rel="preload" as="font" type="font/woff2" href={rajdhaniBold} crossorigin />
+		<link rel="preload" as="font" type="font/woff2" href={plexSansRegular} crossorigin />
+		<link rel="preload" as="font" type="font/woff2" href={plexMonoRegular} crossorigin />
+		<title>{title}</title>
+	</head>
+	<body>
+		<header class="meta-nav">
+			<a class="meta-nav__mark" href="/">View-Source</a>
+			<nav class="meta-nav__links">
+				<a href="/log/" aria-current={isLogCurrent}>
+					Dev Log
+				</a>
+			</nav>
+		</header>
+		<main class="bento">
+			<slot />
+		</main>
+	</body>
+</html>
+
+<style>
+	.meta-nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: var(--space-4);
+		padding: var(--space-4) var(--space-5) var(--space-2);
+		color: var(--text-on-dark);
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.meta-nav__mark {
+		text-decoration: none;
+		font-weight: 700;
+	}
+
+	.meta-nav__links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-5);
+	}
+
+	.meta-nav__links a {
+		text-decoration: none;
+		color: var(--text-on-dark);
+		opacity: 0.5;
+	}
+
+	.meta-nav__links a:hover,
+	.meta-nav__links a[aria-current="page"] {
+		opacity: 1;
+		text-decoration: underline;
+	}
+
+	.bento {
+		container-type: inline-size;
+		flex: 1 1 auto;
+		min-height: 0;
+		display: grid;
+		grid-template-columns: minmax(320px, 38%) 1fr;
+		gap: var(--space-4);
+		padding: var(--space-2) var(--space-5) var(--space-5);
+	}
+
+	@container shell (width <= 720px) {
+		.bento {
+			grid-template-columns: 1fr;
+			grid-template-rows: 45vh 1fr;
+		}
+	}
+</style>

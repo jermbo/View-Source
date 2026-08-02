@@ -1,0 +1,31 @@
+@import "./reset.css";
+@import "./tokens.css";
+@import "@fontsource/chakra-petch/600.css";
+@import "@fontsource/chakra-petch/700.css";
+@import "@fontsource/rajdhani/600.css";
+@import "@fontsource/rajdhani/700.css";
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "@fontsource/ibm-plex-mono/600.css";
+@import "@fontsource/ibm-plex-mono/700.css";
+
+html,
+body {
+	height: 100%;
+}
+
+html {
+	background: var(--surface-canvas);
+}
+
+body {
+	container: shell / inline-size;
+	font-family: var(--font-body);
+	color: var(--text-on-dark);
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	background: var(--surface-canvas);
+}

@@ -1,0 +1,53 @@
+---
+import type { HeroContent } from "./hero";
+import Barcode from "./Barcode.astro";
+
+interface Props {
+	hero: HeroContent;
+}
+
+const { hero } = Astro.props;
+---
+
+<span class="hero-rail__index">{hero.indexLabel}</span>
+<span class="hero-rail__mark-group">
+	<Barcode seed={hero.kicker} />
+	<span class="hero-rail__mark">VS</span>
+</span>
+
+<style>
+	.hero-rail__index {
+		position: absolute;
+		top: var(--space-5);
+		left: var(--space-5);
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		letter-spacing: 0.08em;
+		opacity: 0.6;
+	}
+
+	.hero-rail__index::before {
+		content: "[";
+	}
+
+	.hero-rail__index::after {
+		content: "]";
+	}
+
+	.hero-rail__mark-group {
+		position: absolute;
+		bottom: var(--space-5);
+		right: var(--space-5);
+		display: flex;
+		align-items: center;
+		gap: var(--space-3);
+		opacity: 0.6;
+	}
+
+	.hero-rail__mark {
+		font-family: var(--font-mono);
+		font-weight: 700;
+		font-size: 1.1rem;
+		letter-spacing: 0.15em;
+	}
+</style>

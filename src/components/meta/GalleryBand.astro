@@ -1,0 +1,44 @@
+---
+import type { GalleryItem } from "./gallery";
+import GalleryCard from "./GalleryCard.astro";
+import GalleryCardPlaceholder from "./GalleryCardPlaceholder.astro";
+
+interface Props {
+	items: GalleryItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="gallery-band">
+	<div class="gallery-band__track">
+		{
+			items.map((item) => (
+				<>
+					{item.kind === "world" && <GalleryCard item={item} />}
+					{item.kind === "placeholder" && <GalleryCardPlaceholder item={item} />}
+				</>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	.gallery-band {
+		container-type: inline-size;
+		min-height: 0;
+		height: 100%;
+		overflow-x: auto;
+		overflow-y: hidden;
+		scroll-snap-type: x proximity;
+		scrollbar-width: thin;
+		scrollbar-color: var(--accent-primary) transparent;
+	}
+
+	.gallery-band__track {
+		height: 100%;
+		display: flex;
+		gap: var(--space-4);
+		width: max-content;
+	}
+</style>

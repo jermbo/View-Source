@@ -1,0 +1,125 @@
+---
+import type { GalleryWorldItem } from "./gallery";
+
+interface Props {
+	item: GalleryWorldItem;
+}
+
+const { item } = Astro.props;
+---
+
+<a class:list={["gallery-card", `gallery-card--${item.tone}`]} href={item.href}>
+	<span class="gallery-card__index">{item.indexLabel}</span>
+	<span class="gallery-card__arrow">↗</span>
+	<span class="gallery-card__title">{item.title}</span>
+	<span class="gallery-card__subtitle">
+		<span class:list={["status-dot", `status-dot--${item.status}`]} />
+		{item.subtitle}
+	</span>
+</a>
+
+<style>
+	.gallery-card {
+		container-type: inline-size;
+		position: relative;
+		flex: 0 0 240px;
+		height: 100%;
+		border-radius: var(--radius-panel);
+		padding: var(--space-5);
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		gap: var(--space-2);
+		text-decoration: none;
+		color: var(--text-on-light);
+		scroll-snap-align: start;
+	}
+
+	.gallery-card--terracotta {
+		background: var(--color-terracotta);
+	}
+
+	.gallery-card--mustard {
+		background: var(--color-mustard);
+	}
+
+	.gallery-card--sage {
+		background: var(--color-sage);
+	}
+
+	.gallery-card__index {
+		position: absolute;
+		top: var(--space-5);
+		left: var(--space-5);
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		letter-spacing: 0.08em;
+		opacity: 0.65;
+	}
+
+	.gallery-card__index::before {
+		content: "[";
+	}
+
+	.gallery-card__index::after {
+		content: "]";
+	}
+
+	.gallery-card__arrow {
+		position: absolute;
+		top: var(--space-4);
+		right: var(--space-4);
+		font-size: 1.4rem;
+		line-height: 1;
+		transition: transform 0.15s ease;
+	}
+
+	.gallery-card:hover .gallery-card__arrow {
+		transform: translate(2px, -2px);
+	}
+
+	.gallery-card__title {
+		font-family: var(--font-heading);
+		font-weight: 600;
+		font-size: clamp(1.2rem, 10cqi, 1.9rem);
+		line-height: 1.05;
+	}
+
+	.gallery-card__subtitle {
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		opacity: 0.75;
+		border-top: 1px solid currentColor;
+		padding-top: var(--space-2);
+	}
+
+	.status-dot {
+		display: inline-block;
+		width: 6px;
+		height: 6px;
+		margin-right: 0.5em;
+		border-radius: 50%;
+		background: currentColor;
+		vertical-align: middle;
+	}
+
+	.status-dot--active {
+		box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 25%, transparent);
+	}
+
+	.status-dot--pending {
+		animation: status-pulse 1.6s ease-in-out infinite;
+	}
+
+	@keyframes status-pulse {
+		0%,
+		100% {
+			opacity: 0.3;
+		}
+		50% {
+			opacity: 1;
+		}
+	}
+</style>
