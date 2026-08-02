@@ -1,0 +1,35 @@
+---
+import { topNav } from "./nav";
+
+interface Props {
+	currentHref: string;
+}
+
+const { currentHref } = Astro.props;
+
+const items = topNav.map((item) => ({
+	label: item.label,
+	href: item.href,
+	isLink: Boolean(item.href),
+	isCurrent: item.href === currentHref,
+}));
+---
+
+<div class="navbar">
+	{
+		items.map((item) => (
+			<>
+				{item.isLink && (
+					<a
+						class:list={["navbar__item", item.isCurrent && "navbar__item--current"]}
+						href={item.href}
+						aria-current={item.isCurrent ? "page" : undefined}
+					>
+						{item.label}
+					</a>
+				)}
+				{!item.isLink && <span class="navbar__item navbar__item--dead">{item.label}</span>}
+			</>
+		))
+	}
+</div>

@@ -1,6 +1,7 @@
 ---
 import type { GalleryItem } from "./gallery";
 import GalleryCard from "./GalleryCard.astro";
+import GalleryCardPending from "./GalleryCardPending.astro";
 import GalleryCardPlaceholder from "./GalleryCardPlaceholder.astro";
 
 interface Props {
@@ -16,6 +17,7 @@ const { items } = Astro.props;
 			items.map((item) => (
 				<>
 					{item.kind === "world" && <GalleryCard item={item} />}
+					{item.kind === "pending" && <GalleryCardPending item={item} />}
 					{item.kind === "placeholder" && <GalleryCardPlaceholder item={item} />}
 				</>
 			))

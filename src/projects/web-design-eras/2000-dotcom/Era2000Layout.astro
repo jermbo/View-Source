@@ -1,0 +1,61 @@
+---
+import "./era2000.css";
+import EscapeHatch from "../../../components/EscapeHatch.astro";
+import Masthead from "./Masthead.astro";
+import TopNav from "./TopNav.astro";
+import Ticker from "./Ticker.astro";
+import SideNav from "./SideNav.astro";
+import NewsRail from "./NewsRail.astro";
+import SiteFoot from "./SiteFoot.astro";
+import { findWorld } from "../../../data/worlds";
+
+interface Props {
+	/** Goes in the browser title bar, in full 2001 keyword-stuffed style. */
+	title: string;
+	currentHref: string;
+	updated: string;
+	/** Interior pages of this era dropped the news rail for width. */
+	showNews?: boolean;
+}
+
+const { title, currentHref, updated, showNews = false } = Astro.props;
+
+const world = findWorld("web-design-eras");
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=800" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<div class="page">
+			<Masthead />
+			<TopNav currentHref={currentHref} />
+			<Ticker />
+			<table class="layout">
+				<tbody>
+					<tr>
+						<td class="layout__nav">
+							<SideNav currentHref={currentHref} />
+						</td>
+						<td class="layout__main">
+							<slot />
+						</td>
+						{
+							showNews && (
+								<td class="layout__news">
+									<NewsRail />
+								</td>
+							)
+						}
+					</tr>
+				</tbody>
+			</table>
+			<SiteFoot updated={updated} />
+		</div>
+		{world && <EscapeHatch world={world} projectSlug="2000-dotcom" />}
+	</body>
+</html>

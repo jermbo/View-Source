@@ -1,0 +1,153 @@
+---
+import Era2000Layout from "../../../projects/web-design-eras/2000-dotcom/Era2000Layout.astro";
+import { base } from "../../../projects/web-design-eras/2000-dotcom/nav";
+
+const palette = [
+	{ hex: "#000080", use: "Navy - headings, bars, rules" },
+	{ hex: "#CC0000", use: "Red - alerts, news dates" },
+	{ hex: "#FFCC00", use: "Gold - tagline, accents" },
+	{ hex: "#D4D0C8", use: "Gray - chrome, controls" },
+	{ hex: "#0000EE", use: "Link - unvisited" },
+	{ hex: "#551A8B", use: "Link - visited" },
+];
+
+const typeScale = [
+	{ sample: "Page Heading", spec: "Times New Roman bold 22px / #000080", className: "type-sample--heading" },
+	{ sample: "Section rule heading", spec: "Times New Roman bold 16px / #000080", className: "heading-rule" },
+	{ sample: "Body copy sits here at thirteen and a half pixels.", spec: "Times New Roman 13.5px / 1.55", className: "type-sample--body" },
+	{ sample: "Interface and navigation label", spec: "Verdana 11px", className: "type-sample--ui" },
+	{ sample: "NX-4400 :: 00842911", spec: "Courier New 11px", className: "type-sample--data" },
+];
+---
+
+<Era2000Layout
+	title="Style Guide - Nimbus Systems, Inc. - Web Standards, Colors, Typefaces, Controls"
+	currentHref={`${base}kit/`}
+	updated="06/07/2001"
+>
+	<h1 class="page-heading">Style Guide</h1>
+	<div class="prose">
+		<p>
+			This page documents the approved presentation standards for nimbussystems.net, as prepared by Verity Interactive.
+			All departmental pages must conform. Colors are drawn from the 216-color web-safe palette. Do not substitute
+			typefaces: the three faces below are the only ones guaranteed to be installed on both Windows and Macintosh.
+		</p>
+	</div>
+
+	<div class="kit-section">
+		<div class="bar">COLOR PALETTE (WEB SAFE)</div>
+		<div class="swatches" style="margin-top: 6px;">
+			{
+				palette.map((color) => (
+					<div class="swatch">
+						<div class="swatch__chip" style={`background: ${color.hex};`} />
+						<div class="swatch__label">
+							{color.hex}
+							<br />
+							{color.use}
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+
+	<div class="kit-section">
+		<div class="bar">TYPEFACES</div>
+		<table class="datatable" style="margin-top: 6px;">
+			<thead>
+				<tr>
+					<th>SAMPLE</th>
+					<th>SPECIFICATION</th>
+				</tr>
+			</thead>
+			<tbody>
+				{
+					typeScale.map((row) => (
+						<tr>
+							<td>
+								<span class={row.className}>{row.sample}</span>
+							</td>
+							<td>{row.spec}</td>
+						</tr>
+					))
+				}
+			</tbody>
+		</table>
+	</div>
+
+	<div class="kit-section">
+		<div class="bar">BUTTONS &amp; CONTROLS</div>
+		<div class="kit-panel" style="margin-top: 6px;">
+			<div class="kit-row">
+				<span class="btn btn--bold">Submit</span>
+				<span class="btn">Reset</span>
+				<span class="btn btn--pressed">Pressed</span>
+				<span class="btn btn--disabled">Disabled</span>
+			</div>
+			<div class="kit-row">
+				<input class="field" type="text" aria-label="Text field example" />
+				<span class="btn btn--small">Go!</span>
+			</div>
+			<p class="fineprint" style="margin: 0;">
+				Buttons use a 2px outset border on #D4D0C8. Pressed state swaps the border to inset. Never use an image for a
+				button where a bordered element will do: it costs an extra HTTP request.
+			</p>
+		</div>
+	</div>
+
+	<div class="kit-section">
+		<div class="bar">LINKS &amp; BULLETS</div>
+		<div class="kit-panel" style="margin-top: 6px;">
+			<div class="type-sample--ui" style="line-height: 1.8;">
+				<div>
+					<a href={`${base}kit/`}>Unvisited link</a> &nbsp; <span style="color: #551a8b; text-decoration: underline;">
+						Visited link
+					</span>
+				</div>
+				<div>
+					<span class="sidenav__bullet">&raquo;</span> Navigation item <span class="badge-new">NEW!</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="kit-section">
+		<div class="bar">SECTION HEADERS</div>
+		<div class="kit-stack" style="margin-top: 6px;">
+			<div class="bar">PRIMARY BAR</div>
+			<div class="bar bar--alert">ALERT BAR</div>
+			<div class="heading-rule">Page Heading Rule</div>
+		</div>
+	</div>
+
+	<div class="kit-section">
+		<div class="bar">DATA TABLE</div>
+		<table class="datatable" style="margin-top: 6px;">
+			<thead>
+				<tr>
+					<th>COLUMN</th>
+					<th>TREATMENT</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Header row</td>
+					<td>#000080 background, white Verdana bold 10px, 1px white column dividers</td>
+				</tr>
+				<tr>
+					<td>Body rows</td>
+					<td>Alternating #F5F5F5 and #FFFFFF, Verdana 10.5px</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="kit-section">
+		<div class="bar">GRID SPEC</div>
+		<div class="kit-panel kit-panel--note" style="margin-top: 6px;">
+			Canvas 780px, centered &middot; 3-column nested table &middot; nav 148px / content fluid / news 162px &middot; 1px
+			cellspacing, spacer.gif for all vertical rhythm &middot; target resolution 800 x 600.
+		</div>
+	</div>
+</Era2000Layout>

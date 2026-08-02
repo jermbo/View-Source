@@ -1,0 +1,157 @@
+---
+import { worlds, type World } from "../../data/worlds";
+
+interface Props {
+	current: World;
+}
+
+const { current } = Astro.props;
+
+const options = worlds.map((world) => ({
+	indexLabel: world.indexLabel,
+	name: world.name,
+	href: `/${world.slug}/`,
+	projectCount: String(world.projects.length).padStart(2, "0"),
+	isCurrent: world.slug === current.slug,
+}));
+---
+
+<nav class="world-switch" aria-label="Worlds">
+	<p class="world-switch__label">
+		<span>World select</span>
+		<span class="world-switch__channel">CH {current.indexLabel}</span>
+	</p>
+	<ul class="world-switch__list">
+		{
+			options.map((option) => (
+				<li>
+					<a class:list={["world-switch__row", option.isCurrent && "is-current"]} href={option.href}>
+						<span class="world-switch__index">{option.indexLabel}</span>
+						<span class="world-switch__name">{option.name}</span>
+						<span class="world-switch__count">{option.projectCount}</span>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+	<a class="world-switch__root" href="/">
+		<span class="world-switch__root-arrow">←</span>
+		All worlds
+	</a>
+</nav>
+
+<style>
+	.world-switch {
+		container-type: inline-size;
+		background: var(--surface-hero);
+		border-radius: var(--radius-panel);
+		padding: var(--space-4) var(--space-5) var(--space-5);
+		color: var(--text-on-dark);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-3);
+	}
+
+	.world-switch__label {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: var(--space-3);
+		margin: 0;
+		font-family: var(--font-mono);
+		font-size: 0.65rem;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+		opacity: 0.55;
+	}
+
+	.world-switch__channel {
+		color: var(--accent-primary);
+		opacity: 0.9;
+	}
+
+	.world-switch__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
+	.world-switch__row {
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		align-items: center;
+		gap: var(--space-3);
+		padding: var(--space-2) var(--space-3);
+		text-decoration: none;
+		color: var(--text-on-dark);
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		letter-spacing: 0.04em;
+		background: color-mix(in srgb, var(--text-on-dark) 6%, transparent);
+		border-left: 3px solid transparent;
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease;
+	}
+
+	.world-switch__row:hover {
+		background: color-mix(in srgb, var(--text-on-dark) 14%, transparent);
+		border-left-color: color-mix(in srgb, var(--text-on-dark) 45%, transparent);
+	}
+
+	.world-switch__row.is-current {
+		background: var(--accent-primary);
+		border-left-color: var(--color-mustard);
+		color: var(--text-on-light);
+	}
+
+	.world-switch__index {
+		opacity: 0.6;
+	}
+
+	.world-switch__name {
+		font-family: var(--font-heading);
+		font-weight: 600;
+		font-size: 0.95rem;
+		letter-spacing: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.world-switch__count {
+		font-size: 0.65rem;
+		letter-spacing: 0.1em;
+		opacity: 0.6;
+	}
+
+	.world-switch__root {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5em;
+		font-family: var(--font-mono);
+		font-size: 0.65rem;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		text-decoration: none;
+		color: var(--text-on-dark);
+		opacity: 0.55;
+		border-top: 1px solid color-mix(in srgb, var(--text-on-dark) 20%, transparent);
+		padding-top: var(--space-3);
+	}
+
+	.world-switch__root:hover {
+		opacity: 1;
+	}
+
+	.world-switch__root-arrow {
+		transition: transform 0.15s ease;
+	}
+
+	.world-switch__root:hover .world-switch__root-arrow {
+		transform: translateX(-3px);
+	}
+</style>

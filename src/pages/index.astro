@@ -1,5 +1,4 @@
 ---
-import { getCollection } from "astro:content";
 import MetaLayout from "../layouts/MetaLayout.astro";
 import HeroSplit from "../components/meta/HeroSplit.astro";
 import GalleryFeature from "../components/meta/GalleryFeature.astro";
@@ -8,7 +7,7 @@ import GalleryEmpty from "../components/meta/GalleryEmpty.astro";
 import LogBand from "../components/meta/LogBand.astro";
 import type { HeroContent } from "../components/meta/hero";
 import type { GalleryItem, GalleryWorldItem } from "../components/meta/gallery";
-import type { LogItem } from "../components/meta/log";
+import { loadLogSummaries } from "../components/meta/logFeed";
 import { worlds } from "../data/worlds";
 
 const hero: HeroContent = {
@@ -28,10 +27,9 @@ const otherWorlds = worlds.filter((world) => world.slug !== featuredSlug);
 const orderedWorlds = featuredWorld ? [featuredWorld, ...otherWorlds] : worlds;
 
 const worldItems: GalleryWorldItem[] = orderedWorlds.map((world, index) => {
-	const subtitle = world.projects.length
-		? `${world.projects.length} project${world.projects.length === 1 ? "" : "s"}`
-		: "in progress";
-	const status = world.projects.length ? "active" : "pending";
+	const builtCount = world.projects.filter((project) => project.built).length;
+	const subtitle = world.projects.length ? `${builtCount} of ${world.projects.length} built` : "in progress";
+	const status = builtCount > 0 ? "active" : "pending";
 
 	return {
 		kind: "world",
@@ -45,9 +43,10 @@ const worldItems: GalleryWorldItem[] = orderedWorlds.map((world, index) => {
 });
 
 const [firstWorldItem, ...restWorldItems] = worldItems;
+const featuredProjectCount = orderedWorlds[0]?.projects.length ?? 0;
 const featuredItem: GalleryWorldItem | undefined = firstWorldItem && {
 	...firstWorldItem,
-	stat: { value: "06", label: "eras" },
+	stat: { value: String(featuredProjectCount).padStart(2, "0"), label: "eras" },
 };
 
 const placeholderItems: GalleryItem[] = Array.from({ length: 5 }, (_, index) => ({
@@ -57,17 +56,7 @@ const placeholderItems: GalleryItem[] = Array.from({ length: 5 }, (_, index) => 
 
 const bandItems: GalleryItem[] = [...restWorldItems, ...placeholderItems];
 
-const dateFormatter = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric" });
-
-const logEntries = await getCollection("log", (entry) => !entry.data.draft && entry.id.startsWith("main/"));
-const logItems: LogItem[] = logEntries
-	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-	.slice(0, 4)
-	.map((entry) => ({
-		date: dateFormatter.format(entry.data.date),
-		title: entry.data.title,
-		href: `/log/#${entry.id.replace(/^main\//, "")}`,
-	}));
+const logItems = await loadLogSummaries("main", 4, "/log/");
 ---
 
 <MetaLayout title="View-Source">
