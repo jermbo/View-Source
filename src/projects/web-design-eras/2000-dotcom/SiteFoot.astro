@@ -1,0 +1,35 @@
+---
+import { footerLinks } from "./nav";
+
+interface Props {
+	updated: string;
+}
+
+const { updated } = Astro.props;
+
+const items = footerLinks.map((item) => ({
+	label: item.label,
+	href: item.href,
+	isLink: Boolean(item.href),
+}));
+---
+
+<div class="sitefoot">
+	<div class="sitefoot__links">
+		{
+			items.map((item, index) => (
+				<>
+					{index > 0 && <span>|</span>}
+					{item.isLink && <a href={item.href}>{item.label}</a>}
+					{!item.isLink && <span>{item.label}</span>}
+				</>
+			))
+		}
+	</div>
+	<p>
+		Copyright &copy; 1997-2001 Nimbus Systems, Inc. All Rights Reserved. NimbusWare is a trademark of Nimbus Systems,
+		Inc.
+	</p>
+	<p>This site is best viewed at 800 x 600 resolution using Microsoft Internet Explorer 5.0 or Netscape Navigator 4.7.</p>
+	<p>This page last updated: {updated} &nbsp;&middot;&nbsp; Site design by Verity Interactive</p>
+</div>

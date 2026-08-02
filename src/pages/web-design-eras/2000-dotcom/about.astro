@@ -1,0 +1,114 @@
+---
+import Era2000Layout from "../../../projects/web-design-eras/2000-dotcom/Era2000Layout.astro";
+import { base } from "../../../projects/web-design-eras/2000-dotcom/nav";
+
+const officers = [
+	{ name: "R. Douglas Halloran", title: "Chairman &amp; Chief Executive Officer", since: "1997" },
+	{ name: "Marisol Enriquez-Kaye", title: "President &amp; Chief Operating Officer", since: "1998" },
+	{ name: "Stephen T. Volk", title: "Chief Financial Officer", since: "1999" },
+	{ name: "Anand Rajaraman", title: "Senior Vice President, Engineering", since: "1997" },
+	{ name: "Carol Whitfield-Ames", title: "Vice President, Worldwide Channel Sales", since: "2000" },
+];
+
+const milestones = [
+	{ year: "1997", event: "Company founded in a leased suite in San Jose, California." },
+	{ year: "1998", event: "NX-1000 workgroup hub ships; first reseller agreement signed." },
+	{ year: "1999", event: "Initial public offering on the NASDAQ National Market (NMBS)." },
+	{ year: "2000", event: "NimbusWare™ management platform released; European office opens." },
+	{ year: "2001", event: "10,000th NX-4400 chassis shipped; named Vendor of the Year." },
+];
+---
+
+<Era2000Layout
+	title="Company Profile - About Nimbus Systems, Inc. - Corporate Information, Management, Investor Relations"
+	currentHref={`${base}about/`}
+	updated="06/01/2001"
+>
+	<h1 class="page-heading">Company Profile</h1>
+	<div class="prose">
+		<p>
+			Nimbus Systems, Inc. designs, manufactures and markets high-performance networking infrastructure for the Fortune
+			1000 enterprise. Since our founding in 1997, our mission has remained unchanged: to deliver <b>best-of-breed</b>,
+			standards-compliant connectivity solutions that allow our customers to compete and win in the e-business marketplace.
+		</p>
+		<p>
+			The Company is headquartered in San Jose, California, with regional sales offices in Chicago, Boston, Reading
+			(United Kingdom) and Singapore, and employs approximately 640 people worldwide. Nimbus Systems trades on the NASDAQ
+			National Market under the symbol <b>NMBS</b>.
+		</p>
+	</div>
+
+	<div class="notice">
+		<div class="photo-slot">photo:<br />HQ building</div>
+		<p class="notice__text">
+			<b>Corporate Headquarters</b><br />
+			4400 Technology Park Drive, Suite 200<br />
+			San Jose, California 95134<br />
+			Main: (408) 555-0142 &nbsp;&middot;&nbsp; Fax: (408) 555-0198
+		</p>
+	</div>
+
+	<div class="subhead">EXECUTIVE MANAGEMENT</div>
+	<table class="datatable">
+		<thead>
+			<tr>
+				<th>NAME</th>
+				<th>TITLE</th>
+				<th>WITH NIMBUS SINCE</th>
+			</tr>
+		</thead>
+		<tbody>
+			{
+				officers.map((officer) => (
+					<tr>
+						<td>{officer.name}</td>
+						<td set:html={officer.title} />
+						<td>{officer.since}</td>
+					</tr>
+				))
+			}
+		</tbody>
+	</table>
+
+	<div class="subhead">COMPANY MILESTONES</div>
+	<table class="datatable">
+		<thead>
+			<tr>
+				<th>YEAR</th>
+				<th>MILESTONE</th>
+			</tr>
+		</thead>
+		<tbody>
+			{
+				milestones.map((milestone) => (
+					<tr>
+						<td>{milestone.year}</td>
+						<td>{milestone.event}</td>
+					</tr>
+				))
+			}
+		</tbody>
+	</table>
+
+	<div class="subhead">INVESTOR RELATIONS</div>
+	<div class="prose">
+		<p>
+			Nimbus Systems will report Q2 results on July 18, 2001 at 2:00 PM PDT. A live audio webcast will be available in
+			RealPlayer&reg; format. Shareholders of record may request a printed copy of the 2000 Annual Report by writing to
+			Investor Relations at the address above.
+		</p>
+		<p class="fineprint">
+			This page contains forward-looking statements within the meaning of the Private Securities Litigation Reform Act of
+			1995. Actual results may differ materially. Please review the Company&#39;s filings with the Securities and Exchange
+			Commission, including the Annual Report on Form 10-K, for a discussion of risk factors.
+		</p>
+	</div>
+
+	<div class="subhead">EMPLOYMENT</div>
+	<div class="prose">
+		<p>
+			Nimbus Systems is an Equal Opportunity Employer and is currently hiring in 4 regions. Please forward your resume in
+			plain text or Microsoft Word format to <a href={`${base}about/`}>careers@nimbussystems.net</a>. No agencies, please.
+		</p>
+	</div>
+</Era2000Layout>

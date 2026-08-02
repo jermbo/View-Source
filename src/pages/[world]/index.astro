@@ -1,9 +1,13 @@
 ---
 import MetaLayout from "../../layouts/MetaLayout.astro";
 import HeroSplit from "../../components/meta/HeroSplit.astro";
+import WorldSwitch from "../../components/meta/WorldSwitch.astro";
 import GalleryBand from "../../components/meta/GalleryBand.astro";
 import GalleryEmpty from "../../components/meta/GalleryEmpty.astro";
+import LogBand from "../../components/meta/LogBand.astro";
+import { loadLogSummaries } from "../../components/meta/logFeed";
 import type { HeroContent } from "../../components/meta/hero";
+import type { GalleryItem } from "../../components/meta/gallery";
 import { worlds, type World } from "../../data/worlds";
 
 export function getStaticPaths() {
@@ -30,21 +34,70 @@ const hero: HeroContent = {
 
 const tones = ["terracotta", "mustard", "sage"] as const;
 
-const galleryItems = world.projects.map((project, index) => ({
-	kind: "world" as const,
-	indexLabel: String(index + 1).padStart(2, "0"),
-	title: project.name,
-	subtitle: project.pitch,
-	status: "active" as const,
-	href: `/${world.slug}/${project.slug}/`,
-	tone: tones[index % tones.length],
-}));
+const galleryItems: GalleryItem[] = world.projects.map((project, index) => {
+	const indexLabel = String(index + 1).padStart(2, "0");
+
+	if (!project.built) {
+		return {
+			kind: "pending",
+			indexLabel,
+			title: project.name,
+			subtitle: project.pitch,
+			meta: project.meta,
+		};
+	}
+
+	return {
+		kind: "world",
+		indexLabel,
+		title: project.name,
+		subtitle: project.pitch,
+		meta: project.meta,
+		status: "active",
+		href: `/${world.slug}/${project.slug}/`,
+		tone: tones[index % tones.length],
+	};
+});
+
+const logHref = `/${world.slug}/log/`;
+const logItems = await loadLogSummaries(world.slug, 4, logHref);
 
 const hasProjects = galleryItems.length > 0;
+const hasLog = logItems.length > 0;
 ---
 
 <MetaLayout title={`${world.name} · View-Source`}>
-	<HeroSplit hero={hero} />
-	{hasProjects && <GalleryBand items={galleryItems} />}
-	{!hasProjects && <GalleryEmpty message={`${world.name}'s first project is still being built.`} />}
+	<div class="world-rail">
+		<HeroSplit hero={hero} />
+		<WorldSwitch current={world} />
+	</div>
+	<div class="world-panel">
+		{hasProjects && <GalleryBand items={galleryItems} />}
+		{!hasProjects && <GalleryEmpty message={`${world.name}'s first project is still being built.`} />}
+		{hasLog && <LogBand items={logItems} viewAllHref={logHref} />}
+	</div>
 </MetaLayout>
+
+<style>
+	.world-rail {
+		container-type: inline-size;
+		min-height: 0;
+		height: 100%;
+		display: grid;
+		grid-template-rows: minmax(0, 1fr) auto;
+		gap: var(--space-4);
+	}
+
+	.world-panel {
+		container-type: inline-size;
+		min-height: 0;
+		height: 100%;
+		display: grid;
+		grid-template-rows: minmax(0, 1fr) minmax(0, 0.42fr);
+		gap: var(--space-4);
+	}
+
+	.world-panel:has(> :last-child:nth-child(1)) {
+		grid-template-rows: minmax(0, 1fr);
+	}
+</style>

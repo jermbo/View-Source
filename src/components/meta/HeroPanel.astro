@@ -63,6 +63,8 @@ const { hero } = Astro.props;
 
 	.hero-panel__meta {
 		margin: 0;
+		/* Clears the barcode + VS mark parked in the card's bottom-right corner. */
+		padding-right: 92px;
 		font-family: var(--font-mono);
 		font-size: 0.75rem;
 		letter-spacing: 0.08em;
@@ -70,16 +72,37 @@ const { hero } = Astro.props;
 		opacity: 0.6;
 		border-top: 1px solid currentColor;
 		padding-top: var(--space-3);
+		text-wrap-style: pretty;
 	}
 
-	@container (height <= 480px) {
+	/*
+	 * The description carries the world's philosophy, so it gets tightened well before
+	 * it gets truncated. Only the genuinely short card clamps it.
+	 */
+	@container (height <= 520px) {
 		.hero-panel {
-			padding: var(--space-5) var(--space-5) var(--space-4);
+			padding: var(--space-5) var(--space-6);
+			gap: var(--space-3);
+		}
+
+		.hero-panel__title {
+			font-size: clamp(1.8rem, 9cqi, 3.2rem);
+		}
+
+		.hero-panel__description {
+			font-size: 0.95rem;
+			line-height: 1.5;
+		}
+	}
+
+	@container (height <= 340px) {
+		.hero-panel {
+			padding: var(--space-4) var(--space-5);
 			gap: var(--space-2);
 		}
 
 		.hero-panel__title {
-			font-size: clamp(1.8rem, 10cqi, 3rem);
+			font-size: clamp(1.6rem, 8cqi, 2.4rem);
 		}
 
 		.hero-panel__description {

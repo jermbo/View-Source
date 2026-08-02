@@ -11,6 +11,7 @@ No curation step here (unlike Cosmic Strawberry / Mint Panther): all six eras be
 ## Routes
 
 - `/web-design-eras/` — World page (uses the shared meta-layer template from [main-site spec](./main-site.md))
+- `/web-design-eras/log/` — this World's Dev Log, per [ADR 0002](../adr/0002-per-world-dev-log.md). Shares the meta layer's `LogFeed` with the main site's `/log/`.
 - `/web-design-eras/[era-slug]/` — one per era, fully isolated per ADR 0001, each with its own Escape Hatch
 
 ## World page content
@@ -24,14 +25,16 @@ Copy is reused as-is from the inspiration file per era (may evolve later — not
 
 | Era | Years | Slug | Style | Proposed secondary pages |
 | --- | --- | --- | --- | --- |
-| 1 | 2000–2004 | `2000-dotcom` | Table layout, dot-com corporate | Products (catalog), Contact Us |
+| 1 | 2000–2004 | `2000-dotcom` | Table layout, dot-com corporate | **Built:** Products (catalog), About Us (company profile) |
 | 2 | 2004–2008 | `2004-web2` | Web 2.0 gloss/gradients, perpetual beta | Features, Pricing |
 | 3 | 2008–2012 | `2008-skeuomorphic` | Skeuomorphic texture, letterpress | Features, Journal |
 | 4 | 2012–2016 | `2012-flat` | Flat design, one-page scroll | Features, Blog |
 | 5 | 2016–2020 | `2016-saas` | SaaS gradients, floating screenshots | Pricing, Customers |
 | 6 | 2022–2026 | `2022-agent` | Dark hairlines, bento, agent era | Docs, Changelog |
 
-Each secondary page should be built in the same period-accurate idiom as that era's home page (e.g. Era 1's Contact Us is a `<table>`-laid-out form with a beveled Submit button; Era 6's Docs page uses the dark hairline/mono/bento language with a trace-log-style code block).
+Each secondary page should be built in the same period-accurate idiom as that era's home page (e.g. Era 1's catalog request is a `<table>`-laid-out form with a beveled Submit button; Era 6's Docs page uses the dark hairline/mono/bento language with a trace-log-style code block).
+
+A page that an era's nav advertises but that doesn't exist is rendered as a dead control, not a link. A 2001 site listing six departments and shipping three is period-accurate; six 404s are not.
 
 ## Escape Hatch
 

@@ -11,6 +11,7 @@ const { item } = Astro.props;
 <a class:list={["gallery-card", `gallery-card--${item.tone}`]} href={item.href}>
 	<span class="gallery-card__index">{item.indexLabel}</span>
 	<span class="gallery-card__arrow">↗</span>
+	{item.meta && <span class="gallery-card__meta">{item.meta}</span>}
 	<span class="gallery-card__title">{item.title}</span>
 	<span class="gallery-card__subtitle">
 		<span class:list={["status-dot", `status-dot--${item.status}`]} />
@@ -76,6 +77,13 @@ const { item } = Astro.props;
 
 	.gallery-card:hover .gallery-card__arrow {
 		transform: translate(2px, -2px);
+	}
+
+	.gallery-card__meta {
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		letter-spacing: 0.1em;
+		opacity: 0.7;
 	}
 
 	.gallery-card__title {

@@ -1,0 +1,29 @@
+---
+import MetaLayout from "../../layouts/MetaLayout.astro";
+import LogFeed from "../../components/meta/LogFeed.astro";
+import { loadLogFeed } from "../../components/meta/logFeed";
+import { worlds, type World } from "../../data/worlds";
+
+export function getStaticPaths() {
+	return worlds.map((world) => ({
+		params: { world: world.slug },
+		props: { world },
+	}));
+}
+
+interface Props {
+	world: World;
+}
+
+const { world } = Astro.props;
+const entries = await loadLogFeed(world.slug);
+---
+
+<MetaLayout title={`Dev Log · ${world.name} · View-Source`}>
+	<LogFeed
+		kicker={`Dev Log · ${world.name}`}
+		heading={`${world.name}, session by session`}
+		intro={`What actually happened while building this world: the calls that got made, what they cost, and what got left open. ${world.name} keeps its own log, separate from every other world's.`}
+		entries={entries}
+	/>
+</MetaLayout>

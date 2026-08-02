@@ -1,0 +1,89 @@
+---
+import type { GalleryPendingItem } from "./gallery";
+
+interface Props {
+	item: GalleryPendingItem;
+}
+
+const { item } = Astro.props;
+---
+
+<div class="pending-card">
+	<span class="pending-card__index">{item.indexLabel}</span>
+	<span class="pending-card__flag">Not built</span>
+	{item.meta && <span class="pending-card__meta">{item.meta}</span>}
+	<span class="pending-card__title">{item.title}</span>
+	<span class="pending-card__subtitle">{item.subtitle}</span>
+</div>
+
+<style>
+	.pending-card {
+		container-type: inline-size;
+		position: relative;
+		flex: 0 0 240px;
+		height: 100%;
+		border-radius: var(--radius-panel);
+		border: 1px dashed color-mix(in srgb, var(--text-on-dark) 32%, transparent);
+		padding: var(--space-5);
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		gap: var(--space-2);
+		color: var(--text-on-dark);
+		scroll-snap-align: start;
+	}
+
+	.pending-card__index {
+		position: absolute;
+		top: var(--space-5);
+		left: var(--space-5);
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		letter-spacing: 0.08em;
+		opacity: 0.5;
+	}
+
+	.pending-card__index::before {
+		content: "[";
+	}
+
+	.pending-card__index::after {
+		content: "]";
+	}
+
+	.pending-card__flag {
+		position: absolute;
+		top: var(--space-5);
+		right: var(--space-5);
+		font-family: var(--font-mono);
+		font-size: 0.6rem;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		opacity: 0.45;
+	}
+
+	.pending-card__meta {
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		letter-spacing: 0.1em;
+		opacity: 0.55;
+	}
+
+	.pending-card__title {
+		font-family: var(--font-heading);
+		font-weight: 600;
+		font-size: clamp(1.2rem, 10cqi, 1.9rem);
+		line-height: 1.05;
+		opacity: 0.75;
+	}
+
+	.pending-card__subtitle {
+		font-family: var(--font-body);
+		font-size: 0.8rem;
+		line-height: 1.4;
+		opacity: 0.45;
+		border-top: 1px dashed color-mix(in srgb, var(--text-on-dark) 25%, transparent);
+		padding-top: var(--space-2);
+		text-wrap-style: pretty;
+	}
+</style>

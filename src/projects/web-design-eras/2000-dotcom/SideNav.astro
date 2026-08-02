@@ -1,0 +1,42 @@
+---
+import { sideNav } from "./nav";
+
+interface Props {
+	currentHref: string;
+}
+
+const { currentHref } = Astro.props;
+
+const items = sideNav.map((item) => ({
+	label: item.label,
+	href: item.href,
+	isLink: Boolean(item.href),
+	isNew: Boolean(item.isNew),
+	isCurrent: item.href === currentHref,
+	linkStyle: item.isVisited ? "color: #551a8b;" : undefined,
+}));
+---
+
+<div class="bar">NAVIGATION</div>
+<div class="sidenav__list">
+	{
+		items.map((item) => (
+			<div>
+				<span class="sidenav__bullet">&raquo;</span>{" "}
+				{item.isLink && (
+					<a href={item.href} aria-current={item.isCurrent ? "page" : undefined}>
+						{item.label}
+					</a>
+				)}
+				{!item.isLink && <span class="sidenav__dead">{item.label}</span>}
+				{item.isNew && <span class="badge-new"> NEW!</span>}
+			</div>
+		))
+	}
+</div>
+<div class="sidenav__badges">
+	<div class="webbadge webbadge--ie">BEST VIEWED IN<br />INTERNET EXPLORER 5</div>
+	<div class="webbadge webbadge--flash">GET FLASH 5</div>
+	<div class="webbadge webbadge--html">VALID HTML 4.01</div>
+	<p class="construction">Portions of this site are<br /><strong>UNDER CONSTRUCTION</strong></p>
+</div>

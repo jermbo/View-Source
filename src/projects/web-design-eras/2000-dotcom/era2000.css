@@ -1,0 +1,650 @@
+/*
+ * Nimbus Systems, Inc. — 2000-2004.
+ * Deliberately period-accurate: 780px fixed canvas, table layout, web-safe palette,
+ * Verdana/Times/Courier only, beveled outset borders instead of anything modern.
+ * This file is imported by exactly one project (ADR 0001). Nothing here is shared.
+ */
+
+body {
+	margin: 0;
+	padding: 12px 0 28px;
+	background-color: #ffffff;
+	background-image: repeating-linear-gradient(90deg, #eef2f8 0 1px, #ffffff 1px 6px);
+	font-family: "Times New Roman", Times, serif;
+	font-size: 13.5px;
+	color: #000000;
+}
+
+a {
+	color: #0000ee;
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #551a8b;
+}
+
+/* ---------- canvas ---------- */
+
+.page {
+	width: 780px;
+	margin: 0 auto;
+	background: #ffffff;
+	border: 1px solid #000080;
+}
+
+/* ---------- masthead ---------- */
+
+.masthead {
+	display: flex;
+	align-items: stretch;
+	background: linear-gradient(180deg, #4a6da7 0%, #000080 100%);
+	border-bottom: 2px solid #000000;
+}
+
+.masthead__brand {
+	padding: 14px 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.masthead__logo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-style: italic;
+	font-size: 30px;
+	color: #ffffff;
+	text-shadow: 2px 2px 0 #000000;
+	letter-spacing: 1px;
+	text-decoration: none;
+	line-height: 1.1;
+}
+
+.masthead__logo:visited {
+	color: #ffffff;
+}
+
+.masthead__logo-suffix {
+	color: #ffcc00;
+}
+
+.masthead__tagline {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #ffcc00;
+	margin: 0;
+}
+
+.masthead__search {
+	margin-left: auto;
+	padding: 14px 16px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 5px;
+}
+
+.masthead__search-label {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #ffffff;
+}
+
+.masthead__search-row {
+	display: flex;
+	gap: 4px;
+}
+
+/* ---------- controls ---------- */
+
+.field {
+	width: 120px;
+	height: 17px;
+	background: #ffffff;
+	border: 2px inset #d4d0c8;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	padding: 0 3px;
+	box-sizing: border-box;
+}
+
+textarea.field {
+	width: 100%;
+	height: auto;
+}
+
+.btn {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	padding: 3px 14px;
+	background: #d4d0c8;
+	border: 2px outset #eeebe6;
+	color: #000080;
+	cursor: pointer;
+	line-height: 1.3;
+}
+
+.btn--small {
+	padding: 1px 8px;
+	font-size: 10px;
+}
+
+.btn--bold {
+	font-weight: bold;
+}
+
+.btn--pressed {
+	border-style: inset;
+}
+
+.btn--disabled {
+	color: #808080;
+}
+
+/* ---------- top nav ---------- */
+
+.navbar {
+	display: flex;
+	gap: 3px;
+	padding: 4px;
+	background: #d4d0c8;
+	border-bottom: 1px solid #808080;
+}
+
+.navbar__item {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	padding: 3px 14px;
+	background: #d4d0c8;
+	border: 2px outset #eeebe6;
+	color: #000080;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.navbar__item:visited {
+	color: #000080;
+}
+
+.navbar__item:hover {
+	color: #cc0000;
+}
+
+.navbar__item--current {
+	font-weight: bold;
+	border-style: inset;
+}
+
+.navbar__item--dead {
+	color: #4c4c78;
+	cursor: default;
+}
+
+/* ---------- marquee ---------- */
+
+.ticker {
+	background: #000080;
+	overflow: hidden;
+	padding: 3px 0;
+}
+
+.ticker__text {
+	display: inline-block;
+	white-space: nowrap;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	color: #ffff00;
+	padding-left: 100%;
+	animation: ticker-scroll 22s linear infinite;
+}
+
+@keyframes ticker-scroll {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-100%);
+	}
+}
+
+/* ---------- table layout ---------- */
+
+.layout {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.layout__nav {
+	width: 148px;
+	vertical-align: top;
+	border-right: 1px solid #808080;
+	background: #f0f0f0;
+}
+
+.layout__main {
+	vertical-align: top;
+	padding: 14px 16px;
+}
+
+.layout__news {
+	width: 162px;
+	vertical-align: top;
+	border-left: 1px solid #808080;
+	background: #fffff0;
+}
+
+/* ---------- section bars ---------- */
+
+.bar {
+	background: #000080;
+	color: #ffffff;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	padding: 3px 6px;
+	letter-spacing: 1px;
+}
+
+.bar--alert {
+	background: #c00000;
+}
+
+/* ---------- side navigation ---------- */
+
+.sidenav__list {
+	padding: 8px 6px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+}
+
+.sidenav__bullet {
+	color: #ff0000;
+}
+
+.sidenav__dead {
+	color: #333333;
+}
+
+.badge-new {
+	color: #ff0000;
+	font-weight: bold;
+	font-size: 9px;
+	animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+	50% {
+		opacity: 0;
+	}
+}
+
+.sidenav__badges {
+	border-top: 1px solid #808080;
+	padding: 10px 6px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	align-items: center;
+}
+
+.webbadge {
+	width: 88px;
+	height: 31px;
+	border: 1px solid #000000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 8px;
+	line-height: 1.2;
+}
+
+.webbadge--ie {
+	background: linear-gradient(#3a5fa0, #16265a);
+	color: #ffffff;
+}
+
+.webbadge--flash {
+	background: linear-gradient(#111111, #444444);
+	color: #77ccff;
+	letter-spacing: 0.5px;
+}
+
+.webbadge--html {
+	background: #ffffff;
+	color: #cc0000;
+}
+
+.construction {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 9px;
+	color: #666666;
+	text-align: center;
+	padding-top: 4px;
+	margin: 0;
+}
+
+.construction strong {
+	color: #cc0000;
+}
+
+/* ---------- main content ---------- */
+
+.page-heading {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #000080;
+	border-bottom: 1px solid #c0c0c0;
+	padding-bottom: 4px;
+	margin: 0 0 10px;
+}
+
+.prose {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 13.5px;
+	line-height: 1.55;
+	color: #000000;
+}
+
+.prose p {
+	margin: 0 0 10px;
+}
+
+.subhead {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #000080;
+	margin: 14px 0 5px;
+}
+
+.fineprint {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	color: #444444;
+	margin: 6px 0 0;
+}
+
+/* ---------- data tables ---------- */
+
+.datatable {
+	width: 100%;
+	border: 1px solid #808080;
+	border-collapse: collapse;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10.5px;
+	color: #000000;
+}
+
+.datatable th {
+	background: #000080;
+	color: #ffffff;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: left;
+	padding: 4px 6px;
+	border-right: 1px solid #ffffff;
+}
+
+.datatable th:last-child {
+	border-right: none;
+}
+
+.datatable td {
+	padding: 4px 6px;
+	border-right: 1px solid #d0d0d0;
+	vertical-align: top;
+}
+
+.datatable td:last-child {
+	border-right: none;
+}
+
+.datatable tbody tr:nth-child(odd) {
+	background: #f5f5f5;
+}
+
+.datatable tbody tr:nth-child(even) {
+	background: #ffffff;
+}
+
+/* ---------- notice block ---------- */
+
+.notice {
+	margin-top: 14px;
+	border-top: 1px solid #c0c0c0;
+	padding-top: 10px;
+	display: flex;
+	gap: 10px;
+	align-items: flex-start;
+}
+
+.photo-slot {
+	width: 90px;
+	height: 62px;
+	flex: none;
+	border: 2px inset #d4d0c8;
+	background: repeating-linear-gradient(45deg, #cfd8e6 0 5px, #e6ecf4 5px 10px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 8px;
+	color: #444455;
+	text-align: center;
+	line-height: 1.3;
+}
+
+.notice__text {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12.5px;
+	line-height: 1.5;
+	margin: 0;
+}
+
+/* ---------- news rail ---------- */
+
+.newsrail__list {
+	padding: 8px 7px;
+	display: flex;
+	flex-direction: column;
+	gap: 9px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	line-height: 1.45;
+}
+
+.newsrail__date {
+	color: #cc0000;
+	font-weight: bold;
+}
+
+.newsrail__counter {
+	border-top: 1px dashed #999999;
+	padding: 9px 7px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	align-items: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 9px;
+	color: #333333;
+	text-align: center;
+}
+
+.counter {
+	display: flex;
+	gap: 1px;
+}
+
+.counter span {
+	background: #000000;
+	color: #00ff00;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 14px;
+	padding: 1px 3px;
+}
+
+.newsrail__links {
+	font-size: 10px;
+	line-height: 1.6;
+}
+
+/* ---------- footer ---------- */
+
+.sitefoot {
+	border-top: 2px solid #000080;
+	background: #f0f0f0;
+	padding: 10px;
+	text-align: center;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 9.5px;
+	line-height: 1.6;
+	color: #333333;
+}
+
+.sitefoot__links {
+	display: flex;
+	gap: 6px;
+	justify-content: center;
+	flex-wrap: wrap;
+	margin-bottom: 6px;
+}
+
+.sitefoot p {
+	margin: 0;
+}
+
+/* ---------- style guide (UI kit) ---------- */
+
+.kit-section {
+	margin-bottom: 16px;
+}
+
+.swatches {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 4px;
+}
+
+.swatch {
+	border: 2px inset #d4d0c8;
+	background: #ffffff;
+}
+
+.swatch__chip {
+	height: 30px;
+}
+
+.swatch__label {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 9px;
+	padding: 2px 3px;
+	color: #000000;
+}
+
+.kit-panel {
+	background: #ffffff;
+	border: 2px inset #d4d0c8;
+	padding: 7px;
+}
+
+.kit-panel--note {
+	background: #ffffe0;
+	border: 1px solid #808080;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10px;
+	line-height: 1.6;
+	color: #000000;
+}
+
+.kit-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
+.kit-stack {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.type-sample--heading {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 22px;
+	font-weight: bold;
+	color: #000080;
+}
+
+.type-sample--body {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 13px;
+	color: #000000;
+	margin: 4px 0;
+}
+
+.type-sample--ui {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+	color: #000000;
+}
+
+.type-sample--data {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 11px;
+	color: #000000;
+}
+
+.heading-rule {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #000080;
+	border-bottom: 1px solid #c0c0c0;
+	padding-bottom: 3px;
+}
+
+/* ---------- form ---------- */
+
+.formtable {
+	border-collapse: collapse;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 11px;
+}
+
+.formtable th {
+	text-align: right;
+	font-weight: normal;
+	color: #000080;
+	padding: 4px 8px 4px 0;
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+.formtable td {
+	padding: 4px 0;
+}
+
+.required {
+	color: #cc0000;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ticker__text,
+	.badge-new {
+		animation: none;
+	}
+
+	.ticker__text {
+		padding-left: 8px;
+	}
+}

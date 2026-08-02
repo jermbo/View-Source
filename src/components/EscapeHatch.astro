@@ -1,0 +1,264 @@
+---
+import type { World } from "../data/worlds";
+
+interface Props {
+	world: World;
+	projectSlug: string;
+}
+
+const { world, projectSlug } = Astro.props;
+
+const siblings = world.projects.map((project, index) => ({
+	indexLabel: String(index + 1).padStart(2, "0"),
+	name: project.name,
+	meta: project.meta,
+	href: `/${world.slug}/${project.slug}/`,
+	isCurrent: project.slug === projectSlug,
+	isBuilt: project.built,
+}));
+
+const current = siblings.find((sibling) => sibling.isCurrent);
+---
+
+{/*
+  The one thing every project page shares (ADR 0001). It is deliberately non-diegetic:
+  it should read as tooling bolted onto the page, never as part of the era it sits on.
+  Everything here is self-contained — no design tokens, no webfonts, no reset — because
+  a project stylesheet must never be able to reach in and restyle it, and it must never
+  drag the meta layer's look into an isolated project.
+*/}
+<details class="vs-hatch">
+	<summary class="vs-hatch__tab">
+		<span class="vs-hatch__dot"></span>
+		<span class="vs-hatch__tab-text">View-Source</span>
+	</summary>
+	<div class="vs-hatch__panel">
+		<div class="vs-hatch__head">
+			<span class="vs-hatch__head-label">Escape hatch</span>
+			<a class="vs-hatch__home" href="/">↑ Root</a>
+		</div>
+		<a class="vs-hatch__world" href={`/${world.slug}/`}>
+			<span class="vs-hatch__world-index">{world.indexLabel}</span>
+			{world.name}
+		</a>
+		{current && <p class="vs-hatch__current">You are in: {current.name}</p>}
+		<ul class="vs-hatch__list">
+			{
+				siblings.map((sibling) => (
+					<li>
+						{sibling.isBuilt && (
+							<a
+								class:list={["vs-hatch__item", sibling.isCurrent && "is-current"]}
+								href={sibling.href}
+								aria-current={sibling.isCurrent ? "page" : undefined}
+							>
+								<span class="vs-hatch__index">{sibling.indexLabel}</span>
+								<span class="vs-hatch__name">{sibling.name}</span>
+								<span class="vs-hatch__meta">{sibling.meta}</span>
+							</a>
+						)}
+						{!sibling.isBuilt && (
+							<span class="vs-hatch__item is-unbuilt">
+								<span class="vs-hatch__index">{sibling.indexLabel}</span>
+								<span class="vs-hatch__name">{sibling.name}</span>
+								<span class="vs-hatch__meta">not built</span>
+							</span>
+						)}
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</details>
+
+<style>
+	.vs-hatch {
+		position: fixed;
+		right: 12px;
+		bottom: 12px;
+		z-index: 2147483000;
+		width: max-content;
+		font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+		font-size: 11px;
+		line-height: 1.4;
+		font-style: normal;
+		font-weight: 400;
+		text-align: left;
+		text-transform: none;
+		letter-spacing: 0;
+		color: #e8e6e1;
+		color-scheme: dark;
+	}
+
+	.vs-hatch__tab {
+		display: flex;
+		align-items: center;
+		gap: 7px;
+		margin-left: auto;
+		width: max-content;
+		padding: 6px 11px;
+		background: #111114;
+		border: 1px solid #35353c;
+		border-radius: 4px;
+		color: #e8e6e1;
+		cursor: pointer;
+		user-select: none;
+		list-style: none;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		font-size: 10px;
+		box-shadow: 0 6px 20px rgb(0 0 0 / 45%);
+	}
+
+	.vs-hatch__tab::-webkit-details-marker {
+		display: none;
+	}
+
+	.vs-hatch__tab:hover {
+		border-color: #5c5c66;
+	}
+
+	.vs-hatch__dot {
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		background: #c1573a;
+		flex: none;
+	}
+
+	.vs-hatch[open] .vs-hatch__tab {
+		border-radius: 4px 4px 0 0;
+		border-bottom-color: transparent;
+	}
+
+	.vs-hatch__panel {
+		width: 268px;
+		padding: 11px 12px 12px;
+		background: #111114;
+		border: 1px solid #35353c;
+		border-radius: 4px 0 4px 4px;
+		box-shadow: 0 12px 32px rgb(0 0 0 / 55%);
+	}
+
+	.vs-hatch__head {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 10px;
+		padding-bottom: 8px;
+		border-bottom: 1px solid #2b2b32;
+	}
+
+	.vs-hatch__head-label {
+		font-size: 9px;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
+		color: #74747f;
+	}
+
+	.vs-hatch__home {
+		font-size: 10px;
+		color: #b6b4ae;
+		text-decoration: none;
+	}
+
+	.vs-hatch__home:hover {
+		color: #fff;
+		text-decoration: underline;
+	}
+
+	.vs-hatch__world {
+		display: flex;
+		align-items: baseline;
+		gap: 7px;
+		margin-top: 9px;
+		font-size: 13px;
+		color: #e8e6e1;
+		text-decoration: none;
+	}
+
+	.vs-hatch__world:hover {
+		text-decoration: underline;
+	}
+
+	.vs-hatch__world-index {
+		color: #74747f;
+		font-size: 10px;
+	}
+
+	.vs-hatch__world-index::before {
+		content: "[";
+	}
+
+	.vs-hatch__world-index::after {
+		content: "]";
+	}
+
+	.vs-hatch__current {
+		margin: 3px 0 9px;
+		font-size: 10px;
+		color: #74747f;
+	}
+
+	.vs-hatch__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 1px;
+	}
+
+	.vs-hatch__item {
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		align-items: baseline;
+		gap: 8px;
+		padding: 5px 7px;
+		border-radius: 2px;
+		text-decoration: none;
+		color: #d5d3cd;
+		background: #17171b;
+	}
+
+	a.vs-hatch__item:hover {
+		background: #24242b;
+		color: #fff;
+	}
+
+	.vs-hatch__item.is-current {
+		background: #2a1c17;
+		box-shadow: inset 2px 0 0 #c1573a;
+		color: #fff;
+	}
+
+	.vs-hatch__item.is-unbuilt {
+		color: #5e5e68;
+		background: transparent;
+		border: 1px dashed #2b2b32;
+		padding: 4px 6px;
+	}
+
+	.vs-hatch__index {
+		font-size: 9px;
+		color: #74747f;
+	}
+
+	.vs-hatch__name {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.vs-hatch__meta {
+		font-size: 9px;
+		color: #74747f;
+		white-space: nowrap;
+	}
+
+	@media (width <= 420px) {
+		.vs-hatch__panel {
+			width: min(268px, calc(100vw - 32px));
+		}
+	}
+</style>
