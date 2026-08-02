@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;800&family=Space+Mono:wght@400;700&family=Bungee:wght@400&family=Space+Grotesk:wght@400;500;600;700&family=Oswald:wght@200;300;400;500;600;700&family=Silkscreen:wght@400;700&family=Archivo+Black&family=Anton&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#d5d5d1; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { opacity:.65; }
+</style>
+</helmet>
+
+<section style="padding:64px 64px 0; display:flex; flex-direction:column; gap:56px; font-family:'Space Mono',monospace;">
+  <div style="display:flex; align-items:baseline; gap:16px; color:#1a1a18;">
+    <div style="font-size:13px; letter-spacing:.3em; text-transform:uppercase;">Turn 6 — cosmic layouts, phosphor palette, no scanlines</div>
+    <div style="flex:1; height:1px; background:#1a1a18; opacity:.25;"></div>
+  </div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:80px; align-items:flex-start;">
+
+    <!-- ================= 6A — ORBITAL MANIFEST ================= -->
+    <div id="6a" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; gap:10px; align-items:center; color:#1a1a18;">
+        <span style="background:#1a1a18; color:#e9e9e5; font-size:12px; font-weight:700; padding:4px 9px; letter-spacing:.15em;">6A</span>
+        <span style="font-size:12px; letter-spacing:.18em; text-transform:uppercase;">Orbital manifest — four strata on four orbits</span>
+      </div>
+      <div style="width:1440px; height:1024px; position:relative; overflow:hidden; background:#050b12; font-family:'Space Grotesk',sans-serif; color:#6bff9e;">
+        <div style="position:absolute; inset:0; background-image:radial-gradient(#ffffff55 1px, transparent 1.4px), radial-gradient(#6bff9e44 1px, transparent 1.4px); background-size:127px 113px, 71px 83px; background-position:0 0, 40px 30px; opacity:.6;"></div>
+        <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 74% 52%, #46e9ff14, transparent 60%), radial-gradient(ellipse at 8% 100%, #ff5ce111, transparent 55%);"></div>
+
+        <!-- orbit system -->
+        <div style="position:absolute; left:706px; top:146px; width:748px; height:748px; border-radius:50%; border:1px solid #6bff9e1f;"></div>
+        <div style="position:absolute; left:786px; top:226px; width:588px; height:588px; border-radius:50%; border:1px solid #46e9ff26;"></div>
+        <div style="position:absolute; left:866px; top:306px; width:428px; height:428px; border-radius:50%; border:1px solid #ffb45426;"></div>
+        <div style="position:absolute; left:946px; top:386px; width:268px; height:268px; border-radius:50%; border:1px solid #ff5ce126;"></div>
+        <div style="position:absolute; left:1030px; top:470px; width:100px; height:100px; border-radius:50%; background:radial-gradient(circle at 34% 30%, #6bff9e, #0f7d4a 60%, #063a22); box-shadow:0 0 70px #6bff9e55;"></div>
+
+        <!-- orbit nodes -->
+        <div style="position:absolute; left:1350px; top:496px; display:flex; align-items:center; gap:10px;">
+          <div style="width:14px; height:14px; border-radius:50%; background:#6bff9e; box-shadow:0 0 18px #6bff9e;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em;">01 BRAND</div>
+        </div>
+        <div style="position:absolute; left:1042px; top:214px; display:flex; align-items:center; gap:10px;">
+          <div style="width:12px; height:12px; border-radius:50%; background:#46e9ff; box-shadow:0 0 18px #46e9ff;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em; color:#46e9ff;">02 PRODUCT</div>
+        </div>
+        <div style="position:absolute; left:770px; top:672px; display:flex; align-items:center; gap:10px;">
+          <div style="width:12px; height:12px; border-radius:50%; background:#ffb454; box-shadow:0 0 18px #ffb454;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em; color:#ffb454;">03 MOTION</div>
+        </div>
+        <div style="position:absolute; left:1150px; top:640px; display:flex; align-items:center; gap:10px;">
+          <div style="width:12px; height:12px; border-radius:50%; background:#ff5ce1; box-shadow:0 0 18px #ff5ce1;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em; color:#ff5ce1;">04 IMMERSIVE</div>
+        </div>
+
+        <!-- logo -->
+        <div style="position:absolute; left:56px; top:48px; display:flex; align-items:center; gap:16px;">
+          <div style="width:34px; height:34px; border-radius:50%; background:#6bff9e; box-shadow:0 0 26px #6bff9e88;"></div>
+          <div style="display:flex; align-items:flex-start; gap:4px;">
+            <div style="font-size:28px; font-weight:700; letter-spacing:-.02em; text-shadow:0 0 20px #6bff9e55;">Cosmic Strawberry</div>
+            <div style="font-size:10px; padding-top:6px;">®</div>
+          </div>
+        </div>
+        <div style="position:absolute; left:56px; top:104px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.28em; color:#6bff9e88;">STATION LOG · 89 MISSIONS FLOWN · CREW OF 11</div>
+
+        <!-- badge -->
+        <div style="position:absolute; right:56px; top:44px; display:flex; gap:10px; align-items:center; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em; color:#6bff9ecc;">
+          <a href="#6a">INDEX</a><span style="opacity:.4;">/</span><a href="#6a">WORK</a><span style="opacity:.4;">/</span><a href="#6a">STUDIO</a><span style="opacity:.4;">/</span><a href="#6a">LAB</a><span style="opacity:.4;">/</span>
+          <a href="#6a" style="border:1px solid #6bff9e; border-radius:999px; padding:7px 14px; color:#6bff9e;">TRANSMIT ▸</a>
+        </div>
+
+        <!-- spine -->
+        <div style="position:absolute; left:36px; top:190px; border:1px solid #6bff9e88; padding:5px 4px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.22em; font-weight:700; writing-mode:vertical-rl; color:#6bff9ecc;">C S</div>
+        <div style="position:absolute; left:38px; top:266px; height:300px; overflow:hidden; writing-mode:vertical-rl; font-family:'Space Mono',monospace; font-size:7px; letter-spacing:.16em; color:#6bff9e80; line-height:1.9;">PORTLAND OR / BERLIN ■ EST. MMXIX ■ BOOKING Q4 2026 ■ CS-SHEET-06/A</div>
+        <div style="position:absolute; left:40px; top:600px; writing-mode:vertical-rl; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.34em; font-weight:700; color:#6bff9eaa;">4 ORBITS. ONE STUDIO.</div>
+        <div style="position:absolute; left:64px; top:190px; width:1px; height:600px; background:#6bff9e3a;"></div>
+
+        <!-- vertical strata -->
+        <div style="position:absolute; left:96px; top:190px; height:600px; display:flex;">
+          <div style="writing-mode:vertical-rl; font-size:46px; font-weight:700; letter-spacing:-.02em; line-height:1; padding-left:6px; color:#ff5ce1; text-shadow:0 0 22px #ff5ce166;">Immersive Systems<span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; vertical-align:top;">04</span></div>
+          <div style="writing-mode:vertical-rl; font-size:46px; font-weight:700; letter-spacing:-.02em; line-height:1; padding-left:6px; color:#ffb454; text-shadow:0 0 22px #ffb45466;">Motion &amp; Film<span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; vertical-align:top;">03</span></div>
+          <div style="writing-mode:vertical-rl; font-size:46px; font-weight:700; letter-spacing:-.02em; line-height:1; padding-left:6px; color:#46e9ff; text-shadow:0 0 22px #46e9ff66;">Interactive Product<span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; vertical-align:top;">02</span></div>
+          <div style="writing-mode:vertical-rl; font-size:46px; font-weight:700; letter-spacing:-.02em; line-height:1; padding-left:6px; color:#6bff9e; text-shadow:0 0 22px #6bff9e66;">Brand Identity<span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.1em; vertical-align:top;">01</span></div>
+        </div>
+        <div style="position:absolute; left:404px; top:190px; width:1px; height:600px; background:#6bff9e3a;"></div>
+
+        <!-- main panel -->
+        <div style="position:absolute; left:436px; top:166px; font-size:20px; font-weight:700; color:#1d5c3e;">.mission</div>
+        <div style="position:absolute; left:436px; top:190px; width:360px; height:600px; border:2px solid #6bff9e; border-radius:16px 16px 96px 16px; overflow:hidden; box-shadow:0 0 60px #6bff9e1a;">
+          <div style="position:absolute; left:24px; top:158px; width:312px; font-family:'Space Mono',monospace; font-size:10px; line-height:1.9; color:#6bff9e33;">
+            Identities that behave. Motion marks, living type and rule sets loose enough to keep surprising you three years after handoff. Design and engineering in one room — prototype Friday, ship Monday, then stay long enough to watch it hold up under load. Spaces that respond: realtime graphics, tracking and audio built to run unattended for a year in a lobby full of strangers. Four orbits, one crew, no handoff cliff.
+          </div>
+          <div style="position:absolute; left:24px; top:20px; font-family:'Space Mono',monospace; font-size:15px;"><span style="color:#ffb454;">$</span> open ./mission</div>
+          <div style="position:absolute; left:24px; top:58px; font-size:50px; font-weight:700; line-height:.95; letter-spacing:-.035em; text-shadow:0 0 28px #6bff9e44;">Cosmic<br>Straw&#8203;berry<br>Studio<span style="display:inline-block; width:20px; height:40px; background:#6bff9e; margin-left:9px; vertical-align:-5px; box-shadow:0 0 22px #6bff9e99;"></span></div>
+          <div style="position:absolute; left:24px; right:24px; bottom:88px; height:1px; background:#6bff9e33;"></div>
+          <div style="position:absolute; left:24px; right:24px; bottom:22px; font-family:'Space Mono',monospace; font-size:9px; line-height:2; letter-spacing:.14em; color:#6bff9ecc;">
+            <div style="display:flex; justify-content:space-between;"><span>ENGAGEMENTS</span><span style="color:#ffb454;">31</span></div>
+            <div style="display:flex; justify-content:space-between;"><span>SHIPPED</span><span style="color:#ffb454;">58</span></div>
+            <div style="display:flex; justify-content:space-between;"><span>AVG CYCLE</span><span style="color:#ffb454;">8W</span></div>
+          </div>
+        </div>
+
+        <!-- transmission card -->
+        <div style="position:absolute; right:56px; top:790px; width:300px; background:#ffb454; border-radius:14px; color:#1a0f02; padding:20px 22px; box-shadow:0 0 60px #ffb45433;">
+          <div style="font-size:30px; font-weight:700; line-height:1; letter-spacing:-.03em;">Booking Q4 2026</div>
+          <div style="display:flex; gap:8px; align-items:flex-start; margin-top:14px;">
+            <span style="font-size:11px; padding-top:5px;">▸</span>
+            <div><div style="font-size:20px; font-weight:700; line-height:1.1;">Got a brief? Send it over.</div>
+            <div style="font-family:'Space Mono',monospace; font-size:11px; margin-top:5px;">hello@cosmicstrawberry.com</div></div>
+          </div>
+        </div>
+
+        <!-- work index -->
+        <div style="position:absolute; left:436px; top:824px; display:flex; gap:12px;">
+          <a href="#6a" style="border:1px solid #6bff9e55; border-radius:999px; padding:9px 16px; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.16em;">NEON GROCERY</a>
+          <a href="#6a" style="border:1px solid #46e9ff55; border-radius:999px; padding:9px 16px; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.16em; color:#46e9ff;">AURORA BANK</a>
+          <a href="#6a" style="border:1px solid #ffb45455; border-radius:999px; padding:9px 16px; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.16em; color:#ffb454;">TIDAL LOBBY</a>
+          <a href="#6a" style="border:1px solid #ff5ce155; border-radius:999px; padding:9px 16px; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.16em; color:#ff5ce1;">HEXA SYSTEM</a>
+        </div>
+
+        <!-- footer -->
+        <div style="position:absolute; left:0; bottom:0; width:1440px; height:106px; background:#030910; border-top:1px solid #6bff9e26;"></div>
+        <div style="position:absolute; left:56px; bottom:36px; font-family:'Space Mono',monospace; font-size:9px; line-height:1.8; letter-spacing:.05em; color:#6bff9e77; width:640px;">
+          © 2026 Cosmic Strawberry LLC. Cosmic Strawberry, the four-orbit system, Hexa, Tidal and Salt &amp; Signal are trademarks
+          of Cosmic Strawberry LLC. All other marks belong to their respective owners. Studio hours 09:00–18:00 PT.
+        </div>
+        <div style="position:absolute; right:56px; bottom:40px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.24em; color:#6bff9e99; text-align:right;">
+          the future, early<br>SHEET 06A · REV 6.0
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= 6B — FLIGHT DECK ================= -->
+    <div id="6b" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; gap:10px; align-items:center; color:#1a1a18;">
+        <span style="background:#1a1a18; color:#e9e9e5; font-size:12px; font-weight:700; padding:4px 9px; letter-spacing:.15em;">6B</span>
+        <span style="font-size:12px; letter-spacing:.18em; text-transform:uppercase;">Flight deck — strata as departures off a planet limb</span>
+      </div>
+      <div style="width:1440px; height:1024px; position:relative; overflow:hidden; background:#050b12; font-family:'Space Grotesk',sans-serif; color:#6bff9e;">
+        <div style="position:absolute; inset:0; background-image:radial-gradient(#ffffff4d 1px, transparent 1.4px), radial-gradient(#46e9ff44 1px, transparent 1.4px); background-size:143px 97px, 79px 121px; background-position:0 0, 55px 20px; opacity:.55;"></div>
+
+        <!-- planet limb bottom-right -->
+        <div style="position:absolute; left:820px; top:600px; width:900px; height:900px; border-radius:50%; background:radial-gradient(circle at 26% 22%, #123f6b, #071b2e 58%, #040c15); box-shadow:0 0 120px #46e9ff22, inset 40px 40px 120px #6bff9e14;"></div>
+        <div style="position:absolute; left:800px; top:580px; width:940px; height:940px; border-radius:50%; border:1px solid #46e9ff33;"></div>
+
+        <!-- header -->
+        <div style="position:absolute; left:56px; top:48px; display:flex; align-items:center; gap:16px;">
+          <div style="width:34px; height:34px; border-radius:50%; background:#6bff9e; box-shadow:0 0 26px #6bff9e88;"></div>
+          <div style="font-size:28px; font-weight:700; letter-spacing:-.02em; text-shadow:0 0 20px #6bff9e55;">Cosmic Strawberry<span style="font-size:10px; vertical-align:top;">®</span></div>
+        </div>
+        <div style="position:absolute; right:56px; top:44px; display:flex; gap:10px; align-items:center; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em; color:#6bff9ecc;">
+          <a href="#6b">INDEX</a><span style="opacity:.4;">/</span><a href="#6b">WORK</a><span style="opacity:.4;">/</span><a href="#6b">STUDIO</a><span style="opacity:.4;">/</span><a href="#6b">LAB</a><span style="opacity:.4;">/</span>
+          <a href="#6b" style="border:1px solid #6bff9e; border-radius:999px; padding:7px 14px;">TRANSMIT ▸</a>
+        </div>
+        <div style="position:absolute; left:56px; right:56px; top:118px; height:1px; background:#6bff9e2e;"></div>
+
+        <!-- hero -->
+        <div style="position:absolute; left:56px; top:158px; font-family:'Space Mono',monospace; font-size:13px; letter-spacing:.2em; color:#ffb454;">$ departures — four disciplines, one crew</div>
+        <div style="position:absolute; left:52px; top:190px; font-size:132px; font-weight:700; line-height:.9; letter-spacing:-.045em; text-shadow:0 0 44px #6bff9e33;">Cosmic<br>Strawberry<span style="display:inline-block; width:34px; height:96px; background:#6bff9e; margin-left:16px; vertical-align:-18px; box-shadow:0 0 30px #6bff9e88;"></span></div>
+        <div style="position:absolute; left:58px; top:432px; width:520px; font-family:'Space Mono',monospace; font-size:11px; line-height:2; color:#6bff9eaa;">
+          An eleven-person studio in Portland and Berlin. We build identity, product, motion and
+          immersive systems out of the same room, on the same rules — and stay long enough to watch
+          them hold up under load.
+        </div>
+
+        <!-- departures board -->
+        <div style="position:absolute; left:56px; top:552px; width:954px; display:flex; justify-content:space-between; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.24em; color:#6bff9e66;">
+          <span>ORBIT</span><span style="margin-right:auto; margin-left:44px;">DISCIPLINE</span><span style="margin-right:120px;">PAYLOAD</span><span>STATUS</span>
+        </div>
+        <div style="position:absolute; left:56px; top:578px; width:954px; height:1px; background:#6bff9e33;"></div>
+
+        <div style="position:absolute; left:56px; top:596px; width:954px; display:flex; align-items:center; gap:24px; height:88px; border-bottom:1px solid #6bff9e1f;">
+          <div style="width:10px; height:10px; border-radius:50%; background:#6bff9e; box-shadow:0 0 16px #6bff9e;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.2em; width:30px;">01</div>
+          <div style="font-size:36px; font-weight:700; letter-spacing:-.02em; width:330px; color:#6bff9e;">Brand Identity</div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.14em; color:#6bff9e99; flex:1;">MARKS · SYSTEMS · TYPE · PACKAGING</div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em; color:#ffb454;">31 FLOWN</div>
+        </div>
+        <div style="position:absolute; left:56px; top:684px; width:954px; display:flex; align-items:center; gap:24px; height:88px; border-bottom:1px solid #6bff9e1f;">
+          <div style="width:10px; height:10px; border-radius:50%; background:#46e9ff; box-shadow:0 0 16px #46e9ff;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.2em; width:30px; color:#46e9ff;">02</div>
+          <div style="font-size:36px; font-weight:700; letter-spacing:-.02em; width:330px; color:#46e9ff;">Interactive Product</div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.14em; color:#6bff9e99; flex:1;">APPS · WEB · FRONT-END ENGINEERING</div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em; color:#ffb454;">58 FLOWN</div>
+        </div>
+        <div style="position:absolute; left:56px; top:772px; width:954px; display:flex; align-items:center; gap:24px; height:88px; border-bottom:1px solid #6bff9e1f;">
+          <div style="width:10px; height:10px; border-radius:50%; background:#ffb454; box-shadow:0 0 16px #ffb454;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.2em; width:30px; color:#ffb454;">03</div>
+          <div style="font-size:36px; font-weight:700; letter-spacing:-.02em; width:330px; color:#ffb454;">Motion &amp; Film</div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.14em; color:#6bff9e99; flex:1;">TITLES · CAMPAIGN · REALTIME CAMERA</div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em; color:#ffb454;">24 FLOWN</div>
+        </div>
+        <div style="position:absolute; left:56px; top:860px; width:954px; display:flex; align-items:center; gap:24px; height:88px;">
+          <div style="width:10px; height:10px; border-radius:50%; background:#ff5ce1; box-shadow:0 0 16px #ff5ce1;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.2em; width:30px; color:#ff5ce1;">04</div>
+          <div style="font-size:36px; font-weight:700; letter-spacing:-.02em; width:330px; color:#ff5ce1;">Immersive Systems</div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.14em; color:#6bff9e99; flex:1;">ROOMS · PROJECTION · SENSORS · SOUND</div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em; color:#ffb454;">12 FLOWN</div>
+        </div>
+
+        <!-- boarding card -->
+        <div style="position:absolute; right:56px; top:172px; width:300px; background:#ffb454; border-radius:14px 14px 60px 14px; color:#1a0f02; padding:22px;">
+          <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.24em;">BOARDING PASS</div>
+          <div style="font-size:34px; font-weight:700; line-height:1; letter-spacing:-.03em; margin-top:10px;">Booking<br>Q4 2026</div>
+          <div style="height:1px; background:#1a0f0233; margin:16px 0;"></div>
+          <div style="font-size:20px; font-weight:700; line-height:1.15;">▸ Got a brief?<br>Send it over.</div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; line-height:1.9; margin-top:12px;">hello@cosmicstrawberry.com<br>+1 503 552 2124</div>
+        </div>
+        <div style="position:absolute; right:56px; top:452px; width:300px; border:1px solid #6bff9e40; border-radius:14px; padding:18px 20px;">
+          <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.24em; color:#6bff9e88;">RECENT TRANSMISSIONS</div>
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:14px; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.14em;">
+            <a href="#6b" style="display:flex; justify-content:space-between;"><span>NEON GROCERY</span><span style="color:#ffb454;">↗</span></a>
+            <a href="#6b" style="display:flex; justify-content:space-between; color:#46e9ff;"><span>AURORA BANK</span><span style="color:#ffb454;">↗</span></a>
+            <a href="#6b" style="display:flex; justify-content:space-between; color:#ff5ce1;"><span>TIDAL LOBBY</span><span style="color:#ffb454;">↗</span></a>
+            <a href="#6b" style="display:flex; justify-content:space-between;"><span>HEXA SYSTEM</span><span style="color:#ffb454;">↗</span></a>
+          </div>
+        </div>
+        <div style="position:absolute; right:56px; top:668px; width:300px; font-family:'Space Mono',monospace; font-size:9px; line-height:1.9; letter-spacing:.05em; color:#6bff9e70;">
+          © 2026 Cosmic Strawberry LLC. Cosmic Strawberry, the four-orbit system, Hexa, Tidal and
+          Salt &amp; Signal are trademarks of Cosmic Strawberry LLC. Portland OR / Berlin. Sheet 06B, rev 6.0.
+          <div style="margin-top:12px; letter-spacing:.3em; color:#6bff9ecc;">THE FUTURE, EARLY</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section style="padding:64px 64px 0; display:flex; flex-direction:column; gap:56px; font-family:'Space Mono',monospace;">
+  <div style="display:flex; align-items:baseline; gap:16px; color:#1a1a18;">
+    <div style="font-size:13px; letter-spacing:.3em; text-transform:uppercase;">Turn 5 — <a href="#4a" style="text-decoration:underline;">4a</a> on a CRT</div>
+    <div style="flex:1; height:1px; background:#1a1a18; opacity:.25;"></div>
+  </div>
+  <div style="display:flex; flex-wrap:wrap; gap:80px; align-items:flex-start;">
+    <div id="5a" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; gap:10px; align-items:center; color:#1a1a18;">
+        <span style="background:#1a1a18; color:#e9e9e5; font-size:12px; font-weight:700; padding:4px 9px; letter-spacing:.15em;">5A</span>
+        <span style="font-size:12px; letter-spacing:.18em; text-transform:uppercase;">CRT phosphor box — 4a on a terminal</span>
+      </div>
+
+      <div style="width:1440px; height:1024px; position:relative; overflow:hidden; background:#07110d; font-family:'Space Grotesk',sans-serif; color:#6bff9e;">
+
+        <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 50% 45%, #6bff9e14, transparent 68%);"></div>
+        <div style="position:absolute; inset:0; box-shadow:inset 0 0 220px 70px #000000aa; pointer-events:none; z-index:9;"></div>
+        <!-- giant ghost mark -->
+        <div style="position:absolute; left:250px; top:-120px; width:520px; height:520px; border-radius:50%; background:#6bff9e0f;"></div>
+        <div style="position:absolute; left:404px; top:34px; width:212px; height:212px; background:#6bff9e12; clip-path:polygon(50% 0,100% 36%,82% 100%,18% 100%,0 36%);"></div>
+
+        <!-- logo -->
+        <div style="position:absolute; left:40px; top:48px; display:flex; align-items:center; gap:16px;">
+          <div style="width:36px; height:36px; background:#6bff9e; box-shadow:0 0 26px #6bff9e88;"></div>
+          <div style="display:flex; align-items:flex-start; gap:4px;">
+            <div style="font-size:30px; font-weight:700; letter-spacing:-.02em; text-shadow:0 0 20px #6bff9e66;">Cosmic Strawberry</div>
+            <div style="font-size:11px; padding-top:6px;">®</div>
+          </div>
+        </div>
+
+        <!-- badge -->
+        <div style="position:absolute; right:56px; top:22px; width:132px; height:132px; border-radius:50%; background:#ff5ce1; color:#12030c; box-shadow:0 0 40px #ff5ce166; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px;">
+          <div style="font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.2em; font-weight:700;">SHIPPED SINCE</div>
+          <div style="font-size:44px; font-weight:700; line-height:1; letter-spacing:-.03em;">2019</div>
+          <div style="font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.2em; font-weight:700;">89 PROJECTS</div>
+        </div>
+
+        <!-- spine: boxed mark + fine print, box-edge style -->
+        <div style="position:absolute; left:36px; top:130px; border:1px solid #6bff9e; padding:5px 4px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.22em; font-weight:700; writing-mode:vertical-rl;">C S</div>
+        <div style="position:absolute; left:38px; top:210px; height:360px; overflow:hidden; writing-mode:vertical-rl; font-family:'Space Mono',monospace; font-size:7px; letter-spacing:.16em; color:#6bff9eb0; line-height:1.9;">
+          PORTLAND OR / BERLIN ■ EST. MMXIX ■ BOOKING Q4 2026 ■ CS-SHEET-01/04 REV 5.8
+        </div>
+        <div style="position:absolute; left:40px; top:600px; writing-mode:vertical-rl; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.34em; font-weight:700;">4 STRATA. ONE STUDIO.</div>
+        <div style="position:absolute; left:64px; top:130px; width:1px; height:590px; background:#6bff9e55;"></div>
+
+        <!-- vertical strata titles -->
+        <div style="position:absolute; left:96px; top:130px; height:590px; display:flex; gap:0;">
+          <div style="writing-mode:vertical-rl; font-size:48px; font-weight:700; letter-spacing:-.02em; line-height:1; padding-left:6px; color:#ff5ce1; text-shadow:0 0 22px #ff5ce177;">Immersive Systems<span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em; vertical-align:top;">04</span></div>
+          <div style="writing-mode:vertical-rl; font-size:48px; font-weight:700; letter-spacing:-.02em; line-height:1; padding-left:6px; color:#46e9ff; text-shadow:0 0 22px #46e9ff77;">Motion &amp; Film<span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em; vertical-align:top;">03</span></div>
+          <div style="writing-mode:vertical-rl; font-size:48px; font-weight:700; letter-spacing:-.02em; line-height:1; padding-left:6px; color:#ffb454; text-shadow:0 0 22px #ffb45477;">Interactive Product<span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em; vertical-align:top;">02</span></div>
+          <div style="writing-mode:vertical-rl; font-size:48px; font-weight:700; letter-spacing:-.02em; line-height:1; padding-left:6px; color:#6bff9e; text-shadow:0 0 22px #6bff9e77;">Brand Identity<span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em; vertical-align:top;">01</span></div>
+        </div>
+        <div style="position:absolute; left:432px; top:130px; width:1px; height:590px; background:#6bff9e55;"></div>
+
+        <!-- tabs -->
+        <div style="position:absolute; left:452px; top:126px; display:flex; gap:0; font-size:22px; font-weight:700; color:#1e5f41;">
+          <div style="width:400px;">.studio</div>
+          <div style="width:330px;">.work</div>
+          <div>.booking</div>
+        </div>
+
+        <!-- PANEL A — look inside -->
+        <div style="position:absolute; left:452px; top:150px; width:380px; height:570px; border:3px solid #6bff9e; border-radius:16px 16px 90px 16px; overflow:hidden;">
+          <div style="position:absolute; left:26px; top:150px; width:330px; font-family:'Space Mono',monospace; font-size:10px; line-height:1.85; color:#6bff9e45;">
+            Identities that behave. Motion marks, living type and rule sets loose enough to keep surprising you three years after handoff. Design and engineering in one room — we prototype on Friday, ship on Monday, then stay long enough to watch it hold up under load. Spaces that respond: realtime graphics, tracking and audio built to run unattended for a year in a lobby full of strangers. Cameras, cuts and title sequences that survive being watched twice. Four strata, one box, no handoff cliff. Everything above is made by the same eleven people, in the same room, on the same rules.
+          </div>
+          <div style="position:absolute; left:24px; top:18px; display:flex; align-items:center; gap:8px; font-size:21px; font-weight:500;"><span style="font-family:'Space Mono',monospace; color:#ffb454;">$</span> <span style="font-family:'Space Mono',monospace; font-size:17px;">run look-inside</span></div>
+          <div style="position:absolute; left:24px; top:56px; font-size:52px; font-weight:700; line-height:.94; letter-spacing:-.035em; text-shadow:0 0 28px #6bff9e55;">Cosmic<br>Straw&#8203;berry<br>Studio<span style="display:inline-block; width:22px; height:44px; background:#6bff9e; margin-left:10px; vertical-align:-6px; box-shadow:0 0 22px #6bff9e99;"></span></div>
+          <div style="position:absolute; left:26px; bottom:22px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.2em; color:#6bff9ecc;">CONTENTS ▸ 01 BRAND · 02 PRODUCT · 03 MOTION · 04 IMMERSIVE</div>
+        </div>
+
+        <!-- PANEL B — work grid -->
+        <div style="position:absolute; left:852px; top:150px; width:310px; height:570px;">
+          <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:14px;">
+            <div style="height:112px; border:2px solid #6bff9e66; box-shadow:inset 0 0 30px #6bff9e1f; border-radius:8px; position:relative;"><div style="position:absolute; left:8px; bottom:6px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.16em; color:#6bff9ea0;">NEON GROCERY</div></div>
+            <div style="height:112px; border:2px solid #46e9ff66; box-shadow:inset 0 0 30px #46e9ff1f; border-radius:8px; position:relative;"><div style="position:absolute; left:8px; bottom:6px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.16em; color:#6bff9ea0;">AURORA BANK</div></div>
+            <div style="height:112px; border:2px solid #ffb45466; box-shadow:inset 0 0 30px #ffb4541f; border-radius:8px; position:relative;"><div style="position:absolute; left:8px; bottom:6px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.16em; color:#6bff9ea0;">TIDAL LOBBY</div></div>
+            <div style="height:112px; border:2px solid #ff5ce166; box-shadow:inset 0 0 30px #ff5ce11f; border-radius:8px; position:relative;"><div style="position:absolute; left:8px; bottom:6px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.16em; color:#6bff9ea0;">HEXA SYSTEM</div></div>
+            <div style="height:112px; border:2px solid #6bff9e66; box-shadow:inset 0 0 30px #6bff9e1f; border-radius:8px; position:relative;"><div style="position:absolute; left:8px; bottom:6px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.16em; color:#6bff9ea0;">KITE LABS</div></div>
+            <div style="height:112px; border:2px solid #46e9ff66; box-shadow:inset 0 0 30px #46e9ff1f; border-radius:8px; position:relative;"><div style="position:absolute; left:8px; bottom:6px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.16em; color:#6bff9ea0;">SALT &amp; SIGNAL</div></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:22px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.18em; color:#6bff9ecc;">
+            <span>SIX OF EIGHTY-NINE</span><a href="#4a" style="border-bottom:1px solid #6bff9e; padding-bottom:2px;">SEE ALL ▸</a>
+          </div>
+        </div>
+
+        <!-- PANEL C — white CTA -->
+        <div style="position:absolute; left:1182px; top:150px; width:222px; height:570px; background:#ffb454; border-radius:14px; color:#1a0f02; box-shadow:0 0 60px #ffb45433;">
+          <div style="position:absolute; left:22px; top:22px; font-size:38px; font-weight:700; line-height:.98; letter-spacing:-.03em;">Booking<br>Q4 2026<br>Now!</div>
+          <div style="position:absolute; left:22px; top:190px; display:flex; gap:8px; align-items:flex-start;">
+            <span style="font-size:12px; padding-top:6px;">▸</span>
+            <div>
+              <div style="font-size:26px; font-weight:700; line-height:1.05; letter-spacing:-.02em;">Got a brief?<br>Send it over.</div>
+              <div style="font-size:15px; margin-top:6px;">(click here)</div>
+            </div>
+          </div>
+          <div style="position:absolute; left:22px; right:22px; top:340px; height:1px; background:#03130c30;"></div>
+          <div style="position:absolute; left:22px; right:22px; top:360px; font-family:'Space Mono',monospace; font-size:9px; line-height:2.1; letter-spacing:.14em;">
+            <div style="display:flex; justify-content:space-between;"><span>ENGAGEMENTS</span><span style="font-weight:700;">31</span></div>
+            <div style="display:flex; justify-content:space-between;"><span>SHIPPED</span><span style="font-weight:700;">58</span></div>
+            <div style="display:flex; justify-content:space-between;"><span>AVG CYCLE</span><span style="font-weight:700;">8W</span></div>
+            <div style="display:flex; justify-content:space-between;"><span>UPTIME</span><span style="font-weight:700;">99.9</span></div>
+            <div style="display:flex; justify-content:space-between;"><span>PEOPLE</span><span style="font-weight:700;">11</span></div>
+          </div>
+          <div style="position:absolute; left:22px; bottom:22px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.18em;">hello@cosmicstrawberry.com<br>+1 503 552 2124</div>
+        </div>
+
+        <!-- tagline strip -->
+        <div style="position:absolute; left:64px; top:756px; right:56px; display:flex; align-items:center; gap:22px;">
+          <div style="font-size:15px; font-weight:700; letter-spacing:.42em; text-transform:uppercase;">the future, early</div>
+          <div style="flex:1; height:1px; background:#6bff9e66;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.24em; color:#6bff9ecc;">INDEX · WORK · STUDIO · LAB · CONTACT</div>
+        </div>
+
+        <!-- footer band -->
+        <div style="position:absolute; left:0; bottom:0; width:1440px; height:210px; background:#040e0a;"></div>
+        <div style="position:absolute; left:64px; bottom:132px; border:1px solid #6bff9e70; padding:5px 10px; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.3em; font-weight:700; color:#6bff9ecc;">C S</div>
+        <div style="position:absolute; left:190px; bottom:96px; width:600px; font-family:'Space Mono',monospace; font-size:9px; line-height:1.75; letter-spacing:.04em; color:#6bff9ea8;">
+          © 2026 Cosmic Strawberry LLC. Cosmic Strawberry, the Cosmic Strawberry mark, the four-strata system, Hexa,
+          Tidal and Salt &amp; Signal are trademarks of Cosmic Strawberry LLC. All other marks are the property of their
+          respective owners. Studio hours 09:00–18:00 PT. Sheet 01 of 04, revision 5.8.
+        </div>
+        <div style="position:absolute; right:64px; bottom:92px; display:flex; gap:14px; align-items:center;">
+          <div style="border:1px solid #6bff9e70; border-radius:6px; padding:10px 14px; text-align:center; color:#6bff9ecc;">
+            <div style="font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.2em;">CERTIFIED</div>
+            <div style="font-size:17px; font-weight:700; letter-spacing:-.01em;">B CORP</div>
+          </div>
+          <div style="border:1px solid #6bff9e70; border-radius:6px; padding:10px 14px; text-align:center; color:#6bff9ecc;">
+            <div style="font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.2em;">MEMBER</div>
+            <div style="font-size:17px; font-weight:700; letter-spacing:-.01em;">AIGA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:64px 64px 0; display:flex; flex-direction:column; gap:56px; font-family:'Space Mono',monospace;">
+  <div style="display:flex; align-items:baseline; gap:16px; color:#1a1a18;">
+    <div style="font-size:13px; letter-spacing:.3em; text-transform:uppercase;">Turn 4 — <a href="#3a" style="text-decoration:underline;">3a</a> strata × flat retail-box look</div>
+    <div style="flex:1; height:1px; background:#1a1a18; opacity:.25;"></div>
+  </div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:80px; align-items:flex-start;">
+    <div id="4a" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; gap:10px; align-items:center; color:#1a1a18;">
+        <span style="background:#1a1a18; color:#e9e9e5; font-size:12px; font-weight:700; padding:4px 9px; letter-spacing:.15em;">4A</span>
+        <span style="font-size:12px; letter-spacing:.18em; text-transform:uppercase;">The strawberry box — strata turned on their side</span>
+      </div>
+
+      <div style="width:1440px; height:1024px; position:relative; overflow:hidden; background:#ec3b26; font-family:'Space Grotesk',sans-serif; color:#ffffff;">
+
+        <!-- giant ghost mark -->
+        <div style="position:absolute; left:250px; top:-120px; width:520px; height:520px; border-radius:50%; background:#ffffff0f;"></div>
+        <div style="position:absolute; left:404px; top:34px; width:212px; height:212px; background:#ffffff12; clip-path:polygon(50% 0,100% 36%,82% 100%,18% 100%,0 36%);"></div>
+
+        <!-- logo -->
+        <div style="position:absolute; left:40px; top:48px; display:flex; align-items:center; gap:16px;">
+          <div style="width:36px; height:36px; background:#ffffff;"></div>
+          <div style="display:flex; align-items:flex-start; gap:4px;">
+            <div style="font-size:30px; font-weight:700; letter-spacing:-.02em;">Cosmic Strawberry</div>
+            <div style="font-size:11px; padding-top:6px;">®</div>
+          </div>
+        </div>
+
+        <!-- badge -->
+        <div style="position:absolute; right:56px; top:22px; width:132px; height:132px; border-radius:50%; background:#ffffff; color:#ec3b26; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px;">
+          <div style="font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.2em; font-weight:700;">SHIPPED SINCE</div>
+          <div style="font-size:44px; font-weight:700; line-height:1; letter-spacing:-.03em;">2019</div>
+          <div style="font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.2em; font-weight:700;">89 PROJECTS</div>
+        </div>
+
+        <!-- spine: boxed mark + fine print, box-edge style -->
+        <div style="position:absolute; left:36px; top:130px; border:1px solid #ffffff; padding:5px 4px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.22em; font-weight:700; writing-mode:vertical-rl;">C S</div>
+        <div style="position:absolute; left:38px; top:210px; height:360px; overflow:hidden; writing-mode:vertical-rl; font-family:'Space Mono',monospace; font-size:7px; letter-spacing:.16em; color:#ffffffb0; line-height:1.9;">
+          PORTLAND OR / BERLIN ■ EST. MMXIX ■ BOOKING Q4 2026 ■ CS-SHEET-01/04 REV 5.8
+        </div>
+        <div style="position:absolute; left:40px; top:600px; writing-mode:vertical-rl; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.34em; font-weight:700;">4 STRATA. ONE STUDIO.</div>
+        <div style="position:absolute; left:64px; top:130px; width:1px; height:590px; background:#ffffff55;"></div>
+
+        <!-- vertical strata titles -->
+        <div style="position:absolute; left:96px; top:130px; height:590px; display:flex; gap:0;">
+          <div style="writing-mode:vertical-rl; font-size:48px; font-weight:700; letter-spacing:-.02em; line-height:1; padding-left:6px;">Immersive Systems<span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em; vertical-align:top;">04</span></div>
+          <div style="writing-mode:vertical-rl; font-size:48px; font-weight:700; letter-spacing:-.02em; line-height:1; padding-left:6px;">Motion &amp; Film<span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em; vertical-align:top;">03</span></div>
+          <div style="writing-mode:vertical-rl; font-size:48px; font-weight:700; letter-spacing:-.02em; line-height:1; padding-left:6px;">Interactive Product<span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em; vertical-align:top;">02</span></div>
+          <div style="writing-mode:vertical-rl; font-size:48px; font-weight:700; letter-spacing:-.02em; line-height:1; padding-left:6px;">Brand Identity<span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.1em; vertical-align:top;">01</span></div>
+        </div>
+        <div style="position:absolute; left:432px; top:130px; width:1px; height:590px; background:#ffffff55;"></div>
+
+        <!-- tabs -->
+        <div style="position:absolute; left:452px; top:126px; display:flex; gap:0; font-size:22px; font-weight:700; color:#c92e1c;">
+          <div style="width:400px;">.studio</div>
+          <div style="width:330px;">.work</div>
+          <div>.booking</div>
+        </div>
+
+        <!-- PANEL A — look inside -->
+        <div style="position:absolute; left:452px; top:150px; width:380px; height:570px; border:3px solid #ffffff; border-radius:16px 16px 90px 16px; overflow:hidden;">
+          <div style="position:absolute; left:26px; top:150px; width:330px; font-family:'Space Mono',monospace; font-size:10px; line-height:1.85; color:#ffffff45;">
+            Identities that behave. Motion marks, living type and rule sets loose enough to keep surprising you three years after handoff. Design and engineering in one room — we prototype on Friday, ship on Monday, then stay long enough to watch it hold up under load. Spaces that respond: realtime graphics, tracking and audio built to run unattended for a year in a lobby full of strangers. Cameras, cuts and title sequences that survive being watched twice. Four strata, one box, no handoff cliff. Everything above is made by the same eleven people, in the same room, on the same rules.
+          </div>
+          <div style="position:absolute; left:24px; top:18px; display:flex; align-items:center; gap:8px; font-size:21px; font-weight:500;"><span style="font-size:11px;">◂</span> Look inside</div>
+          <div style="position:absolute; left:24px; top:56px; font-size:52px; font-weight:700; line-height:.94; letter-spacing:-.035em;">Cosmic<br>Straw&#8203;berry<br>Studio</div>
+          <div style="position:absolute; left:26px; bottom:22px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.2em; color:#ffffffcc;">CONTENTS ▸ 01 BRAND · 02 PRODUCT · 03 MOTION · 04 IMMERSIVE</div>
+        </div>
+
+        <!-- PANEL B — work grid -->
+        <div style="position:absolute; left:852px; top:150px; width:310px; height:570px;">
+          <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:14px;">
+            <div style="height:112px; border:2px solid #ffffff70; border-radius:8px; position:relative;"><div style="position:absolute; left:8px; bottom:6px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.16em; color:#ffffffa0;">NEON GROCERY</div></div>
+            <div style="height:112px; border:2px solid #ffffff70; border-radius:8px; position:relative;"><div style="position:absolute; left:8px; bottom:6px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.16em; color:#ffffffa0;">AURORA BANK</div></div>
+            <div style="height:112px; border:2px solid #ffffff70; border-radius:8px; position:relative;"><div style="position:absolute; left:8px; bottom:6px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.16em; color:#ffffffa0;">TIDAL LOBBY</div></div>
+            <div style="height:112px; border:2px solid #ffffff70; border-radius:8px; position:relative;"><div style="position:absolute; left:8px; bottom:6px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.16em; color:#ffffffa0;">HEXA SYSTEM</div></div>
+            <div style="height:112px; border:2px solid #ffffff70; border-radius:8px; position:relative;"><div style="position:absolute; left:8px; bottom:6px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.16em; color:#ffffffa0;">KITE LABS</div></div>
+            <div style="height:112px; border:2px solid #ffffff70; border-radius:8px; position:relative;"><div style="position:absolute; left:8px; bottom:6px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.16em; color:#ffffffa0;">SALT &amp; SIGNAL</div></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-top:22px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.18em; color:#ffffffcc;">
+            <span>SIX OF EIGHTY-NINE</span><a href="#4a" style="border-bottom:1px solid #ffffff; padding-bottom:2px;">SEE ALL ▸</a>
+          </div>
+        </div>
+
+        <!-- PANEL C — white CTA -->
+        <div style="position:absolute; left:1182px; top:150px; width:222px; height:570px; background:#ffffff; border-radius:14px; color:#ec3b26;">
+          <div style="position:absolute; left:22px; top:22px; font-size:38px; font-weight:700; line-height:.98; letter-spacing:-.03em;">Booking<br>Q4 2026<br>Now!</div>
+          <div style="position:absolute; left:22px; top:190px; display:flex; gap:8px; align-items:flex-start;">
+            <span style="font-size:12px; padding-top:6px;">▸</span>
+            <div>
+              <div style="font-size:26px; font-weight:700; line-height:1.05; letter-spacing:-.02em;">Got a brief?<br>Send it over.</div>
+              <div style="font-size:15px; margin-top:6px;">(click here)</div>
+            </div>
+          </div>
+          <div style="position:absolute; left:22px; right:22px; top:340px; height:1px; background:#ec3b2633;"></div>
+          <div style="position:absolute; left:22px; right:22px; top:360px; font-family:'Space Mono',monospace; font-size:9px; line-height:2.1; letter-spacing:.14em;">
+            <div style="display:flex; justify-content:space-between;"><span>ENGAGEMENTS</span><span style="font-weight:700;">31</span></div>
+            <div style="display:flex; justify-content:space-between;"><span>SHIPPED</span><span style="font-weight:700;">58</span></div>
+            <div style="display:flex; justify-content:space-between;"><span>AVG CYCLE</span><span style="font-weight:700;">8W</span></div>
+            <div style="display:flex; justify-content:space-between;"><span>UPTIME</span><span style="font-weight:700;">99.9</span></div>
+            <div style="display:flex; justify-content:space-between;"><span>PEOPLE</span><span style="font-weight:700;">11</span></div>
+          </div>
+          <div style="position:absolute; left:22px; bottom:22px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.18em;">hello@cosmicstrawberry.com<br>+1 503 552 2124</div>
+        </div>
+
+        <!-- tagline strip -->
+        <div style="position:absolute; left:64px; top:756px; right:56px; display:flex; align-items:center; gap:22px;">
+          <div style="font-size:15px; font-weight:700; letter-spacing:.42em; text-transform:uppercase;">the future, early</div>
+          <div style="flex:1; height:1px; background:#ffffff66;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.24em; color:#ffffffcc;">INDEX · WORK · STUDIO · LAB · CONTACT</div>
+        </div>
+
+        <!-- footer band -->
+        <div style="position:absolute; left:0; bottom:0; width:1440px; height:210px; background:#c92e1c;"></div>
+        <div style="position:absolute; left:64px; bottom:132px; border:1px solid #ffffff70; padding:5px 10px; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.3em; font-weight:700; color:#ffffffcc;">C S</div>
+        <div style="position:absolute; left:190px; bottom:96px; width:600px; font-family:'Space Mono',monospace; font-size:9px; line-height:1.75; letter-spacing:.04em; color:#ffffffa8;">
+          © 2026 Cosmic Strawberry LLC. Cosmic Strawberry, the Cosmic Strawberry mark, the four-strata system, Hexa,
+          Tidal and Salt &amp; Signal are trademarks of Cosmic Strawberry LLC. All other marks are the property of their
+          respective owners. Studio hours 09:00–18:00 PT. Sheet 01 of 04, revision 5.8.
+        </div>
+        <div style="position:absolute; right:64px; bottom:92px; display:flex; gap:14px; align-items:center;">
+          <div style="border:1px solid #ffffff70; border-radius:6px; padding:10px 14px; text-align:center; color:#ffffffcc;">
+            <div style="font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.2em;">CERTIFIED</div>
+            <div style="font-size:17px; font-weight:700; letter-spacing:-.01em;">B CORP</div>
+          </div>
+          <div style="border:1px solid #ffffff70; border-radius:6px; padding:10px 14px; text-align:center; color:#ffffffcc;">
+            <div style="font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.2em;">MEMBER</div>
+            <div style="font-size:17px; font-weight:700; letter-spacing:-.01em;">AIGA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:64px 64px 0; display:flex; flex-direction:column; gap:56px; font-family:'Space Mono',monospace;">
+  <div style="display:flex; align-items:baseline; gap:16px; color:#1a1a18;">
+    <div style="font-size:13px; letter-spacing:.3em; text-transform:uppercase;">Turn 3 — dossier alternatives (from <a href="#2a" style="text-decoration:underline;">2a</a>)</div>
+    <div style="flex:1; height:1px; background:#1a1a18; opacity:.25;"></div>
+  </div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:80px; align-items:flex-start;">
+
+    <!-- ================= 3A — EXPLODED STRATA ================= -->
+    <div id="3a" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; gap:10px; align-items:center; color:#1a1a18;">
+        <span style="background:#1a1a18; color:#e9e9e5; font-size:12px; font-weight:700; padding:4px 9px; letter-spacing:.15em;">3A</span>
+        <span style="font-size:12px; letter-spacing:.18em; text-transform:uppercase;">Exploded strata — sheared layer stack</span>
+      </div>
+      <div style="width:1440px; height:1024px; position:relative; overflow:hidden; background:#38423c; font-family:'Oxanium',sans-serif; color:#e8efea;">
+        <div style="position:absolute; inset:0; background-image:radial-gradient(#ffffff0e 1px, transparent 1px); background-size:24px 24px;"></div>
+        <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 20% 15%, #ffffff0f, transparent 60%), radial-gradient(ellipse at 85% 100%, #00000066, transparent 62%);"></div>
+        <div style="position:absolute; inset:0; opacity:.15; mix-blend-mode:overlay; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div>
+
+        <!-- left ruler spine -->
+        <div style="position:absolute; left:56px; top:0; width:1px; height:1024px; background:#e8efea30;"></div>
+        <div style="position:absolute; left:20px; top:120px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.34em; writing-mode:vertical-rl; opacity:.45;">SECTION A — VERTICAL STRATA / SHEET 01 OF 04</div>
+        <div style="position:absolute; left:46px; top:150px; display:flex; flex-direction:column; gap:0;">
+          <div style="width:22px; height:1px; background:#e8efea50; margin-bottom:39px;"></div>
+          <div style="width:12px; height:1px; background:#e8efea30; margin-bottom:39px;"></div>
+          <div style="width:22px; height:1px; background:#e8efea50; margin-bottom:39px;"></div>
+          <div style="width:12px; height:1px; background:#e8efea30; margin-bottom:39px;"></div>
+          <div style="width:22px; height:1px; background:#e8efea50; margin-bottom:39px;"></div>
+          <div style="width:12px; height:1px; background:#e8efea30; margin-bottom:39px;"></div>
+          <div style="width:22px; height:1px; background:#e8efea50; margin-bottom:39px;"></div>
+          <div style="width:12px; height:1px; background:#e8efea30; margin-bottom:39px;"></div>
+          <div style="width:22px; height:1px; background:#e8efea50; margin-bottom:39px;"></div>
+          <div style="width:12px; height:1px; background:#e8efea30;"></div>
+        </div>
+
+        <!-- header bar -->
+        <div style="position:absolute; left:96px; top:44px; right:40px; display:flex; align-items:center; gap:22px;">
+          <div style="position:relative; width:44px; height:42px;">
+            <div style="position:absolute; inset:0; background:#e8efea; clip-path:polygon(50% 0,100% 36%,82% 100%,18% 100%,0 36%);"></div>
+            <div style="position:absolute; left:13px; top:11px; width:18px; height:19px; background:#38423c; clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);"></div>
+          </div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.34em;">COSMIC STRAWBERRY / RESEARCH DEPARTMENT</div>
+          <div style="flex:1; height:1px; background:#e8efea25;"></div>
+          <div style="display:flex; gap:26px; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em;">
+            <a href="#3a" style="border-bottom:1px solid #7fe4d2; padding-bottom:3px; color:#7fe4d2;">INDEX</a>
+            <a href="#3a">WORK</a><a href="#3a">STUDIO</a><a href="#3a">LAB</a><a href="#3a">CONTACT</a>
+          </div>
+        </div>
+
+        <!-- STRATUM 01 -->
+        <div style="position:absolute; left:96px; top:110px; width:1304px; height:186px; background:linear-gradient(100deg,#2e3833,#3c453f); clip-path:polygon(0 0,100% 0,100% 74%,84% 100%,0 100%); box-shadow:inset 0 1px 0 #ffffff14;"></div>
+        <div style="position:absolute; left:96px; top:110px; width:1304px; height:186px; clip-path:polygon(0 0,100% 0,100% 74%,84% 100%,0 100%); background:repeating-linear-gradient(100deg,#ffffff07 0 10px,transparent 10px 22px);"></div>
+        <div style="position:absolute; left:130px; top:134px; display:flex; align-items:baseline; gap:20px;">
+          <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.3em; color:#7fe4d2;">01</div>
+          <div style="font-size:30px; font-weight:800; letter-spacing:-.01em; text-transform:uppercase;">Brand identity</div>
+          <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.22em; opacity:.5;">MARKS · SYSTEMS · TYPE · PACKAGING</div>
+        </div>
+        <div style="position:absolute; left:130px; top:184px; width:520px; font-family:'Space Mono',monospace; font-size:11px; line-height:1.85; color:#c3cec8;">
+          Identities that behave. Motion marks, living type, and rule sets loose enough
+          to keep surprising you three years after handoff.
+        </div>
+        <div style="position:absolute; left:720px; top:150px; display:flex; gap:14px;">
+          <div style="width:118px; height:96px; background:linear-gradient(140deg,#4a544e,#333c37); border:1px solid #ffffff1f; position:relative; overflow:hidden;">
+            <div style="position:absolute; left:22px; top:22px; width:52px; height:52px; border:2px solid #7fe4d2; border-radius:50%;"></div>
+            <div style="position:absolute; right:8px; bottom:6px; font-family:'Space Mono',monospace; font-size:7px; letter-spacing:.2em; opacity:.5;">A.01</div>
+          </div>
+          <div style="width:118px; height:96px; background:linear-gradient(140deg,#4a544e,#333c37); border:1px solid #ffffff1f; position:relative; overflow:hidden;">
+            <div style="position:absolute; inset:0; background:repeating-linear-gradient(45deg,#e8efea22 0 5px,transparent 5px 11px);"></div>
+            <div style="position:absolute; right:8px; bottom:6px; font-family:'Space Mono',monospace; font-size:7px; letter-spacing:.2em; opacity:.5;">A.02</div>
+          </div>
+          <div style="width:118px; height:96px; background:linear-gradient(140deg,#4a544e,#333c37); border:1px solid #ffffff1f; position:relative; overflow:hidden;">
+            <div style="position:absolute; left:30px; top:26px; width:56px; height:44px; background:#e8efea; clip-path:polygon(50% 0,100% 100%,0 100%);"></div>
+            <div style="position:absolute; right:8px; bottom:6px; font-family:'Space Mono',monospace; font-size:7px; letter-spacing:.2em; opacity:.5;">A.03</div>
+          </div>
+        </div>
+        <div style="position:absolute; left:1160px; top:140px; font-family:'Space Mono',monospace; font-size:9px; line-height:2; letter-spacing:.16em; color:#9aa8a1; text-align:right; width:200px;">
+          <div style="display:flex; justify-content:space-between;"><span>ENGAGEMENTS</span><span style="color:#7fe4d2;">31</span></div>
+          <div style="display:flex; justify-content:space-between;"><span>AVG CYCLE</span><span style="color:#7fe4d2;">8W</span></div>
+          <div style="display:flex; justify-content:space-between;"><span>SECTOR</span><span style="color:#7fe4d2;">ANY</span></div>
+        </div>
+
+        <!-- STRATUM 02 (offset) -->
+        <div style="position:absolute; left:40px; top:308px; width:1304px; height:186px; background:linear-gradient(100deg,#333c37,#414b44); clip-path:polygon(11% 0,100% 0,100% 100%,0 100%,0 26%); box-shadow:inset 0 1px 0 #ffffff14;"></div>
+        <div style="position:absolute; left:40px; top:308px; width:1304px; height:186px; clip-path:polygon(11% 0,100% 0,100% 100%,0 100%,0 26%); background:repeating-linear-gradient(100deg,#ffffff07 0 10px,transparent 10px 22px);"></div>
+        <div style="position:absolute; left:216px; top:332px; display:flex; align-items:baseline; gap:20px;">
+          <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.3em; color:#7fe4d2;">02</div>
+          <div style="font-size:30px; font-weight:800; letter-spacing:-.01em; text-transform:uppercase;">Interactive product</div>
+          <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.22em; opacity:.5;">APPS · WEB · FRONT-END ENGINEERING</div>
+        </div>
+        <div style="position:absolute; left:216px; top:382px; width:520px; font-family:'Space Mono',monospace; font-size:11px; line-height:1.85; color:#c3cec8;">
+          Design and engineering in one room. We prototype on Friday and ship on Monday,
+          then stay long enough to watch it hold up under load.
+        </div>
+        <div style="position:absolute; left:790px; top:344px; width:420px; height:120px; background:#2c3531; border:1px solid #ffffff1a; overflow:hidden;">
+          <div style="position:absolute; inset:0; background:linear-gradient(90deg,#7fe4d216, transparent 60%);"></div>
+          <div style="position:absolute; left:0; bottom:0; display:flex; align-items:flex-end; gap:5px; padding:0 12px 12px; height:100%;">
+            <div style="width:14px; height:26%; background:#7fe4d2;"></div>
+            <div style="width:14px; height:44%; background:#7fe4d2aa;"></div>
+            <div style="width:14px; height:36%; background:#7fe4d2aa;"></div>
+            <div style="width:14px; height:62%; background:#7fe4d2;"></div>
+            <div style="width:14px; height:50%; background:#7fe4d2aa;"></div>
+            <div style="width:14px; height:78%; background:#7fe4d2;"></div>
+            <div style="width:14px; height:40%; background:#7fe4d2aa;"></div>
+            <div style="width:14px; height:88%; background:#e8efea;"></div>
+            <div style="width:14px; height:56%; background:#7fe4d2aa;"></div>
+            <div style="width:14px; height:34%; background:#7fe4d2aa;"></div>
+            <div style="width:14px; height:66%; background:#7fe4d2;"></div>
+            <div style="width:14px; height:28%; background:#7fe4d2aa;"></div>
+          </div>
+          <div style="position:absolute; right:10px; top:8px; font-family:'Space Mono',monospace; font-size:7px; letter-spacing:.22em; opacity:.55;">FIG. 02 — FRAME BUDGET / 16.7MS</div>
+        </div>
+        <div style="position:absolute; left:1250px; top:340px; font-family:'Space Mono',monospace; font-size:9px; line-height:2; letter-spacing:.16em; color:#9aa8a1; text-align:right; width:110px;">
+          <div style="display:flex; justify-content:space-between;"><span>SHIPPED</span><span style="color:#7fe4d2;">58</span></div>
+          <div style="display:flex; justify-content:space-between;"><span>STACKS</span><span style="color:#7fe4d2;">04</span></div>
+          <div style="display:flex; justify-content:space-between;"><span>UPTIME</span><span style="color:#7fe4d2;">99.9</span></div>
+        </div>
+
+        <!-- STRATUM 03 -->
+        <div style="position:absolute; left:150px; top:506px; width:1250px; height:186px; background:linear-gradient(100deg,#2b3430,#3a433d); clip-path:polygon(0 0,100% 0,100% 72%,90% 100%,0 100%); box-shadow:inset 0 1px 0 #ffffff14;"></div>
+        <div style="position:absolute; left:150px; top:506px; width:1250px; height:186px; clip-path:polygon(0 0,100% 0,100% 72%,90% 100%,0 100%); background:repeating-linear-gradient(100deg,#ffffff07 0 10px,transparent 10px 22px);"></div>
+        <div style="position:absolute; left:184px; top:530px; display:flex; align-items:baseline; gap:20px;">
+          <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.3em; color:#7fe4d2;">03</div>
+          <div style="font-size:30px; font-weight:800; letter-spacing:-.01em; text-transform:uppercase;">Immersive systems</div>
+          <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.22em; opacity:.5;">ROOMS · PROJECTION · SENSORS · SOUND</div>
+        </div>
+        <div style="position:absolute; left:184px; top:580px; width:520px; font-family:'Space Mono',monospace; font-size:11px; line-height:1.85; color:#c3cec8;">
+          Spaces that respond. Realtime graphics, tracking, and audio built to run
+          unattended for a year in a lobby full of strangers.
+        </div>
+        <div style="position:absolute; left:760px; top:522px; width:300px; height:150px; overflow:hidden; border:1px solid #ffffff1a;">
+          <div style="position:absolute; inset:0; background:radial-gradient(circle at 30% 110%, #7fe4d244, transparent 62%), linear-gradient(160deg,#39433d,#222a26);"></div>
+          <div style="position:absolute; inset:0; background:repeating-radial-gradient(circle at 30% 110%, transparent 0 13px, #7fe4d21f 13px 15px);"></div>
+          <div style="position:absolute; right:10px; bottom:8px; font-family:'Space Mono',monospace; font-size:7px; letter-spacing:.22em; color:#9aa8a1;">TIDAL LOBBY / KITE LABS / 2026</div>
+        </div>
+        <div style="position:absolute; left:1090px; top:530px; display:flex; flex-direction:column; gap:9px; width:270px;">
+          <a href="#3a" style="display:flex; justify-content:space-between; align-items:center; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.18em; padding-bottom:7px; border-bottom:1px solid #ffffff18;"><span>NEON GROCERY</span><span style="color:#7fe4d2;">↗</span></a>
+          <a href="#3a" style="display:flex; justify-content:space-between; align-items:center; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.18em; padding-bottom:7px; border-bottom:1px solid #ffffff18;"><span>AURORA BANK</span><span style="color:#7fe4d2;">↗</span></a>
+          <a href="#3a" style="display:flex; justify-content:space-between; align-items:center; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.18em; padding-bottom:7px; border-bottom:1px solid #ffffff18;"><span>TIDAL LOBBY</span><span style="color:#7fe4d2;">↗</span></a>
+          <a href="#3a" style="display:flex; justify-content:space-between; align-items:center; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.18em;"><span>HEXA SYSTEM</span><span style="color:#7fe4d2;">↗</span></a>
+        </div>
+
+        <!-- wordmark cutting across the stack base -->
+        <div style="position:absolute; left:0; top:704px; width:1440px; height:150px; overflow:hidden;">
+          <div style="position:absolute; left:60px; top:-6px; font-size:132px; font-weight:800; letter-spacing:-.045em; line-height:1; color:#e8efea; white-space:nowrap;">cosmic strawberry</div>
+          <div style="position:absolute; left:63px; top:-3px; font-size:132px; font-weight:800; letter-spacing:-.045em; line-height:1; color:#7fe4d2; white-space:nowrap; mix-blend-mode:screen; opacity:.35;">cosmic strawberry</div>
+          <div style="position:absolute; left:0; top:0; width:1440px; height:150px; background:#38423c; clip-path:polygon(0 62%,100% 30%,100% 100%,0 100%);"></div>
+          <div style="position:absolute; left:0; top:0; width:1440px; height:150px;"><div style="position:absolute; left:0; top:0; width:1440px; height:2px; background:#7fe4d2; transform:rotate(-1.27deg); transform-origin:left center; margin-top:93px;"></div></div>
+        </div>
+
+        <div style="position:absolute; left:60px; top:846px; display:flex; gap:16px; align-items:center;">
+          <div style="font-size:13px; letter-spacing:.44em; text-transform:uppercase; color:#7fe4d2;">the future, early</div>
+          <div style="width:120px; height:1px; background:#7fe4d2;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.24em; opacity:.5;">EST. 2019 · PORTLAND, OR · BERLIN</div>
+        </div>
+
+        <!-- footer -->
+        <div style="position:absolute; left:60px; top:912px; right:40px; height:1px; background:#e8efea25;"></div>
+        <div style="position:absolute; left:60px; top:934px; display:flex; gap:56px; font-family:'Space Mono',monospace; font-size:10px; line-height:1.8; letter-spacing:.14em; color:#a6b2ac;">
+          <div><span style="color:#e8efea;">CONTACT</span><br>hello@cosmicstrawberry.com<br>+1 503 552 2124</div>
+          <div><span style="color:#e8efea;">STUDIO</span><br>58 Howard Street<br>Portland, OR 97209</div>
+          <div><span style="color:#e8efea;">SIGNAL</span><br>Instagram / Are.na<br>Journal, monthly</div>
+        </div>
+        <div style="position:absolute; right:40px; top:934px; text-align:right; font-family:'Space Mono',monospace; font-size:9px; line-height:1.9; letter-spacing:.2em; color:#7b8a83;">
+          © 2026 COSMIC STRAWBERRY LLC<br>SHEET 01 / 04 · REV 5.8<br>NOW BOOKING Q4 2026
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= 3B — CONSOLE MANIFEST ================= -->
+    <div id="3b" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; gap:10px; align-items:center; color:#1a1a18;">
+        <span style="background:#1a1a18; color:#e9e9e5; font-size:12px; font-weight:700; padding:4px 9px; letter-spacing:.15em;">3B</span>
+        <span style="font-size:12px; letter-spacing:.18em; text-transform:uppercase;">Console manifest — hairline grid, one big cut</span>
+      </div>
+      <div style="width:1440px; height:1024px; position:relative; overflow:hidden; background:#333c37; font-family:'Oxanium',sans-serif; color:#e8efea;">
+        <div style="position:absolute; inset:0; background-image:linear-gradient(#ffffff08 1px,transparent 1px), linear-gradient(90deg,#ffffff08 1px,transparent 1px); background-size:40px 40px;"></div>
+        <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 70% 10%, #ffffff0d, transparent 55%), radial-gradient(ellipse at 10% 100%, #00000055, transparent 60%);"></div>
+        <div style="position:absolute; inset:0; opacity:.14; mix-blend-mode:overlay; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div>
+
+        <!-- the one big cut plate, bottom-left -->
+        <div style="position:absolute; left:-40px; bottom:-60px; width:820px; height:640px; background:linear-gradient(200deg,#2a332e,#1f2723); clip-path:polygon(0 22%,58% 0,100% 46%,100% 100%,0 100%); box-shadow:inset 1px 1px 0 #ffffff10;"></div>
+        <div style="position:absolute; left:-40px; bottom:-60px; width:820px; height:640px; clip-path:polygon(0 22%,58% 0,100% 46%,100% 100%,0 100%); background:repeating-linear-gradient(-38deg,#ffffff06 0 12px,transparent 12px 28px);"></div>
+        <div style="position:absolute; left:-40px; bottom:274px; width:500px; height:2px; background:#7fe4d2; transform:rotate(-20.6deg); transform-origin:left center;"></div>
+
+        <!-- top rail -->
+        <div style="position:absolute; left:0; top:0; width:1440px; height:52px; background:#2b332f; border-bottom:1px solid #ffffff1a; display:flex; align-items:center; padding:0 28px; gap:26px;">
+          <div style="position:relative; width:26px; height:26px;">
+            <div style="position:absolute; inset:0; background:#e8efea; clip-path:polygon(50% 0,100% 36%,82% 100%,18% 100%,0 36%);"></div>
+          </div>
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.36em;">C·STRWBRY</div>
+          <div style="width:1px; height:22px; background:#ffffff20;"></div>
+          <div style="display:flex; gap:2px;">
+            <a href="#3b" style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em; padding:7px 16px; background:#39433d; border-top:1px solid #7fe4d2; color:#7fe4d2;">MANIFEST</a>
+            <a href="#3b" style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em; padding:7px 16px; color:#a6b2ac;" style-hover="background:#39433d;">WORK</a>
+            <a href="#3b" style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em; padding:7px 16px; color:#a6b2ac;" style-hover="background:#39433d;">STUDIO</a>
+            <a href="#3b" style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em; padding:7px 16px; color:#a6b2ac;" style-hover="background:#39433d;">LAB</a>
+            <a href="#3b" style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.2em; padding:7px 16px; color:#a6b2ac;" style-hover="background:#39433d;">JOURNAL</a>
+          </div>
+          <div style="flex:1;"></div>
+          <div style="display:flex; align-items:center; gap:10px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.22em; color:#7fe4d2;">
+            <span style="width:7px; height:7px; border-radius:50%; background:#7fe4d2;"></span>STUDIO OPEN · BOOKING Q4 2026
+          </div>
+        </div>
+
+        <!-- headline module -->
+        <div style="position:absolute; left:28px; top:88px; width:824px;">
+          <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.34em; color:#7fe4d2;">MANIFEST 0058 / REV 5.8 / OPEN FILE</div>
+          <div style="margin-top:18px; font-size:88px; font-weight:800; line-height:.9; letter-spacing:-.035em;">cosmic<br><span style="position:relative;">strawberry<span style="position:absolute; left:3px; top:3px; color:#7fe4d2; opacity:.4; z-index:-1;">strawberry</span></span></div>
+          <div style="margin-top:22px; display:flex; gap:16px; align-items:center;">
+            <div style="font-size:13px; letter-spacing:.42em; text-transform:uppercase; color:#7fe4d2;">the future, early</div>
+            <div style="flex:1; height:1px; background:#7fe4d240;"></div>
+          </div>
+          <div style="margin-top:20px; width:600px; font-family:'Space Mono',monospace; font-size:12px; line-height:1.9; color:#c3cec8;">
+            A design agency for brand identity, interactive product, and immersive
+            environments. Seven people, four projects a year, and a standing
+            preference for the problem nobody has a template for yet.
+          </div>
+          <div style="margin-top:24px; display:flex; gap:12px;">
+            <a href="#3b" style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.24em; padding:11px 22px; background:#7fe4d2; color:#1f2723;">OPEN THE INDEX ↗</a>
+            <a href="#3b" style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.24em; padding:11px 22px; border:1px solid #ffffff30; color:#e8efea;">TRANSMIT A BRIEF</a>
+          </div>
+        </div>
+
+        <!-- right module stack -->
+        <div style="position:absolute; right:28px; top:88px; width:530px; display:flex; flex-direction:column; gap:14px;">
+          <div style="border:1px solid #ffffff1c; background:#2f3833;">
+            <div style="display:flex; justify-content:space-between; padding:9px 14px; border-bottom:1px solid #ffffff14; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.24em; color:#9aa8a1;"><span>FIG. 01 — CURRENT BUILD</span><span style="color:#7fe4d2;">LIVE</span></div>
+            <div style="height:210px; position:relative; overflow:hidden;">
+              <div style="position:absolute; inset:0; background:radial-gradient(circle at 68% 78%, #7fe4d240, transparent 60%), linear-gradient(150deg,#3d4741,#232b27);"></div>
+              <div style="position:absolute; inset:0; background:repeating-radial-gradient(circle at 68% 78%, transparent 0 15px, #7fe4d21c 15px 17px);"></div>
+              <div style="position:absolute; left:34px; top:34px; width:96px; height:96px; border:1px solid #e8efea50;"></div>
+              <div style="position:absolute; left:34px; top:34px; width:96px; height:1px; background:#7fe4d2; transform:rotate(45deg); transform-origin:left top;"></div>
+              <div style="position:absolute; left:14px; bottom:12px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.22em; color:#c3cec8;">TIDAL LOBBY — REALTIME INSTALLATION, KITE LABS</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:14px;">
+            <div style="flex:1; border:1px solid #ffffff1c; background:#2f3833; padding:14px;">
+              <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.24em; color:#9aa8a1;">SHIPPED</div>
+              <div style="font-size:44px; font-weight:800; line-height:1.1;">58<span style="font-size:13px; vertical-align:super; color:#7fe4d2;">TM</span></div>
+              <div style="font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.18em; color:#7b8a83;">PRODUCTS SINCE 2019</div>
+            </div>
+            <div style="flex:1; border:1px solid #ffffff1c; background:#2f3833; padding:14px;">
+              <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.24em; color:#9aa8a1;">INSTALLED</div>
+              <div style="font-size:44px; font-weight:800; line-height:1.1;">12</div>
+              <div style="font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.18em; color:#7b8a83;">ROOMS IN FIVE CITIES</div>
+            </div>
+            <div style="flex:1; border:1px solid #ffffff1c; background:#2f3833; padding:14px;">
+              <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.24em; color:#9aa8a1;">CYCLE</div>
+              <div style="font-size:44px; font-weight:800; line-height:1.1;">6.4</div>
+              <div style="font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.18em; color:#7b8a83;">WEEKS, AVERAGE</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- index table -->
+        <div style="position:absolute; right:28px; top:512px; width:530px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.26em; color:#9aa8a1; padding-bottom:9px; border-bottom:1px solid #ffffff20;"><span>INDEX — SELECTED FILES</span><span>2019–2026</span></div>
+          <a href="#3b" style="display:flex; align-items:center; gap:14px; padding:12px 0; border-bottom:1px solid #ffffff12;" style-hover="padding-left:8px;"><span style="font-family:'Space Mono',monospace; font-size:9px; color:#7fe4d2; width:24px;">058</span><span style="font-size:15px; letter-spacing:.06em; font-weight:500;">Neon Grocery</span><span style="flex:1; height:1px; background:repeating-linear-gradient(90deg,#ffffff35 0 2px,transparent 2px 5px);"></span><span style="font-family:'Space Mono',monospace; font-size:9px; color:#9aa8a1; letter-spacing:.18em;">IDENTITY</span></a>
+          <a href="#3b" style="display:flex; align-items:center; gap:14px; padding:12px 0; border-bottom:1px solid #ffffff12;" style-hover="padding-left:8px;"><span style="font-family:'Space Mono',monospace; font-size:9px; color:#7fe4d2; width:24px;">057</span><span style="font-size:15px; letter-spacing:.06em; font-weight:500;">Tidal Lobby</span><span style="flex:1; height:1px; background:repeating-linear-gradient(90deg,#ffffff35 0 2px,transparent 2px 5px);"></span><span style="font-family:'Space Mono',monospace; font-size:9px; color:#9aa8a1; letter-spacing:.18em;">SPATIAL</span></a>
+          <a href="#3b" style="display:flex; align-items:center; gap:14px; padding:12px 0; border-bottom:1px solid #ffffff12;" style-hover="padding-left:8px;"><span style="font-family:'Space Mono',monospace; font-size:9px; color:#7fe4d2; width:24px;">055</span><span style="font-size:15px; letter-spacing:.06em; font-weight:500;">Aurora Bank</span><span style="flex:1; height:1px; background:repeating-linear-gradient(90deg,#ffffff35 0 2px,transparent 2px 5px);"></span><span style="font-family:'Space Mono',monospace; font-size:9px; color:#9aa8a1; letter-spacing:.18em;">PRODUCT</span></a>
+          <a href="#3b" style="display:flex; align-items:center; gap:14px; padding:12px 0; border-bottom:1px solid #ffffff12;" style-hover="padding-left:8px;"><span style="font-family:'Space Mono',monospace; font-size:9px; color:#7fe4d2; width:24px;">051</span><span style="font-size:15px; letter-spacing:.06em; font-weight:500;">Hexa System</span><span style="flex:1; height:1px; background:repeating-linear-gradient(90deg,#ffffff35 0 2px,transparent 2px 5px);"></span><span style="font-family:'Space Mono',monospace; font-size:9px; color:#9aa8a1; letter-spacing:.18em;">BRAND + APP</span></a>
+          <a href="#3b" style="display:flex; align-items:center; gap:14px; padding:12px 0;" style-hover="padding-left:8px;"><span style="font-family:'Space Mono',monospace; font-size:9px; color:#7fe4d2; width:24px;">047</span><span style="font-size:15px; letter-spacing:.06em; font-weight:500;">Field Radio</span><span style="flex:1; height:1px; background:repeating-linear-gradient(90deg,#ffffff35 0 2px,transparent 2px 5px);"></span><span style="font-family:'Space Mono',monospace; font-size:9px; color:#9aa8a1; letter-spacing:.18em;">SOUND</span></a>
+        </div>
+
+        <!-- specimen inside the cut plate -->
+        <div style="position:absolute; left:150px; top:600px; width:186px; height:186px; border-radius:52% 48% 44% 56%; background:repeating-linear-gradient(-18deg,#cfd8d2 0 4px,#87938d 4px 10px); transform:rotate(-18deg); box-shadow:0 0 0 3px #1f2723, 0 20px 44px #0008;"></div>
+        <div style="position:absolute; left:186px; top:626px; width:104px; height:104px; border-radius:50%; background:radial-gradient(circle at 34% 30%, #ffffff, #99a69e 55%, #5a6660); transform:rotate(-18deg); box-shadow:inset 0 -6px 14px #0005;"></div>
+        <div style="position:absolute; left:206px; top:706px; width:44px; height:132px; background:linear-gradient(90deg,#c3cdc7,#e8efea 40%,#98a49d); border-radius:22px; transform:rotate(-18deg);"></div>
+        <div style="position:absolute; left:360px; top:634px; font-family:'Space Mono',monospace; font-size:9px; line-height:2; letter-spacing:.2em; color:#9aa8a1;">
+          <div style="color:#7fe4d2; letter-spacing:.34em;">SPECIMEN 058</div>
+          <div>MASS &nbsp;&nbsp;0.42 KG</div>
+          <div>CYCLE &nbsp;58 HZ</div>
+          <div>ORIGIN PDX</div>
+          <div style="margin-top:10px; width:90px; height:1px; background:#ffffff30;"></div>
+          <div style="opacity:.6;">HANDLE WITH<br>REASONABLE CARE</div>
+        </div>
+
+        <!-- oscilloscope strip -->
+        <div style="position:absolute; left:28px; bottom:110px; width:520px; height:54px; border:1px solid #ffffff18; background:#252d29; overflow:hidden; display:flex; align-items:center; gap:3px; padding:0 10px;">
+          <div style="width:5px; height:20%; background:#7fe4d2;"></div><div style="width:5px; height:46%; background:#7fe4d2aa;"></div><div style="width:5px; height:70%; background:#7fe4d2;"></div><div style="width:5px; height:34%; background:#7fe4d2aa;"></div><div style="width:5px; height:56%; background:#7fe4d2;"></div><div style="width:5px; height:88%; background:#e8efea;"></div><div style="width:5px; height:40%; background:#7fe4d2aa;"></div><div style="width:5px; height:62%; background:#7fe4d2;"></div><div style="width:5px; height:26%; background:#7fe4d2aa;"></div><div style="width:5px; height:74%; background:#7fe4d2;"></div><div style="width:5px; height:44%; background:#7fe4d2aa;"></div><div style="width:5px; height:30%; background:#7fe4d2aa;"></div><div style="width:5px; height:66%; background:#7fe4d2;"></div><div style="width:5px; height:52%; background:#7fe4d2aa;"></div><div style="width:5px; height:80%; background:#e8efea;"></div><div style="width:5px; height:36%; background:#7fe4d2aa;"></div><div style="width:5px; height:58%; background:#7fe4d2;"></div><div style="width:5px; height:24%; background:#7fe4d2aa;"></div><div style="width:5px; height:68%; background:#7fe4d2;"></div><div style="width:5px; height:42%; background:#7fe4d2aa;"></div>
+          <div style="flex:1;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.22em; color:#7b8a83;">STUDIO SIGNAL / LIVE</div>
+        </div>
+
+        <!-- footer -->
+        <div style="position:absolute; left:28px; bottom:34px; display:flex; gap:44px; font-family:'Space Mono',monospace; font-size:9.5px; line-height:1.8; letter-spacing:.16em; color:#a6b2ac;">
+          <div><span style="color:#e8efea;">CONTACT</span><br>hello@cosmicstrawberry.com</div>
+          <div><span style="color:#e8efea;">STUDIO</span><br>58 Howard St, Portland OR</div>
+        </div>
+        <div style="position:absolute; right:28px; bottom:34px; text-align:right; font-family:'Space Mono',monospace; font-size:9px; line-height:1.9; letter-spacing:.2em; color:#7b8a83;">
+          © 2026 COSMIC STRAWBERRY LLC · MANIFEST 0058 · REV 5.8
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section style="padding:64px; display:flex; flex-direction:column; gap:56px; font-family:'Space Mono',monospace;">
+  <div style="display:flex; align-items:baseline; gap:16px; color:#1a1a18;">
+    <div style="font-size:13px; letter-spacing:.3em; text-transform:uppercase;">Turn 2 — full-fidelity pass</div>
+    <div style="flex:1; height:1px; background:#1a1a18; opacity:.25;"></div>
+  </div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:80px; align-items:flex-start;">
+
+    <!-- ================= 2A — DOSSIER ================= -->
+    <div id="2a" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; gap:10px; align-items:center; color:#1a1a18;">
+        <span style="background:#1a1a18; color:#e9e9e5; font-size:12px; font-weight:700; padding:4px 9px; letter-spacing:.15em;">2A</span>
+        <span style="font-size:12px; letter-spacing:.18em; text-transform:uppercase;">Dossier / technical bleed</span>
+      </div>
+      <div style="width:1440px; height:1024px; position:relative; overflow:hidden; background:#39433d; font-family:'Oxanium',sans-serif; color:#e8efea;">
+        <div style="position:absolute; inset:0; background-image:radial-gradient(#ffffff10 1px, transparent 1px); background-size:24px 24px;"></div>
+        <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 30% 30%, #ffffff0d, transparent 65%), radial-gradient(ellipse at 90% 100%, #00000055, transparent 60%);"></div>
+        <div style="position:absolute; inset:0; opacity:.16; mix-blend-mode:overlay; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div>
+
+        <!-- corner registration marks -->
+        <div style="position:absolute; left:16px; top:16px; width:20px; height:1px; background:#e8efea60;"></div>
+        <div style="position:absolute; left:16px; top:16px; width:1px; height:20px; background:#e8efea60;"></div>
+        <div style="position:absolute; right:16px; top:16px; width:20px; height:1px; background:#e8efea60;"></div>
+        <div style="position:absolute; right:16px; top:16px; width:1px; height:20px; background:#e8efea60;"></div>
+        <div style="position:absolute; right:16px; bottom:16px; width:20px; height:1px; background:#e8efea60;"></div>
+        <div style="position:absolute; right:16px; bottom:16px; width:1px; height:20px; background:#e8efea60;"></div>
+
+        <!-- primary diagonal plate -->
+        <div style="position:absolute; left:-70px; top:-50px; width:900px; height:720px; background:linear-gradient(150deg,#2f3833 0%,#374039 55%,#2b3430 100%); clip-path:polygon(9% 0,100% 0,100% 60%,70% 100%,0 100%,0 15%); box-shadow:inset -1px -1px 0 #ffffff12;"></div>
+        <div style="position:absolute; left:-70px; top:-50px; width:900px; height:720px; background:linear-gradient(150deg,#ffffff0e, transparent 45%); clip-path:polygon(9% 0,64% 0,26% 100%,0 100%,0 15%);"></div>
+
+        <div style="position:absolute; left:140px; top:58px; width:830px; height:3px; background:#e8efea; transform:rotate(-33.7deg); transform-origin:left center;"></div>
+        <div style="position:absolute; left:140px; top:58px; width:3px; height:560px; background:#e8efea;"></div>
+        <div style="position:absolute; left:172px; top:268px; width:700px; height:1.5px; background:#e8efea; opacity:.6; transform:rotate(-33.7deg); transform-origin:left center;"></div>
+        <div style="position:absolute; left:172px; top:298px; width:660px; height:1px; background:#7fe4d2; opacity:.5; transform:rotate(-33.7deg); transform-origin:left center;"></div>
+
+        <!-- wordmark, double-printed -->
+        <div style="position:absolute; left:104px; top:596px; transform:rotate(-33.7deg); transform-origin:left bottom; display:flex; flex-direction:column; gap:9px;">
+          <div style="position:relative;">
+            <div style="position:absolute; left:3px; top:3px; font-size:76px; font-weight:800; letter-spacing:-.025em; line-height:.88; color:#7fe4d2; opacity:.45; white-space:nowrap;">cosmic strawberry</div>
+            <div style="font-size:76px; font-weight:800; letter-spacing:-.025em; line-height:.88; white-space:nowrap;">cosmic strawberry</div>
+          </div>
+          <div style="display:flex; gap:14px; align-items:center;">
+            <div style="font-size:12.5px; letter-spacing:.44em; text-transform:uppercase; color:#7fe4d2;">brand · interactive · immersive systems</div>
+            <div style="width:70px; height:1px; background:#7fe4d2;"></div>
+            <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.24em; opacity:.55;">REV 5.8</div>
+          </div>
+        </div>
+
+        <!-- crest -->
+        <div style="position:absolute; left:66px; top:40px; display:flex; flex-direction:column; gap:9px; align-items:center; width:118px;">
+          <div style="position:relative; width:56px; height:52px;">
+            <div style="position:absolute; inset:0; background:#e8efea; clip-path:polygon(50% 0,100% 36%,82% 100%,18% 100%,0 36%);"></div>
+            <div style="position:absolute; left:16px; top:14px; width:24px; height:24px; background:#39433d; clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);"></div>
+          </div>
+          <div style="font-size:10px; letter-spacing:.34em; font-weight:600;">C·STRWBRY</div>
+          <div style="width:100%; height:1px; background:#e8efea40;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:7px; line-height:1.7; text-align:center; opacity:.5; letter-spacing:.1em;">RESEARCH DEPT.<br>EST. 2019 · FILE 0058<br>CLEARANCE: OPEN</div>
+        </div>
+
+        <div style="position:absolute; left:24px; top:66px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.34em; writing-mode:vertical-rl; opacity:.5;">↑ RESEARCH DEPARTMENT ↑</div>
+
+        <!-- FIG 01 target -->
+        <div style="position:absolute; left:600px; top:100px; width:330px; height:252px;">
+          <div style="position:absolute; inset:0; border:2px solid #e8efea; border-radius:0 0 100px 0; overflow:hidden; background:repeating-radial-gradient(circle at 14% 92%, transparent 0 10px, #e8efea 10px 13px);">
+            <div style="position:absolute; inset:0; background:linear-gradient(120deg, transparent 55%, #39433dcc 100%);"></div>
+            <div style="position:absolute; right:12px; top:10px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.22em;">FIG. 01</div>
+            <div style="position:absolute; right:14px; bottom:16px; width:34px; height:34px; border:1px solid #7fe4d2; border-radius:50%;"></div>
+            <div style="position:absolute; right:30px; bottom:16px; width:1px; height:34px; background:#7fe4d2;"></div>
+            <div style="position:absolute; right:14px; bottom:32px; width:34px; height:1px; background:#7fe4d2;"></div>
+          </div>
+          <div style="position:absolute; left:118px; top:-32px; background:#39433d; padding:3px 12px; font-family:'Bungee',sans-serif; font-size:28px; letter-spacing:-.02em;">contex<span style="font-size:11px; vertical-align:super;">™</span></div>
+        </div>
+
+        <div style="position:absolute; left:600px; top:368px; display:flex; align-items:center; gap:12px;">
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.24em;">DATASHEET: STUDIO CAPABILITIES</div>
+          <div style="flex:1; width:240px; height:1px; background:#e8efea40;"></div>
+        </div>
+
+        <!-- nav with leaders -->
+        <div style="position:absolute; left:600px; top:404px; width:420px; display:flex; flex-direction:column; gap:0;">
+          <a href="#2a" style="display:flex; gap:14px; align-items:center; padding:11px 0; border-bottom:1px solid #ffffff18;" style-hover="background:#ffffff0a; padding-left:8px;"><span style="width:13px;height:13px;border:2px solid #7fe4d2;border-radius:50%;"></span><span style="font-size:17px; letter-spacing:.14em; text-transform:uppercase; font-weight:500;">About the studio</span><span style="flex:1; height:1px; background:repeating-linear-gradient(90deg,#ffffff40 0 2px,transparent 2px 5px);"></span><span style="font-family:'Space Mono',monospace; font-size:9px; opacity:.5;">01</span></a>
+          <a href="#2a" style="display:flex; gap:14px; align-items:center; padding:11px 0; border-bottom:1px solid #ffffff18;" style-hover="background:#ffffff0a; padding-left:8px;"><span style="width:13px;height:13px;border:2px solid #7fe4d2;border-radius:50%;"></span><span style="font-size:17px; letter-spacing:.14em; text-transform:uppercase; font-weight:500;">Brand identity</span><span style="flex:1; height:1px; background:repeating-linear-gradient(90deg,#ffffff40 0 2px,transparent 2px 5px);"></span><span style="font-family:'Space Mono',monospace; font-size:9px; opacity:.5;">02</span></a>
+          <a href="#2a" style="display:flex; gap:14px; align-items:center; padding:11px 0; border-bottom:1px solid #ffffff18;" style-hover="background:#ffffff0a; padding-left:8px;"><span style="width:13px;height:13px;border:2px solid #7fe4d2;border-radius:50%;"></span><span style="font-size:17px; letter-spacing:.14em; text-transform:uppercase; font-weight:500;">Interactive product</span><span style="flex:1; height:1px; background:repeating-linear-gradient(90deg,#ffffff40 0 2px,transparent 2px 5px);"></span><span style="font-family:'Space Mono',monospace; font-size:9px; opacity:.5;">03</span></a>
+          <a href="#2a" style="display:flex; gap:14px; align-items:center; padding:11px 0; border-bottom:1px solid #ffffff18;" style-hover="background:#ffffff0a; padding-left:8px;"><span style="width:13px;height:13px;border:2px solid #7fe4d2;border-radius:50%;"></span><span style="font-size:17px; letter-spacing:.14em; text-transform:uppercase; font-weight:500;">Immersive lab</span><span style="flex:1; height:1px; background:repeating-linear-gradient(90deg,#ffffff40 0 2px,transparent 2px 5px);"></span><span style="font-family:'Space Mono',monospace; font-size:9px; opacity:.5;">04</span></a>
+          <a href="#2a" style="display:flex; gap:14px; align-items:center; padding:11px 0; border-bottom:1px solid #ffffff18;" style-hover="background:#ffffff0a; padding-left:8px;"><span style="width:13px;height:13px;border:2px solid #7fe4d2;border-radius:50%;"></span><span style="font-size:17px; letter-spacing:.14em; text-transform:uppercase; font-weight:500;">Clients / projects</span><span style="flex:1; height:1px; background:repeating-linear-gradient(90deg,#ffffff40 0 2px,transparent 2px 5px);"></span><span style="font-family:'Space Mono',monospace; font-size:9px; opacity:.5;">05</span></a>
+          <a href="#2a" style="display:flex; gap:14px; align-items:center; padding:11px 0; border-bottom:1px solid #ffffff18;" style-hover="background:#ffffff0a; padding-left:8px;"><span style="width:13px;height:13px;border:2px solid #7fe4d2;border-radius:50%;"></span><span style="font-size:17px; letter-spacing:.14em; text-transform:uppercase; font-weight:500;">Transmissions</span><span style="flex:1; height:1px; background:repeating-linear-gradient(90deg,#ffffff40 0 2px,transparent 2px 5px);"></span><span style="font-family:'Space Mono',monospace; font-size:9px; opacity:.5;">06</span></a>
+        </div>
+
+        <!-- spec table -->
+        <div style="position:absolute; left:1040px; top:556px; width:240px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.12em; color:#c9d5ce;">
+          <div style="display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid #ffffff14;"><span>DISCIPLINES</span><span style="color:#7fe4d2;">07</span></div>
+          <div style="display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid #ffffff14;"><span>SHIPPED PRODUCTS</span><span style="color:#7fe4d2;">58</span></div>
+          <div style="display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid #ffffff14;"><span>INSTALLATIONS</span><span style="color:#7fe4d2;">12</span></div>
+          <div style="display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid #ffffff14;"><span>OPERATORS</span><span style="color:#7fe4d2;">19</span></div>
+          <div style="display:flex; justify-content:space-between; padding:5px 0; border-bottom:1px solid #ffffff14;"><span>AVG. CYCLE / WKS</span><span style="color:#7fe4d2;">6.4</span></div>
+          <div style="display:flex; justify-content:space-between; padding:5px 0;"><span>UPTIME</span><span style="color:#7fe4d2;">99.98</span></div>
+        </div>
+
+        <!-- contact -->
+        <div style="position:absolute; left:1040px; top:60px; width:340px; font-family:'Space Mono',monospace;">
+          <div style="font-size:11px; line-height:1.8; letter-spacing:.1em; text-transform:uppercase;">Cosmic Strawberry needs your brief.<br>Submit signal, timeline and<br>ambition below.</div>
+          <div style="margin-top:18px; display:flex; flex-direction:column; gap:10px;">
+            <div style="height:30px; border:2px solid #e8efea; border-radius:15px; display:flex; align-items:center; padding:0 14px; font-size:10px; letter-spacing:.24em; background:#ffffff08;">NAME</div>
+            <div style="height:30px; border:2px solid #e8efea; border-radius:15px; display:flex; align-items:center; padding:0 14px; font-size:10px; letter-spacing:.24em; background:#ffffff08;">EMAIL</div>
+            <div style="height:110px; border:2px solid #e8efea; border-radius:16px; padding:10px 14px; font-size:10px; letter-spacing:.24em; position:relative; background:#ffffff08;">YOUR MESSAGE
+              <div style="position:absolute; right:40px; bottom:-30px; width:0; height:0; border-left:18px solid #e8efea; border-bottom:32px solid transparent;"></div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:11px; letter-spacing:.24em; color:#7fe4d2;"><span>TRANSMIT ↓↓↓</span><span style="opacity:.4; color:#e8efea;">ENCRYPTED</span></div>
+          </div>
+          <div style="margin-top:44px; height:2px; background:#e8efea;"></div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px; font-size:10px; letter-spacing:.24em; opacity:.8;">
+            <span style="display:flex; align-items:center; gap:10px;"><span style="width:0;height:0;border-top:18px solid #e8efea;border-right:13px solid transparent;"></span>PREV</span>
+            <span style="display:flex; align-items:center; gap:10px;">NEXT<span style="width:0;height:0;border-top:18px solid #e8efea;border-left:13px solid transparent;"></span></span>
+          </div>
+        </div>
+
+        <!-- right ruler -->
+        <div style="position:absolute; right:30px; top:80px; display:flex; flex-direction:column; gap:9px; align-items:flex-end; font-family:'Space Mono',monospace; font-size:6px; letter-spacing:.24em; opacity:.4;">
+          <div>0057</div><div>0058</div><div>0059</div><div>0060</div><div>0061</div><div>0062</div><div>0063</div><div>0064</div><div>0065</div><div>0066</div><div>0067</div><div>0068</div>
+        </div>
+
+        <!-- project strip -->
+        <div style="position:absolute; left:600px; top:630px; width:780px; height:150px; background:linear-gradient(180deg,#454f49,#3a443e); border-top:2px solid #7fe4d2; overflow:hidden;">
+          <div style="position:absolute; inset:0; background:repeating-linear-gradient(45deg,#ffffff08 0 8px,transparent 8px 16px);"></div>
+          <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 78% 120%, #7fe4d233, transparent 60%);"></div>
+          <div style="position:absolute; left:16px; top:14px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.26em; opacity:.6;">FIG. 02 — SPATIAL INSTALLATION LOOP / TIDAL LOBBY, 2026</div>
+          <div style="position:absolute; left:16px; bottom:16px; display:flex; gap:10px;">
+            <span style="border:1px solid #ffffff40; padding:3px 10px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.2em;">WEBGL</span>
+            <span style="border:1px solid #ffffff40; padding:3px 10px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.2em;">SENSORS</span>
+            <span style="border:1px solid #ffffff40; padding:3px 10px; font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.2em;">SOUND</span>
+          </div>
+          <div style="position:absolute; right:18px; top:26px; width:98px; height:98px; border-radius:50%; background:conic-gradient(#7fe4d2 0 18%, #ffffff20 18% 100%); mask:radial-gradient(circle, transparent 56%, #000 57%); -webkit-mask:radial-gradient(circle, transparent 56%, #000 57%);"></div>
+        </div>
+
+        <div style="position:absolute; left:600px; top:812px; display:flex; align-items:center; gap:14px;">
+          <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.24em;">COSMIC STRAWBERRY / LOGOTYPES</div>
+          <div style="width:180px; height:1px; background:#ffffff30;"></div>
+        </div>
+        <div style="position:absolute; left:600px; top:842px; display:flex; gap:38px; align-items:center;">
+          <div style="width:36px;height:36px;background:#e8efea;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);"></div>
+          <div style="font-family:'Bungee',sans-serif; font-size:21px;">cs·mic</div>
+          <div style="font-family:'Oxanium',sans-serif; font-weight:800; font-size:23px; letter-spacing:-.03em;">STRWBRY</div>
+          <div style="width:36px;height:36px;border:3px solid #e8efea;border-radius:50%;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:20px; letter-spacing:-.05em;">c·s™</div>
+        </div>
+
+        <div style="position:absolute; left:600px; top:918px; display:flex; gap:18px; align-items:flex-start;">
+          <div style="width:0;height:0;border-top:17px solid #e8efea;border-right:12px solid transparent;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:11px; line-height:1.7; letter-spacing:.12em;"><span style="font-size:24px; font-weight:700;">58</span><span style="font-size:9px; vertical-align:super;">TM</span> SHIPPED PRODUCTS BUILT AT<br>STUDIO FIFTY-EIGHT, PORTLAND, OR</div>
+        </div>
+        <div style="position:absolute; left:1040px; top:918px; font-family:'Space Mono',monospace; font-size:11px; line-height:1.7; letter-spacing:.12em; opacity:.7;">▶ REALTIME SUPPORT BY PRECISION<br>&nbsp;&nbsp;&nbsp;BREAKBEAT RESEARCH, BERLIN<br>▶ HELLO@COSMICSTRAWBERRY.COM</div>
+
+        <!-- specimen object -->
+        <div style="position:absolute; left:110px; top:672px; width:196px; height:196px; border-radius:52% 48% 44% 56%; background:repeating-linear-gradient(-14deg,#d3dcd6 0 4px,#8b9791 4px 10px); transform:rotate(-14deg); box-shadow:0 0 0 3px #39433d, 0 18px 40px #0007;"></div>
+        <div style="position:absolute; left:150px; top:700px; width:110px; height:110px; border-radius:50%; background:radial-gradient(circle at 35% 30%, #ffffff, #9aa79f 55%, #5e6a64);  transform:rotate(-14deg); box-shadow:inset 0 -6px 14px #0004;"></div>
+        <div style="position:absolute; left:170px; top:786px; width:48px; height:140px; background:linear-gradient(90deg,#c7d1cb,#e8efea 40%,#9aa79f); border-radius:24px; transform:rotate(-14deg);"></div>
+        <div style="position:absolute; left:290px; top:704px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.34em; transform:rotate(-33.7deg); color:#7fe4d2;">SPECIMEN · DATA</div>
+        <div style="position:absolute; left:326px; top:760px; font-family:'Space Mono',monospace; font-size:7px; line-height:1.8; letter-spacing:.2em; opacity:.45; transform:rotate(-33.7deg);">MASS 0.42KG<br>CYCLE 58HZ<br>ORIGIN PDX</div>
+      </div>
+    </div>
+
+    <!-- ================= 2B — DIE-CUT ================= -->
+    <div id="2b" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; gap:10px; align-items:center; color:#1a1a18;">
+        <span style="background:#1a1a18; color:#e9e9e5; font-size:12px; font-weight:700; padding:4px 9px; letter-spacing:.15em;">2B</span>
+        <span style="font-size:12px; letter-spacing:.18em; text-transform:uppercase;">Die-cut sticker cluster</span>
+      </div>
+      <div style="width:1440px; height:1024px; position:relative; overflow:hidden; background:#c1150c; font-family:'Space Grotesk',sans-serif; color:#ffe9c9;">
+        <div style="position:absolute; inset:0; background:radial-gradient(ellipse at 50% 40%, #e0331f, #a30e07 78%);"></div>
+        <div style="position:absolute; inset:0; opacity:.2; mix-blend-mode:multiply; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div>
+
+        <!-- offset shadow cluster -->
+        <div style="position:absolute; left:158px; top:270px; width:1120px; height:520px; background:#78090488; filter:blur(0px); border-radius:170px 90px 170px 90px;"></div>
+
+        <!-- cluster -->
+        <div style="position:absolute; left:368px; top:76px; width:440px; height:320px; background:#e8631a; border-radius:160px 160px 34px 34px; transform:rotate(-3deg); box-shadow:inset 0 0 0 4px #ffe9c930;"></div>
+        <div style="position:absolute; left:150px; top:258px; width:600px; height:320px; background:#f2892c; border-radius:160px 44px 44px 160px;"></div>
+        <div style="position:absolute; left:640px; top:296px; width:600px; height:262px; background:#e8631a; border-radius:44px 130px 130px 44px;"></div>
+        <div style="position:absolute; left:452px; top:510px; width:360px; height:330px; background:#f2892c; border-radius:44px 44px 180px 180px; transform:rotate(2deg);"></div>
+        <div style="position:absolute; left:836px; top:126px; width:224px; height:200px; background:#c1150c; border:6px solid #ffe9c9; border-radius:110px 22px 110px 22px;"></div>
+        <div style="position:absolute; left:124px; top:120px; width:230px; height:220px; background:#e8631a; border-radius:22px 110px 22px 110px;"></div>
+        <div style="position:absolute; left:1090px; top:170px; width:150px; height:150px; border-radius:50%; background:#f2892c;"></div>
+
+        <div style="position:absolute; left:104px; top:238px; width:692px; height:360px; border:4px solid #ffe9c926; border-radius:180px 64px 64px 180px;"></div>
+        <div style="position:absolute; left:418px; top:46px; width:440px; height:320px; border:3px solid #ffe9c920; border-radius:160px 160px 34px 34px; transform:rotate(-3deg);"></div>
+
+        <!-- wordmark plaque -->
+        <div style="position:absolute; left:700px; top:352px; padding:22px 46px; background:#c1150c; border:6px solid #ffe9c9; border-radius:80px; box-shadow:16px 16px 0 #7a0904;">
+          <div style="font-family:'Bungee',sans-serif; font-size:76px; line-height:.92; letter-spacing:-.02em; color:#ffe9c9;">cosmic</div>
+          <div style="font-family:'Bungee',sans-serif; font-size:76px; line-height:.92; letter-spacing:-.02em; color:#f2892c;">strawberry</div>
+        </div>
+        <div style="position:absolute; left:736px; top:552px; display:flex; gap:14px; align-items:center; font-size:12px; letter-spacing:.32em; text-transform:uppercase;">
+          <span>studio version 5</span><span style="width:8px;height:8px;background:#ffe9c9;border-radius:50%;"></span><span>design agency</span><span style="width:8px;height:8px;background:#ffe9c9;border-radius:50%;"></span><span>est. 2019</span>
+        </div>
+
+        <!-- 5.0 numeral -->
+        <div style="position:absolute; left:1130px; top:200px; font-family:'Bungee',sans-serif; font-size:60px; color:#c1150c; line-height:1;">5.0</div>
+
+        <!-- left card -->
+        <div style="position:absolute; left:196px; top:292px; width:340px;">
+          <div style="font-family:'Bungee',sans-serif; font-size:32px; color:#ffe9c9; line-height:1;">BRAND<br>IDENTITY</div>
+          <div style="margin-top:10px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#7a0904; font-weight:700;">Marks · systems · packaging · type</div>
+          <div style="margin-top:12px; font-size:12.5px; line-height:1.65; color:#5c0703;">We build identities that behave: motion marks, living type, and rules loose enough to keep surprising you three years in.</div>
+          <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:8px;">
+            <span style="background:#c1150c; color:#ffe9c9; font-size:11px; padding:5px 13px; border-radius:20px; letter-spacing:.1em;">naming</span>
+            <span style="background:#c1150c; color:#ffe9c9; font-size:11px; padding:5px 13px; border-radius:20px; letter-spacing:.1em;">motion marks</span>
+            <span style="background:#c1150c; color:#ffe9c9; font-size:11px; padding:5px 13px; border-radius:20px; letter-spacing:.1em;">guidelines</span>
+          </div>
+        </div>
+
+        <!-- top card -->
+        <div style="position:absolute; left:410px; top:112px; width:330px;">
+          <div style="font-family:'Bungee',sans-serif; font-size:27px; color:#ffe9c9; line-height:1;">INTERACTIVE<br>+ APPS</div>
+          <div style="margin-top:10px; font-size:11px; line-height:1.75; letter-spacing:.06em; color:#7a0904; font-weight:700; text-transform:uppercase;">Product design and front-end engineering under one roof. Prototype friday, ship monday.</div>
+          <div style="margin-top:12px; display:flex; gap:10px; align-items:center;">
+            <div style="width:34px; height:34px; border-radius:8px; background:#c1150c;"></div>
+            <div style="width:34px; height:34px; border-radius:50%; background:#ffe9c9;"></div>
+            <div style="width:34px; height:34px; background:#7a0904; clip-path:polygon(50% 0,100% 100%,0 100%);"></div>
+          </div>
+        </div>
+
+        <!-- right card -->
+        <div style="position:absolute; left:1050px; top:620px; width:230px;">
+          <div style="font-family:'Bungee',sans-serif; font-size:25px; color:#f2892c; line-height:1;">IMMERSIVE</div>
+          <div style="margin-top:8px; font-size:12px; line-height:1.7; color:#ffe9c9;">Rooms, projection, sensors, WebGL. Future tech dragged into today's reality, on budget.</div>
+          <div style="margin-top:12px; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:#f2892c; font-weight:700;">see the lab ↗</div>
+        </div>
+
+        <!-- badge -->
+        <div style="position:absolute; left:858px; top:150px; width:180px; height:152px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;">
+          <div style="width:56px;height:56px;border-radius:50%;background:#f2892c; box-shadow:0 0 0 6px #ffe9c920;"></div>
+          <div style="font-family:'Bungee',sans-serif; font-size:16px; color:#ffe9c9;">SINCE '19</div>
+          <div style="font-size:10px; letter-spacing:.2em; color:#ffe9c9aa;">PORTLAND · BERLIN</div>
+        </div>
+
+        <!-- enter -->
+        <div style="position:absolute; left:498px; top:606px; width:270px; display:flex; flex-direction:column; align-items:center; gap:12px;">
+          <div style="width:70px; height:56px; background:#c1150c; border-radius:8px; border:4px solid #ffe9c9; position:relative;">
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:0; height:0; border-left:16px solid #ffe9c9; border-top:11px solid transparent; border-bottom:11px solid transparent;"></div>
+          </div>
+          <div style="font-family:'Bungee',sans-serif; font-size:50px; color:#c1150c; text-shadow:5px 5px 0 #ffe9c9;">enter</div>
+          <div style="font-size:10.5px; line-height:1.7; letter-spacing:.16em; text-transform:uppercase; text-align:center; color:#7a0904; font-weight:700;">Selected work, 2019–2026<br>best viewed loud</div>
+        </div>
+
+        <!-- deco -->
+        <div style="position:absolute; right:130px; top:100px; width:160px; height:130px; background:repeating-linear-gradient(-45deg,#f2892c 0 15px,transparent 15px 32px);"></div>
+        <div style="position:absolute; left:70px; bottom:130px; width:190px; height:190px; border:5px solid #e8631a; border-radius:50%; display:flex; align-items:center; justify-content:center;">
+          <div style="font-family:'Bungee',sans-serif; font-size:17px; color:#e8631a; line-height:1.2; text-align:center;">SAY<br>HELLO ↗</div>
+        </div>
+        <div style="position:absolute; left:300px; bottom:150px; display:flex; flex-direction:column; gap:8px; font-size:12px; line-height:1.6; color:#ffe9c9;">
+          <div style="font-family:'Bungee',sans-serif; font-size:15px; color:#f2892c;">RECENT</div>
+          <div>Neon Grocery — identity</div>
+          <div>Tidal Lobby — installation</div>
+          <div>Aurora Bank — product</div>
+          <div>Hexa — brand + app</div>
+        </div>
+
+        <div style="position:absolute; left:900px; bottom:130px; font-size:11.5px; line-height:2; letter-spacing:.2em; text-transform:uppercase; color:#f2892c; font-weight:700;">
+          <div>Design © cosmic strawberry</div>
+          <div>hello@cosmicstrawberry.com</div>
+          <div>portland · berlin · online</div>
+          <div style="color:#ffe9c9;">flash enhanced for your enjoyment</div>
+        </div>
+        <div style="position:absolute; left:0; bottom:0; width:1440px; height:40px; background:#7a0904; display:flex; align-items:center; gap:36px; padding:0 24px; font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:#ffb87a; overflow:hidden;">
+          <span>now booking Q4 2026</span><span>·</span><span>studio open</span><span>·</span><span>new work: tidal lobby</span><span>·</span><span>we answer email</span><span>·</span><span>now booking Q4 2026</span><span>·</span><span>studio open</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= 2C — CINEMA ================= -->
+    <div id="2c" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; gap:10px; align-items:center; color:#1a1a18;">
+        <span style="background:#1a1a18; color:#e9e9e5; font-size:12px; font-weight:700; padding:4px 9px; letter-spacing:.15em;">2C</span>
+        <span style="font-size:12px; letter-spacing:.18em; text-transform:uppercase;">Cinema splash / offset plates</span>
+      </div>
+      <div style="width:1440px; height:1024px; position:relative; overflow:hidden; background:#a49e8f; font-family:'Oswald',sans-serif; color:#fff;">
+        <div style="position:absolute; inset:0; background:linear-gradient(160deg,#b3ad9d,#8f8a7c);"></div>
+
+        <!-- black plates -->
+        <div style="position:absolute; left:0; top:0; width:800px; height:270px; background:#0a0a0a;"></div>
+        <div style="position:absolute; left:800px; top:70px; width:640px; height:200px; background:#0a0a0a; border-radius:0 0 0 30px;"></div>
+        <div style="position:absolute; left:0; top:270px; width:1440px; height:452px; background:#0a0a0a;"></div>
+        <div style="position:absolute; left:300px; top:722px; width:440px; height:302px; background:#0a0a0a;"></div>
+        <div style="position:absolute; left:740px; top:722px; width:700px; height:96px; background:#0a0a0a;"></div>
+
+        <!-- key art: atmospheric composition -->
+        <div style="position:absolute; left:320px; top:150px; width:430px; height:720px; overflow:hidden; background:#1a0c06;">
+          <div style="position:absolute; inset:0; background:linear-gradient(#2a1206 0%, #7a2c08 45%, #d2691a 72%, #f0a63c 88%, #ffd08a 100%);"></div>
+          <div style="position:absolute; left:50%; top:62%; transform:translate(-50%,-50%); width:420px; height:420px; border-radius:50%; background:radial-gradient(circle, #fff5d0 0%, #ffc85e 22%, #ff8a1e00 62%);"></div>
+          <div style="position:absolute; left:-10%; bottom:0; width:120%; height:36%; background:#160903; clip-path:polygon(0 42%,18% 26%,34% 46%,52% 22%,72% 44%,88% 28%,100% 48%,100% 100%,0 100%);"></div>
+          <div style="position:absolute; left:38%; top:22%; width:150px; height:520px; background:linear-gradient(#0d0603,#1b0d05); border-radius:70px 70px 0 0; filter:blur(1px);"></div>
+          <div style="position:absolute; left:44%; top:15%; width:88px; height:104px; background:#0d0603; border-radius:44px 44px 36px 36px; filter:blur(1px);"></div>
+          <div style="position:absolute; inset:0; opacity:.22; mix-blend-mode:overlay; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div>
+        </div>
+
+        <div style="position:absolute; left:750px; top:270px; width:530px; height:400px; overflow:hidden;">
+          <div style="position:absolute; inset:0; background:linear-gradient(120deg,#2a1206,#8f3a0d 55%,#e08b2a);"></div>
+          <div style="position:absolute; right:-10%; bottom:-30%; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle,#fff0c0 0%,#ffbb52 26%,transparent 62%);"></div>
+          <div style="position:absolute; left:0; bottom:0; width:100%; height:44%; background:#1a0a04; clip-path:polygon(0 58%,24% 30%,46% 52%,68% 24%,100% 46%,100% 100%,0 100%);"></div>
+          <div style="position:absolute; inset:0; opacity:.2; mix-blend-mode:overlay; background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div>
+        </div>
+
+        <div style="position:absolute; left:440px; top:330px; font-family:'Space Mono',monospace; font-size:12px; letter-spacing:.36em; text-shadow:0 2px 12px #000;">LAUNCHING : 09 . 09 . 2026</div>
+        <div style="position:absolute; left:440px; top:372px; display:flex; align-items:flex-end; gap:30px;">
+          <div style="font-size:70px; font-weight:700; letter-spacing:.03em; line-height:.98; text-shadow:0 4px 24px #000a;">COSMIC<br>STRAWBERRY</div>
+          <div style="font-size:36px; font-weight:200; letter-spacing:.1em; color:#ffd49a; padding-bottom:8px; text-shadow:0 2px 16px #000;">THE FUTURE, EARLY</div>
+        </div>
+        <div style="position:absolute; left:442px; top:548px; width:420px; height:1px; background:linear-gradient(90deg,#fff,transparent);"></div>
+
+        <div style="position:absolute; left:440px; top:572px; width:452px; font-family:'Space Mono',monospace; font-size:11.5px; line-height:2; letter-spacing:.08em; color:#e6dbc6; text-shadow:0 2px 10px #000;">
+          A design agency for brand identity, interactive product, and immersive
+          environments. We build the thing everybody else calls impossible, then
+          hand you the keys and the documentation.
+        </div>
+
+        <!-- rating -->
+        <div style="position:absolute; left:930px; top:540px; display:flex; flex-direction:column; gap:4px; align-items:flex-end;">
+          <div style="display:flex; align-items:stretch; border:2px solid #fff; background:#0006;">
+            <div style="background:#fff; color:#0a0a0a; font-size:16px; font-weight:700; padding:3px 9px;">CS·13</div>
+            <div style="font-family:'Space Mono',monospace; font-size:9px; padding:6px 9px; letter-spacing:.1em;">CLIENTS STRONGLY CAUTIONED</div>
+          </div>
+          <div style="font-family:'Space Mono',monospace; font-size:8px; letter-spacing:.08em; color:#d6cab3;">SOME IDEAS MAY BE INAPPROPRIATE FOR LEGACY ROADMAPS</div>
+          <div style="background:#1c1c1c; border:1px solid #5a5a5a; font-family:'Space Mono',monospace; font-size:9px; padding:4px 12px; letter-spacing:.18em;">SPECULATIVE / REALTIME / LOUD</div>
+        </div>
+
+        <!-- left rail -->
+        <div style="position:absolute; left:28px; top:320px; display:flex; flex-direction:column; gap:16px; align-items:flex-start;">
+          <div style="font-size:20px; font-weight:500; letter-spacing:.18em; line-height:1.1;">NEW<br>REEL</div>
+          <div style="width:70px; height:2px; background:#bc4526;"></div>
+          <div style="width:52px; height:44px; background:linear-gradient(#333,#1c1c1c); border:1px solid #565656; display:flex; align-items:center; justify-content:center;"><div style="width:0;height:0;border-left:11px solid #cfc7b6;border-top:7px solid transparent;border-bottom:7px solid transparent;"></div></div>
+          <div style="width:52px; height:44px; background:linear-gradient(#333,#1c1c1c); border:1px solid #565656; display:flex; align-items:center; justify-content:center;"><div style="width:14px;height:14px;border:2px solid #cfc7b6;"></div></div>
+          <div style="font-size:20px; font-weight:500; letter-spacing:.18em;">WORK</div>
+          <div style="width:70px; height:2px; background:#bc4526;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.2em; color:#8d8878; line-height:2;">01 IDENTITY<br>02 PRODUCT<br>03 SPATIAL<br>04 STUDIO</div>
+        </div>
+
+        <!-- enter -->
+        <div style="position:absolute; left:106px; top:436px; width:230px; height:80px; background:linear-gradient(#e6ebf0,#93a0ad); display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 2px #0a0a0a, 8px 8px 26px #0007; clip-path:polygon(0 22%,18% 22%,18% 0,82% 0,82% 22%,100% 22%,100% 78%,82% 78%,82% 100%,18% 100%,18% 78%,0 78%);">
+          <span style="font-size:23px; letter-spacing:.44em; color:#1e2b38; padding-left:.44em; font-weight:500;">ENTER</span>
+        </div>
+
+        <div style="position:absolute; left:22px; top:200px; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.16em; color:#6a6659;">HTTP://WWW.COSMICSTRAWBERRY.COM/</div>
+
+        <div style="position:absolute; left:22px; top:748px; display:flex; align-items:center; gap:14px;">
+          <div style="width:38px;height:38px;background:#c5bfaf;clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);"></div>
+          <div style="font-size:16px; font-weight:500; letter-spacing:.2em; color:#5b5648; line-height:1.15;">COSMIC<br>STRAWBERRY</div>
+        </div>
+
+        <!-- billing block -->
+        <div style="position:absolute; left:770px; top:742px; width:640px; font-family:'Oswald',sans-serif; font-weight:300; font-size:9.5px; letter-spacing:.1em; line-height:1.55; color:#b7ae9c; text-align:center; transform:scaleY(1.25); transform-origin:top;">
+          COSMIC STRAWBERRY PRESENTS A COSMIC STRAWBERRY PRODUCTION “THE FUTURE, EARLY” IDENTITY BY THE BRAND GROUP<br>
+          INTERACTION DESIGN BY THE PRODUCT GROUP SPATIAL SYSTEMS BY THE LAB SOUND DESIGN BY PRECISION BREAKBEAT RESEARCH<br>
+          TYPE BY STUDIO FIFTY-EIGHT COLOR BY PORTLAND PHOTOCHEM EXECUTIVE DIRECTION BY THE PARTNERS DIRECTED BY THE WHOLE STUDIO
+        </div>
+        <div style="position:absolute; left:770px; top:838px; width:640px; text-align:center; font-family:'Space Mono',monospace; font-size:9.5px; line-height:2; letter-spacing:.1em; color:#8d8878;">
+          © 2026 COSMIC STRAWBERRY LLC. ALL RIGHTS RESERVED.<br>
+          SEE OUR <span style="color:#5f5a4d; text-decoration:underline;">PRIVACY</span> AND <span style="color:#5f5a4d; text-decoration:underline;">TERMS OF SERVICE</span> POLICIES
+        </div>
+
+        <div style="position:absolute; left:346px; top:790px; display:flex; gap:12px; align-items:flex-start;">
+          <div style="width:30px; height:30px; background:#fff; border-radius:5px;"></div>
+          <div style="font-family:'Space Mono',monospace; font-size:9.5px; line-height:1.7; letter-spacing:.1em; color:#cabfa8;">SITE REQUIRES CURIOSITY,<br>A GOOD SCREEN, AND TIME.<br>SOUND STRONGLY ADVISED.</div>
+        </div>
+        <div style="position:absolute; left:346px; top:920px; display:flex; gap:8px;">
+          <div style="width:10px;height:10px;border-radius:50%;background:#fff;"></div>
+          <div style="width:10px;height:10px;border-radius:50%;background:#ffffff40;"></div>
+          <div style="width:10px;height:10px;border-radius:50%;background:#ffffff40;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= 2D — FIELD GUIDE ================= -->
+    <div id="2d" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; gap:10px; align-items:center; color:#1a1a18;">
+        <span style="background:#1a1a18; color:#e9e9e5; font-size:12px; font-weight:700; padding:4px 9px; letter-spacing:.15em;">2D</span>
+        <span style="font-size:12px; letter-spacing:.18em; text-transform:uppercase;">Field guide / illustrated landscape</span>
+      </div>
+      <div style="width:1440px; height:1024px; position:relative; overflow:hidden; background:#ffffff; font-family:'Space Grotesk',sans-serif; color:#1c3149;">
+
+        <div style="position:absolute; left:34px; top:28px;">
+          <div style="font-size:14px; font-weight:700; letter-spacing:.36em;">COSMIC</div>
+          <div style="font-family:'Archivo Black',sans-serif; font-size:72px; line-height:.86; letter-spacing:-.035em;">STRAWBERRY</div>
+        </div>
+        <div style="position:absolute; left:632px; top:36px; width:58px; height:58px; border-radius:50%; background:radial-gradient(circle at 34% 30%, #ff7f90, #e8465c 60%, #b32438);"></div>
+        <div style="position:absolute; left:650px; top:12px; width:16px; height:38px; background:#3fbb4d; border-radius:50% 50% 0 0; transform:rotate(-18deg);"></div>
+        <div style="position:absolute; left:720px; top:44px; display:flex; gap:14px; align-items:center; font-family:'Silkscreen',monospace; font-size:11px;">
+          <span style="background:#1c3149; color:#fff; padding:4px 9px;">HOME</span><span>WORK</span><span>STUDIO</span><span>JOURNAL</span><span>SHOP</span><span>CONTACT</span>
+        </div>
+
+        <!-- navy mass -->
+        <div style="position:absolute; left:34px; top:128px; width:660px; height:420px; background:#1c3149; border-radius:18px 18px 320px 44px;"></div>
+        <div style="position:absolute; left:160px; top:470px; width:310px; height:210px; background:#1c3149; border-radius:0 0 160px 160px;"></div>
+        <div style="position:absolute; left:430px; top:458px; width:240px; height:166px; background:#1c3149; border-radius:0 0 130px 130px;"></div>
+        <div style="position:absolute; left:96px; top:466px; width:150px; height:120px; background:#1c3149; border-radius:0 0 90px 90px;"></div>
+
+        <div style="position:absolute; left:58px; top:146px; display:flex; gap:10px; align-items:center;">
+          <div style="width:10px; height:10px; background:#35c6f4;"></div>
+          <div style="font-size:12px; font-weight:700; letter-spacing:.16em; color:#fff;">FEATURE ITEM:</div>
+        </div>
+        <div style="position:absolute; left:58px; top:170px; font-size:12.5px; letter-spacing:.08em; color:#35c6f4;">Aurora Bank — spatial onboarding, 2026.</div>
+
+        <div style="position:absolute; left:58px; top:204px; display:flex; gap:18px;">
+          <div style="width:206px; height:164px; border:3px solid #fff; position:relative; overflow:hidden; background:linear-gradient(150deg,#3a5878,#22405f);">
+            <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,#ffffff12 0 6px,transparent 6px 13px);"></div>
+            <div style="position:absolute; left:24px; top:28px; width:80px; height:80px; border-radius:50%; background:radial-gradient(circle at 34% 30%,#9fd6f0,#3f7fae);"></div>
+            <div style="position:absolute; right:18px; top:44px; width:46px; height:46px; background:#35c6f4; transform:rotate(18deg);"></div>
+            <div style="position:absolute; left:8px; bottom:8px; font-family:'Silkscreen',monospace; font-size:9px; color:#9fd6f0;">2026</div>
+          </div>
+          <div style="width:206px; height:164px; border:3px solid #fff; position:relative; overflow:hidden; background:linear-gradient(150deg,#5b3c6e,#3a2749);">
+            <div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,#ffffff12 0 6px,transparent 6px 13px);"></div>
+            <div style="position:absolute; left:30px; top:36px; width:120px; height:60px; border-radius:30px; background:linear-gradient(90deg,#e7b6ff,#8b5fb0);"></div>
+            <div style="position:absolute; left:8px; bottom:8px; font-family:'Silkscreen',monospace; font-size:9px; color:#e7b6ff;">2025</div>
+          </div>
+        </div>
+
+        <div style="position:absolute; left:58px; top:396px; width:430px; font-size:12.5px; line-height:1.75; color:#b9cbdb;">
+          A small studio in Portland making brand identity, interactive product, and immersive
+          environments. We like problems that don't have a template yet.
+        </div>
+        <div style="position:absolute; left:58px; top:474px; display:flex; gap:10px;">
+          <span style="font-family:'Silkscreen',monospace; font-size:10px; background:#35c6f4; color:#0f2233; padding:5px 10px;">SEE THE WORK</span>
+          <span style="font-family:'Silkscreen',monospace; font-size:10px; border:1px solid #6f8ba5; color:#c7d8e6; padding:5px 10px;">SAY HELLO</span>
+        </div>
+
+        <!-- news panel -->
+        <div style="position:absolute; left:496px; top:128px; width:314px; height:376px; background:#f3f7fa; border:1px solid #c5d5e1; box-shadow:3px 3px 0 #1c314915;">
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:11px 15px; border-bottom:1px solid #c5d5e1;">
+            <span style="font-family:'Archivo Black',sans-serif; font-size:18px;">some news</span>
+            <span style="font-size:14px; color:#7c98b0;">‹ ›</span>
+          </div>
+          <div style="padding:15px; display:flex; flex-direction:column; gap:15px; font-size:12.5px; line-height:1.55;">
+            <div><span style="color:#e8465c; font-weight:700;">07.14.2026</span><br>Cosmic Strawberry ships <span style="color:#e8465c; text-decoration:underline;">Tidal</span>, a realtime lobby installation for Kite Labs.</div>
+            <div><span style="color:#e8465c; font-weight:700;">06.02.2026</span><br>Identity system for <span style="color:#e8465c; text-decoration:underline;">Neon Grocery</span> wins a Type Directors nod.</div>
+            <div><span style="color:#e8465c; font-weight:700;">04.28.2026</span><br>We are hiring an <span style="color:#e8465c; text-decoration:underline;">interaction engineer</span>. Weird portfolios strongly preferred.</div>
+            <div><span style="color:#e8465c; font-weight:700;">03.09.2026</span><br>Notes on WebGL budgets, or how to spend 4mb well.</div>
+          </div>
+          <div style="position:absolute; right:0; top:44px; width:9px; height:332px; background:#e3ecf3;">
+            <div style="width:9px; height:120px; background:#9db8cc;"></div>
+          </div>
+        </div>
+
+        <!-- nav columns -->
+        <div style="position:absolute; left:836px; top:128px; display:flex; gap:16px; align-items:flex-start;">
+          <div style="width:124px; background:linear-gradient(#22b0e6,#ffffff); padding:9px 11px 48px;">
+            <div style="font-family:'Silkscreen',monospace; font-size:13px; margin-bottom:11px;">STUDIO</div>
+            <div style="font-family:'Silkscreen',monospace; font-size:11px; line-height:2.1;">COMPANY<br>PORTFOLIO<br>PRESS<br>AWARDS<br>PUBLIC SPHERE</div>
+          </div>
+          <div style="width:124px; background:linear-gradient(#22b0e6,#ffffff); padding:9px 11px 70px;">
+            <div style="font-family:'Silkscreen',monospace; font-size:13px; margin-bottom:11px;">STIMULI</div>
+            <div style="font-family:'Silkscreen',monospace; font-size:11px; line-height:2.1;">BRAND<br>APPS<br>WEBGL<br>ROOMS<br>SENSORS<br>SOUND<br>TOYS</div>
+          </div>
+          <div style="width:110px; background:linear-gradient(#22b0e6,#ffffff); padding:9px 11px 100px;">
+            <div style="font-family:'Silkscreen',monospace; font-size:13px; margin-bottom:11px;">MART</div>
+            <div style="font-family:'Silkscreen',monospace; font-size:11px; line-height:2.1;">NICE<br>THINGS<br>TO BUY<br>POSTERS<br>ZINES</div>
+          </div>
+        </div>
+
+        <!-- owl badge -->
+        <div style="position:absolute; left:1250px; top:150px; width:150px; display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <div style="position:relative; width:86px; height:86px; border-radius:50%; background:radial-gradient(circle at 36% 30%, #9a7048, #6b4a2f 70%);">
+            <div style="position:absolute; left:16px; top:26px; width:20px; height:20px; border-radius:50%; background:#fff;"></div>
+            <div style="position:absolute; right:16px; top:26px; width:20px; height:20px; border-radius:50%; background:#fff;"></div>
+            <div style="position:absolute; left:50%; top:48px; transform:translateX(-50%); width:0; height:0; border-left:7px solid transparent; border-right:7px solid transparent; border-top:12px solid #e8a13c;"></div>
+          </div>
+          <div style="width:126px; padding:6px 0; text-align:center; background:#f7f2e7; border:2px solid #6b4a2f; border-radius:22px; font-family:'Silkscreen',monospace; font-size:9px; color:#6b4a2f;">WE NEVER SLEEP</div>
+          <div style="width:7px; height:70px; background:#3fbb4d;"></div>
+          <div style="width:40px; height:16px; background:#3fbb4d; border-radius:50% 0 50% 0; margin-top:-56px; margin-left:40px;"></div>
+        </div>
+
+        <!-- connectors -->
+        <div style="position:absolute; left:322px; top:600px; width:16px; height:170px; background:repeating-linear-gradient(#22b0e6 0 9px, transparent 9px 18px);"></div>
+        <div style="position:absolute; left:290px; top:646px; transform:rotate(-90deg); transform-origin:left top; font-family:'Silkscreen',monospace; font-size:10px; color:#22b0e6;">ORGANIC</div>
+        <div style="position:absolute; left:640px; top:560px; width:16px; height:180px; background:repeating-linear-gradient(#22b0e6 0 9px, transparent 9px 18px);"></div>
+        <div style="position:absolute; left:608px; top:604px; transform:rotate(-90deg); transform-origin:left top; font-family:'Silkscreen',monospace; font-size:10px; color:#22b0e6;">RANDOM</div>
+        <div style="position:absolute; left:880px; top:490px; width:16px; height:230px; background:repeating-linear-gradient(#22b0e6 0 9px, transparent 9px 18px);"></div>
+        <div style="position:absolute; left:496px; top:512px; width:770px; height:14px; background:repeating-linear-gradient(90deg,#1c3149 0 3px,transparent 3px 10px);"></div>
+
+        <!-- clouds -->
+        <div style="position:absolute; left:1000px; top:560px; width:130px; height:56px; border-radius:40px; background:#dcecf6;"></div>
+        <div style="position:absolute; left:1040px; top:534px; width:80px; height:70px; border-radius:50%; background:#dcecf6;"></div>
+        <div style="position:absolute; left:1150px; top:620px; width:100px; height:44px; border-radius:30px; background:#eaf4fa;"></div>
+
+        <!-- ground -->
+        <div style="position:absolute; left:0; bottom:0; width:1440px; height:190px; background:linear-gradient(#19b3e8,#0e93c4); border-radius:50% 50% 0 0 / 54px 54px 0 0;"></div>
+        <div style="position:absolute; left:0; bottom:120px; width:1440px; height:80px; background:#54cbf0; border-radius:50% 50% 0 0 / 46px 46px 0 0; opacity:.5;"></div>
+
+        <div style="position:absolute; left:560px; bottom:190px; width:210px; height:66px; background:#ffffff; border-radius:0 0 105px 105px;"></div>
+        <div style="position:absolute; left:200px; bottom:190px; width:330px; height:112px;">
+          <div style="position:absolute; inset:0; background:#f0e8d6; border:2px solid #1c3149; clip-path:polygon(0 42%,50% 0,100% 42%,100% 100%,0 100%);"></div>
+          <div style="position:absolute; left:46%; bottom:0; width:38px; height:44px; background:#1c3149;"></div>
+          <div style="position:absolute; left:18%; bottom:52px; width:26px; height:22px; background:#35c6f4; border:2px solid #1c3149;"></div>
+          <div style="position:absolute; right:18%; bottom:52px; width:26px; height:22px; background:#35c6f4; border:2px solid #1c3149;"></div>
+        </div>
+        <div style="position:absolute; left:1120px; bottom:190px; width:28px; height:88px; background:#3fbb4d; border-radius:15px 15px 0 0;"></div>
+        <div style="position:absolute; left:1176px; bottom:190px; width:42px; height:124px; background:#8bd44f; border-radius:22px 22px 0 0;"></div>
+        <div style="position:absolute; left:1240px; bottom:190px; width:22px; height:64px; background:#3fbb4d; border-radius:12px 12px 0 0;"></div>
+        <div style="position:absolute; left:14px; bottom:190px; width:50px; height:62px; background:#e8465c;"></div>
+        <div style="position:absolute; left:14px; bottom:252px; width:50px; height:16px; background:#b32438;"></div>
+        <div style="position:absolute; left:980px; bottom:190px; width:18px; height:44px; background:#1c3149;"></div>
+        <div style="position:absolute; left:972px; bottom:234px; width:34px; height:34px; border-radius:50%; background:#f8d24a;"></div>
+
+        <div style="position:absolute; left:34px; bottom:96px; display:flex; align-items:center; gap:12px;">
+          <div style="width:58px; height:58px; background:#1c3149; border-radius:8px; display:flex; align-items:center; justify-content:center;">
+            <div style="width:22px; height:22px; background:#e8465c; border-radius:50%;"></div>
+          </div>
+          <div style="font-family:'Silkscreen',monospace; font-size:10px; color:#fff; line-height:1.9;">COSMIC STRAWBERRY<br>DESIGN AGENCY</div>
+        </div>
+        <div style="position:absolute; right:38px; bottom:118px; font-family:'Silkscreen',monospace; font-size:13px; color:#fff;">CULTIVATING FUTURE INTERFACES</div>
+        <div style="position:absolute; left:34px; bottom:22px; font-family:'Silkscreen',monospace; font-size:10px; color:#d6f2ff;">58 HOWARD STREET, PORTLAND, OR 97209 · PH. 503.552.2124</div>
+        <div style="position:absolute; right:38px; bottom:22px; font-family:'Silkscreen',monospace; font-size:10px; color:#d6f2ff;">EMAIL: HELLO@COSMICSTRAWBERRY.COM</div>
+      </div>
+    </div>
+
+    <!-- ================= 2E — GLITCH ================= -->
+    <div id="2e" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; gap:10px; align-items:center; color:#1a1a18;">
+        <span style="background:#1a1a18; color:#e9e9e5; font-size:12px; font-weight:700; padding:4px 9px; letter-spacing:.15em;">2E</span>
+        <span style="font-size:12px; letter-spacing:.18em; text-transform:uppercase;">Glitch collage / hairline links</span>
+      </div>
+      <div style="width:1440px; height:1024px; position:relative; overflow:hidden; background:#ffffff; font-family:'IBM Plex Mono',monospace; color:#111;">
+
+        <!-- collage -->
+        <div style="position:absolute; left:30px; top:20px; width:640px; height:620px;">
+          <div style="position:absolute; left:70px; top:40px; width:360px; height:360px; border-radius:50%; background:radial-gradient(circle at 38% 34%, #b9bec6, #ffffff 74%);"></div>
+          <div style="position:absolute; left:0; top:70px; width:500px; height:330px; background:repeating-linear-gradient(72deg,#111 0 2px,transparent 2px 12px); clip-path:polygon(4% 40%,38% 0,86% 18%,100% 62%,58% 100%,12% 84%);"></div>
+          <div style="position:absolute; left:140px; top:0; width:400px; height:300px; background:repeating-linear-gradient(-58deg,#2a2a2a 0 1px,transparent 1px 6px); clip-path:polygon(20% 0,100% 26%,72% 100%,0 62%);"></div>
+          <div style="position:absolute; left:210px; top:220px; width:360px; height:280px; background:repeating-linear-gradient(24deg,#111 0 3px,transparent 3px 8px); clip-path:polygon(0 30%,64% 0,100% 54%,40% 100%);"></div>
+          <div style="position:absolute; left:20px; top:300px; width:310px; height:250px; background:repeating-linear-gradient(100deg,#3f3f3f 0 2px,transparent 2px 10px); clip-path:polygon(10% 0,100% 22%,84% 100%,0 70%);"></div>
+          <div style="position:absolute; left:280px; top:120px; width:230px; height:230px; background:radial-gradient(circle,#111 0 1px,transparent 1.6px) 0 0/9px 9px; clip-path:polygon(30% 0,100% 40%,66% 100%,0 58%);"></div>
+          <div style="position:absolute; left:160px; top:390px; width:250px; height:140px; background:repeating-linear-gradient(#111 0 1px,transparent 1px 5px); transform:skewX(-22deg);"></div>
+          <div style="position:absolute; left:90px; top:180px; width:420px; height:200px; background:repeating-linear-gradient(88deg,#000 0 1px,transparent 1px 4px); clip-path:polygon(0 46%,26% 10%,58% 40%,88% 4%,100% 52%,64% 96%,22% 74%); opacity:.75;"></div>
+          <div style="position:absolute; left:340px; top:60px; width:180px; height:6px; background:#111; transform:rotate(-24deg);"></div>
+          <div style="position:absolute; left:380px; top:96px; width:130px; height:3px; background:#111; transform:rotate(-18deg);"></div>
+          <div style="position:absolute; left:70px; top:170px; font-family:'Anton',sans-serif; font-size:150px; line-height:.8; color:#ffffff; mix-blend-mode:difference; letter-spacing:-.06em;">CS</div>
+          <div style="position:absolute; left:430px; top:430px; width:120px; height:120px; border:1px solid #111; border-radius:50%; opacity:.5;"></div>
+          <div style="position:absolute; left:452px; top:452px; width:76px; height:76px; border:1px solid #111; border-radius:50%; opacity:.35;"></div>
+        </div>
+
+        <div style="position:absolute; left:300px; top:648px; font-size:8px; letter-spacing:.24em; color:#8a8a8a;">FIG. A — STUDIO SELF PORTRAIT, RENDERED IN NOISE</div>
+
+        <!-- login -->
+        <div style="position:absolute; right:26px; top:160px; display:flex; align-items:center; gap:7px; font-size:12.5px;">
+          <span style="text-decoration:underline;">sign up</span><span>|</span><span style="text-decoration:underline;">login-username</span>
+          <div style="width:170px; height:20px; border:1px solid #767676; background:#fff; box-shadow:inset 1px 1px 0 #d5d5d5;"></div>
+          <span>|password</span>
+          <div style="width:170px; height:20px; border:1px solid #767676; background:#fff; box-shadow:inset 1px 1px 0 #d5d5d5;"></div>
+        </div>
+        <div style="position:absolute; right:26px; top:192px; display:flex; align-items:center; gap:9px; font-size:12.5px;">
+          <div style="width:13px; height:13px; border:1px solid #767676; background:#fff;"></div>
+          <span>stay logged in</span>
+          <div style="border:1px solid #6a6a6a; background:linear-gradient(#fbfbfb,#d9d9d9); padding:2px 14px; font-size:12.5px;">login</div>
+        </div>
+
+        <div style="position:absolute; left:720px; top:430px; font-size:11px; line-height:1.85; letter-spacing:.18em;">
+          WELCOME TO COSMICSTRAWBERRY.COM<br>
+          A HIGH BANDWIDTH AND GRAPHIC ORIENTED STUDIO<br>
+          <span style="color:#666;">BRAND IDENTITY · INTERACTIVE · IMMERSIVE ENVIRONMENTS</span>
+        </div>
+
+        <!-- logotype bar -->
+        <div style="position:absolute; left:16px; top:500px; width:1408px; display:flex; align-items:flex-end; gap:20px;">
+          <div style="background:#111; color:#fff; font-family:'Anton',sans-serif; font-size:44px; letter-spacing:.24em; padding:7px 20px 5px; transform:scaleY(1.18); transform-origin:bottom;">cosmic strawberry</div>
+          <div style="flex:1; height:24px; background:repeating-linear-gradient(90deg,#111 0 2px,transparent 2px 5px);"></div>
+        </div>
+        <div style="position:absolute; right:26px; top:512px; display:flex; gap:7px; font-size:13px; align-items:center;">
+          <span>launch chat</span><span>|</span><span>board</span><span>|</span><span>news</span><span>|</span><span>galleries</span><span>|</span><span>articles</span><span>|</span><span>about</span><span>|</span><span>links</span><span>|</span><span>shop</span><span>|</span><span style="font-weight:600;">CS honors</span>
+        </div>
+        <div style="position:absolute; right:26px; top:538px; font-size:9px; letter-spacing:.24em; color:#555;">↳ LATEST HEADLINES</div>
+
+        <div style="position:absolute; right:26px; top:576px; width:600px; text-align:right; font-size:13px; line-height:2.05; color:#1d3fb8;">
+          <div><span style="text-decoration:underline;">identity: neon grocery</span>|<span style="font-weight:600; color:#111;">july.14.2026</span> new work</div>
+          <div><span style="text-decoration:underline;">room-scale: tidal lobby</span>|<span style="font-weight:600; color:#111;">june.02.2026</span> case study</div>
+          <div><span style="text-decoration:underline;">hiring: interaction eng</span>|<span style="font-weight:600; color:#111;">april.28.2026</span> studio =</div>
+          <div><span style="text-decoration:underline;">notes on webgl budgets</span>|<span style="font-weight:600; color:#111;">march.09.2026</span></div>
+          <div><span style="text-decoration:underline;">wallpaper drop 04</span>|<span style="font-weight:600; color:#111;">feb.21.2026</span> free</div>
+        </div>
+
+        <div style="position:absolute; right:26px; top:756px; width:420px; text-align:right; font-size:11px; line-height:1.9; color:#444; border-top:1px solid #ccc; padding-top:10px;">
+          the studio operates out of portland, oregon and a rented room in berlin.
+          we take four projects a year. we answer every email, eventually.
+        </div>
+
+        <!-- disciplines -->
+        <div style="position:absolute; left:300px; top:690px; font-size:14px; line-height:1.7;">
+          <div><span style="font-weight:600;">brand</span>|interactive</div>
+          <div>immersive|<span style="font-weight:600;">product</span></div>
+          <div>research|<span style="font-weight:600;">sound</span></div>
+          <div style="font-size:9px; letter-spacing:.3em; color:#666; margin-top:5px;">DISCIPLINES ↗</div>
+          <div style="margin-top:9px;">studio.<span style="font-weight:600;">cosmicstrawberry</span>.com</div>
+        </div>
+
+        <!-- figures -->
+        <div style="position:absolute; left:58px; bottom:130px; display:flex; gap:16px; align-items:flex-end;">
+          <div style="width:30px; height:64px; background:repeating-linear-gradient(#111 0 1px,#fff 1px 3px); border:1px solid #111;"></div>
+          <div style="width:30px; height:64px; background:repeating-linear-gradient(#111 0 1px,#fff 1px 3px); border:1px solid #111;"></div>
+          <div style="width:30px; height:64px; background:repeating-linear-gradient(#111 0 1px,#fff 1px 3px); border:1px solid #111;"></div>
+        </div>
+        <div style="position:absolute; left:50px; bottom:96px; display:flex; gap:16px; font-size:7px; letter-spacing:.28em; color:#777;">
+          <span>◄DESIGNER</span><span>◄ENGINEER</span><span>◄DIRECTOR</span>
+        </div>
+
+        <div style="position:absolute; left:230px; bottom:62px; font-size:16px;">hosting provided by|<span style="font-weight:600;">north texas power &amp; communications</span></div>
+        <div style="position:absolute; left:230px; bottom:38px; font-size:10px; letter-spacing:.14em; color:#333;">ALL CONTENT &amp; GRAPHICS © 2026 COSMIC STRAWBERRY · SITE BEST VIEWED AT 1440 OR WIDER</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1500,&quot;height&quot;:1100}}"></script>
+</body>
+</html>
