@@ -51,4 +51,9 @@ When triggered:
 1. Finalize the draft entry: tidy the `title` and body into something worth reading, make sure `## Decisions` actually reflects what got decided, and write a real `nextFocus` for whoever picks this up next. Set `draft: false`.
 2. Cross-reference: confirm anything the entry names (an ADR, a spec, a Project, a file) actually exists at the path/link given. Fix or drop anything that doesn't.
 3. Give a short summary of the session in chat.
-4. Stage everything touched this session, including the finalized entry, and make one commit. Stop there — pushing, opening a PR, and merging stay manual, done by the user afterward.
+4. Stage everything touched this session, including the finalized entry, and draft a commit message. Present it and stop — do not run `git commit`. The commit is the user's call to make, every time; staging and a suggested message is as far as this goes without their explicit go-ahead in that moment. Pushing, opening a PR, and merging are further out of scope, same as always.
+
+## Commit rules (always, no exceptions)
+
+- Never run `git commit` as part of this skill, wrap-up included, without the user explicitly approving that specific commit in that moment. A general "wrap up" instruction is not that approval — it only covers finalizing the entry and staging.
+- Never add an AI co-author trailer (`Co-Authored-By: Claude ...` or similar) to any commit in this repo. This is the user's project and the user's authorship; drop that trailer even if a default elsewhere would normally add it.

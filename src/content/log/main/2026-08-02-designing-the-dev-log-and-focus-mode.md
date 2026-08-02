@@ -2,7 +2,7 @@
 title: "Giving the project a memory: the Dev Log and focus-mode"
 date: 2026-08-02T15:00:00
 draft: false
-nextFocus: "Build the remaining routes: /[world]/log/ list + entry pages, individual permalinks under /log/, and a secondary per-World nav (the main nav now only points at the Dev Log, so World/Project browsing needs a home)."
+nextFocus: "Build the remaining routes: /[world]/log/ list pages, individual entry permalinks under /log/ (cards currently deep-link to an anchor on the one list page), and a secondary nav for browsing Worlds/Projects now that the main nav points only at the Dev Log."
 ---
 
 View-Source exists to answer one question: how much taste can an agent fake before it stops working? The premise is a hub site into a growing set of standalone design experiments, called Worlds — a creative studio, a hardware conglomerate, one company played straight across six eras of web design history. Each World contains Projects, and every Project is deliberately sealed off from every other one: no shared CSS, no shared components, no shared design system, so nothing can quietly default to the same safe, average-looking output agents tend to converge on. The only thing allowed to leak across that isolation is the Escape Hatch, a single consistent widget that gets a visitor back out of an otherwise-sealed Project. Everything above that isolation boundary — the root home page and the World pages — is the meta layer: one small, consistent shell that frames the experiment without ever touching a Project's own design.
@@ -15,9 +15,14 @@ The first pass at populating this got corrected twice, and both corrections matt
 
 The bigger addition was `focus-mode`, a new skill modeled on a pattern already proven on other projects: orient into one World at the start of a session by reading `CONTEXT.md`, that World's own record, the coding and voice conventions, its relevant ADRs, and its most recent Log Entry's `nextFocus` — then keep a live draft of the new entry updated as the session goes, because relying on conversation memory to reconstruct a session afterward has already been tried and found wanting. On a wrap-up cue, it finalizes that entry, cross-references anything it names, summarizes the session, and makes one commit. It stops there deliberately — pushing, opening a PR, and merging stay manual, a line drawn the same way this whole environment already treats anything hard to reverse.
 
+With the Dev Log actually able to hold real content, the last stretch of the session made it visible: a content collection wired up over `src/content/log/`, a `/log/` page rendering the main site's entries in full, and a new third row on the root home page's project panel — a smaller horizontal strip of Dev Log cards sitting under the World gallery. Getting that strip's look right took a correction of its own: the first instinct was to lean on the same dashed, half-opacity treatment already used for the `TBD` placeholder cards next to Mint Panther Corp, but that reads as *empty*, which is the opposite of what a written, readable entry should feel like. It ended up with a solid surface and a plain border instead — related to the meta layer's tool aesthetic, but legible as something finished, not something waiting to happen.
+
+By the end of the day the loop closes: the meta layer exists, the Dev Log exists and can hold a real narrative, and this entry — written by hand, the way `focus-mode` will eventually do it automatically — is the proof it works.
+
 ## Decisions
 
 - The Dev Log's schema, storage shape, and lifecycle are documented once, in `docs/dev-log-conventions.md`, rather than duplicated across the skill and the ADRs.
 - World-specific ADRs will live in `docs/adr/<world-slug>/` going forward, so `focus-mode` can scope its ADR read instead of reading every ADR in the repo regardless of relevance.
 - `focus-mode` is a new, purpose-built skill rather than an extension of the existing generic `handoff` skill, which stays project-agnostic and OS-temp-dir-scoped on purpose.
 - The main site's top nav now points at the Dev Log alone, replacing the previous per-World links — a deliberate simplification that leaves World/Project browsing without a nav home for now, picked up as next focus.
+- The Dev Log teaser strip on the home page uses a solid surface and plain border, not the dashed/half-opacity treatment used for `TBD` placeholders — it needed to read as complete and readable, not empty.
