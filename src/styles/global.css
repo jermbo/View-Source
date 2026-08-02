@@ -21,6 +21,7 @@ html {
 }
 
 body {
+	container: shell / inline-size;
 	font-family: var(--font-body);
 	color: var(--text-on-dark);
 	min-height: 100dvh;

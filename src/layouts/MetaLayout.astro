@@ -101,10 +101,10 @@ const navItems = worlds.map((world) => {
 		padding: var(--space-2) var(--space-5) var(--space-5);
 	}
 
-	@container (max-width: 720px) {
+	@container shell (width <= 720px) {
 		.bento {
 			grid-template-columns: 1fr;
-			grid-template-rows: auto 1fr;
+			grid-template-rows: 45vh 1fr;
 		}
 	}
 </style>

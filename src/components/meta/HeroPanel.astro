@@ -15,7 +15,7 @@ const { hero } = Astro.props;
 		<span class="hero-panel__title-accent">{hero.titleLine2}</span>
 	</h1>
 	<p class="hero-panel__description">{hero.description}</p>
-	<p class="hero-panel__meta">{hero.meta}</p>
+	{hero.meta && <p class="hero-panel__meta">{hero.meta}</p>}
 </div>
 
 <style>
@@ -69,5 +69,32 @@ const { hero } = Astro.props;
 		opacity: 0.6;
 		border-top: 1px solid currentColor;
 		padding-top: var(--space-3);
+	}
+
+	@container (height <= 480px) {
+		.hero-panel {
+			padding: var(--space-5) var(--space-5) var(--space-4);
+			gap: var(--space-2);
+		}
+
+		.hero-panel__title {
+			font-size: clamp(1.8rem, 10cqi, 3rem);
+		}
+
+		.hero-panel__description {
+			font-size: 0.85rem;
+			line-height: 1.45;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 4;
+			line-clamp: 4;
+			overflow: hidden;
+		}
+
+		.hero-panel__meta {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 </style>

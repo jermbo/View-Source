@@ -29,7 +29,7 @@ const { item } = Astro.props;
 
 <style>
 	.gallery-feature {
-		container-type: inline-size;
+		container-type: size;
 		position: relative;
 		height: 100%;
 		border-radius: var(--radius-panel);
@@ -162,6 +162,36 @@ const { item } = Astro.props;
 		}
 		50% {
 			opacity: 1;
+		}
+	}
+
+	@container (width <= 420px) {
+		.gallery-feature__stat {
+			position: static;
+			margin-bottom: var(--space-2);
+		}
+
+		.gallery-feature__stat-value {
+			font-size: 2.5rem;
+		}
+	}
+
+	@container (height <= 220px) {
+		.gallery-feature {
+			padding: var(--space-4);
+		}
+
+		.gallery-feature__badge,
+		.gallery-feature__stat {
+			display: none;
+		}
+
+		.gallery-feature__title {
+			font-size: clamp(1.4rem, 9cqi, 2.5rem);
+		}
+
+		.gallery-feature__subtitle {
+			padding-top: var(--space-2);
 		}
 	}
 </style>

@@ -13,9 +13,6 @@ const { hero } = Astro.props;
 <section class="hero-card">
 	<HeroRail hero={hero} />
 	<HeroPanel hero={hero} />
-	<div class="hero-card__accessory">
-		<slot name="accessory" />
-	</div>
 </section>
 
 <style>
@@ -41,17 +38,5 @@ const { hero } = Astro.props;
 			transparent 1px,
 			transparent 3px
 		);
-	}
-
-	.hero-card__accessory {
-		position: absolute;
-		top: var(--space-6);
-		right: var(--space-6);
-	}
-
-	@container (max-height: 420px) {
-		.hero-card__accessory {
-			display: none;
-		}
 	}
 </style>

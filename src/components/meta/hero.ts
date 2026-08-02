@@ -4,5 +4,5 @@ export interface HeroContent {
 	titleLine1: string;
 	titleLine2: string;
 	description: string;
-	meta: string;
+	meta?: string;
 }

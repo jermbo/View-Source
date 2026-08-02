@@ -1,7 +1,6 @@
 ---
 import MetaLayout from "../layouts/MetaLayout.astro";
 import HeroSplit from "../components/meta/HeroSplit.astro";
-import WorldDial from "../components/meta/WorldDial.astro";
 import GalleryFeature from "../components/meta/GalleryFeature.astro";
 import GalleryBand from "../components/meta/GalleryBand.astro";
 import GalleryEmpty from "../components/meta/GalleryEmpty.astro";
@@ -16,7 +15,6 @@ const hero: HeroContent = {
 	titleLine2: "some taste.",
 	description:
 		"Ask an agent to design something and you'll get the same clean, safe, forgettable page every time. So this is a running test: fake clients, sealed off from each other, each with its own markup, its own CSS, its own rules. Built to see how much taste an agent can fake before it stops working.",
-	meta: `${worlds.length} worlds so far · 0 shared styles`,
 };
 
 const tones = ["terracotta", "mustard", "sage"] as const;
@@ -58,9 +56,7 @@ const bandItems: GalleryItem[] = [...restWorldItems, ...placeholderItems];
 ---
 
 <MetaLayout title="View-Source">
-	<HeroSplit hero={hero}>
-		<WorldDial items={worldItems} slot="accessory" />
-	</HeroSplit>
+	<HeroSplit hero={hero} />
 	{
 		featuredItem && (
 			<div class="projects-panel">
@@ -78,7 +74,7 @@ const bandItems: GalleryItem[] = [...restWorldItems, ...placeholderItems];
 		min-height: 0;
 		height: 100%;
 		display: grid;
-		grid-template-rows: 1fr 1fr;
+		grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
 		gap: var(--space-4);
 	}
 </style>
