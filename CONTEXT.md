@@ -24,3 +24,11 @@ _Avoid_: Nav widget, control tab
 
 **Meta layer**:
 The root home page and every World page. Together they form one consistent, shared design system (distinct from the radical per-project isolation) — the "frame" around the experiment. World pages describe that world's design philosophy and fictional purpose, and gallery-link to its Projects; the meta layer also carries navigation between Worlds.
+
+**Dev Log**:
+A running, chronological record of work sessions, made up of Log Entries. Every World has exactly one; the root home page has its own as a special case, standing in for the site itself rather than for any single World. A Dev Log is part of the meta layer's shared design, not any Project's bespoke one — it's operational, not part of the fiction.
+_Avoid_: Blog, changelog
+
+**Log Entry**:
+One work session's record within a Dev Log: what happened, key decisions, optional screenshots, and what the next session should focus on. It optionally names the Project the session concerned — some entries are World-level (or site-level), with no Project attached.
+_Avoid_: Post, update

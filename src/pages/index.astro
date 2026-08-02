@@ -1,11 +1,14 @@
 ---
+import { getCollection } from "astro:content";
 import MetaLayout from "../layouts/MetaLayout.astro";
 import HeroSplit from "../components/meta/HeroSplit.astro";
 import GalleryFeature from "../components/meta/GalleryFeature.astro";
 import GalleryBand from "../components/meta/GalleryBand.astro";
 import GalleryEmpty from "../components/meta/GalleryEmpty.astro";
+import LogBand from "../components/meta/LogBand.astro";
 import type { HeroContent } from "../components/meta/hero";
 import type { GalleryItem, GalleryWorldItem } from "../components/meta/gallery";
+import type { LogItem } from "../components/meta/log";
 import { worlds } from "../data/worlds";
 
 const hero: HeroContent = {
@@ -53,6 +56,18 @@ const placeholderItems: GalleryItem[] = Array.from({ length: 5 }, (_, index) => 
 }));
 
 const bandItems: GalleryItem[] = [...restWorldItems, ...placeholderItems];
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric" });
+
+const logEntries = await getCollection("log", (entry) => !entry.data.draft && entry.id.startsWith("main/"));
+const logItems: LogItem[] = logEntries
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+	.slice(0, 4)
+	.map((entry) => ({
+		date: dateFormatter.format(entry.data.date),
+		title: entry.data.title,
+		href: `/log/#${entry.id.replace(/^main\//, "")}`,
+	}));
 ---
 
 <MetaLayout title="View-Source">
@@ -62,6 +77,7 @@ const bandItems: GalleryItem[] = [...restWorldItems, ...placeholderItems];
 			<div class="projects-panel">
 				<GalleryFeature item={featuredItem} />
 				<GalleryBand items={bandItems} />
+				{logItems.length > 0 && <LogBand items={logItems} viewAllHref="/log/" />}
 			</div>
 		)
 	}
@@ -74,7 +90,7 @@ const bandItems: GalleryItem[] = [...restWorldItems, ...placeholderItems];
 		min-height: 0;
 		height: 100%;
 		display: grid;
-		grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+		grid-template-rows: minmax(0, 1.6fr) minmax(0, 1.1fr) minmax(0, 0.6fr);
 		gap: var(--space-4);
 	}
 </style>

@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import { worlds } from "../data/worlds";
 import chakraPetchBold from "@fontsource/chakra-petch/files/chakra-petch-latin-700-normal.woff2?url";
 import rajdhaniSemibold from "@fontsource/rajdhani/files/rajdhani-latin-600-normal.woff2?url";
 import rajdhaniBold from "@fontsource/rajdhani/files/rajdhani-latin-700-normal.woff2?url";
@@ -13,12 +12,7 @@ interface Props {
 
 const { title } = Astro.props;
 const currentPath = Astro.url.pathname;
-
-const navItems = worlds.map((world) => {
-	const isCurrent = currentPath.startsWith(`/${world.slug}`);
-	const ariaCurrent = isCurrent ? "page" : undefined;
-	return { world, ariaCurrent };
-});
+const isLogCurrent = currentPath.startsWith("/log") ? "page" : undefined;
 ---
 
 <html lang="en">
@@ -38,13 +32,9 @@ const navItems = worlds.map((world) => {
 		<header class="meta-nav">
 			<a class="meta-nav__mark" href="/">View-Source</a>
 			<nav class="meta-nav__links">
-				{
-					navItems.map((item) => (
-						<a href={`/${item.world.slug}/`} aria-current={item.ariaCurrent}>
-							{item.world.name}
-						</a>
-					))
-				}
+				<a href="/log/" aria-current={isLogCurrent}>
+					Dev Log
+				</a>
 			</nav>
 		</header>
 		<main class="bento">

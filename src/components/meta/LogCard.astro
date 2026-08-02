@@ -1,0 +1,80 @@
+---
+import type { LogItem } from "./log";
+
+interface Props {
+	item: LogItem;
+}
+
+const { item } = Astro.props;
+---
+
+<a class="log-card" href={item.href}>
+	<span class="log-card__date">{item.date}</span>
+	<span class="log-card__title">{item.title}</span>
+	<span class="log-card__cue">Read entry <span class="log-card__arrow">↗</span></span>
+</a>
+
+<style>
+	.log-card {
+		container-type: inline-size;
+		position: relative;
+		flex: 0 0 200px;
+		height: 100%;
+		border-radius: calc(var(--radius-panel) * 0.6);
+		border: 1px solid color-mix(in srgb, var(--text-on-dark) 30%, transparent);
+		background: color-mix(in srgb, var(--text-on-dark) 6%, transparent);
+		padding: var(--space-4);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: var(--space-2);
+		text-decoration: none;
+		color: var(--text-on-dark);
+		scroll-snap-align: start;
+		transition:
+			background 0.15s ease,
+			border-color 0.15s ease;
+	}
+
+	.log-card:hover {
+		background: color-mix(in srgb, var(--text-on-dark) 12%, transparent);
+		border-color: color-mix(in srgb, var(--text-on-dark) 55%, transparent);
+	}
+
+	.log-card__date {
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		opacity: 0.6;
+	}
+
+	.log-card__title {
+		font-family: var(--font-heading);
+		font-weight: 600;
+		font-size: clamp(0.95rem, 9cqi, 1.15rem);
+		line-height: 1.15;
+	}
+
+	.log-card__cue {
+		display: flex;
+		align-items: center;
+		gap: 0.4em;
+		font-family: var(--font-mono);
+		font-size: 0.65rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		opacity: 0.6;
+		border-top: 1px solid color-mix(in srgb, var(--text-on-dark) 25%, transparent);
+		padding-top: var(--space-2);
+	}
+
+	.log-card__arrow {
+		display: inline-block;
+		transition: transform 0.15s ease;
+	}
+
+	.log-card:hover .log-card__arrow {
+		transform: translate(2px, -2px);
+	}
+</style>
