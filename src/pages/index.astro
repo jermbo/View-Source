@@ -1,29 +1,37 @@
 ---
 import MetaLayout from "../layouts/MetaLayout.astro";
 import HeroSplit from "../components/meta/HeroSplit.astro";
+import GalleryFeature from "../components/meta/GalleryFeature.astro";
 import GalleryBand from "../components/meta/GalleryBand.astro";
 import GalleryEmpty from "../components/meta/GalleryEmpty.astro";
 import type { HeroContent } from "../components/meta/hero";
+import type { GalleryItem, GalleryWorldItem } from "../components/meta/gallery";
 import { worlds } from "../data/worlds";
 
 const hero: HeroContent = {
 	indexLabel: "00",
 	kicker: "View-Source",
-	titleLine1: "Design,",
-	titleLine2: "unaveraged.",
+	titleLine1: "Give it",
+	titleLine2: "some taste.",
 	description:
-		"An experiment in rediscovering visual design in the age of agents. Every world below is a fully isolated fictional client — its own markup, its own CSS, its own rules — built to see what design looks like when an agent stops defaulting to the middle of the road.",
-	meta: `${worlds.length} worlds · growing`,
+		"Ask an agent to design something and you'll get the same clean, safe, forgettable page every time. So this is a running test: fake clients, sealed off from each other, each with its own markup, its own CSS, its own rules. Built to see how much taste an agent can fake before it stops working.",
+	meta: `${worlds.length} worlds so far · 0 shared styles`,
 };
 
 const tones = ["terracotta", "mustard", "sage"] as const;
+const featuredSlug = "web-design-eras";
 
-const galleryItems = worlds.map((world, index) => {
+const featuredWorld = worlds.find((world) => world.slug === featuredSlug);
+const otherWorlds = worlds.filter((world) => world.slug !== featuredSlug);
+const orderedWorlds = featuredWorld ? [featuredWorld, ...otherWorlds] : worlds;
+
+const worldItems: GalleryWorldItem[] = orderedWorlds.map((world, index) => {
 	const subtitle = world.projects.length
 		? `${world.projects.length} project${world.projects.length === 1 ? "" : "s"}`
 		: "in progress";
 
 	return {
+		kind: "world",
 		indexLabel: String(index + 1).padStart(2, "0"),
 		title: world.name,
 		subtitle,
@@ -32,11 +40,40 @@ const galleryItems = worlds.map((world, index) => {
 	};
 });
 
-const hasWorlds = galleryItems.length > 0;
+const [firstWorldItem, ...restWorldItems] = worldItems;
+const featuredItem: GalleryWorldItem | undefined = firstWorldItem && {
+	...firstWorldItem,
+	stat: { value: "06", label: "eras" },
+};
+
+const placeholderItems: GalleryItem[] = Array.from({ length: 5 }, (_, index) => ({
+	kind: "placeholder",
+	indexLabel: String(worldItems.length + index + 1).padStart(2, "0"),
+}));
+
+const bandItems: GalleryItem[] = [...restWorldItems, ...placeholderItems];
 ---
 
 <MetaLayout title="View-Source">
 	<HeroSplit hero={hero} />
-	{hasWorlds && <GalleryBand items={galleryItems} />}
-	{!hasWorlds && <GalleryEmpty message="No worlds yet." />}
+	{
+		featuredItem && (
+			<div class="projects-panel">
+				<GalleryFeature item={featuredItem} />
+				<GalleryBand items={bandItems} />
+			</div>
+		)
+	}
+	{!featuredItem && <GalleryEmpty message="No worlds yet." />}
 </MetaLayout>
+
+<style>
+	.projects-panel {
+		container-type: inline-size;
+		min-height: 0;
+		height: 100%;
+		display: grid;
+		grid-template-rows: 1fr 1fr;
+		gap: var(--space-4);
+	}
+</style>

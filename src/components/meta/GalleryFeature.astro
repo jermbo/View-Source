@@ -1,0 +1,136 @@
+---
+import type { GalleryWorldItem } from "./gallery";
+
+interface Props {
+	item: GalleryWorldItem;
+}
+
+const { item } = Astro.props;
+---
+
+<a class:list={["gallery-feature", `gallery-feature--${item.tone}`]} href={item.href}>
+	<span class="gallery-feature__index">{item.indexLabel}</span>
+	<span class="gallery-feature__arrow">↗</span>
+	<span class="gallery-feature__badge">Featured</span>
+	{
+		item.stat && (
+			<span class="gallery-feature__stat">
+				<span class="gallery-feature__stat-value">{item.stat.value}</span>
+				<span class="gallery-feature__stat-label">{item.stat.label}</span>
+			</span>
+		)
+	}
+	<span class="gallery-feature__title">{item.title}</span>
+	<span class="gallery-feature__subtitle">{item.subtitle}</span>
+</a>
+
+<style>
+	.gallery-feature {
+		container-type: inline-size;
+		position: relative;
+		height: 100%;
+		border-radius: var(--radius-panel);
+		padding: var(--space-6);
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		gap: var(--space-2);
+		text-decoration: none;
+		color: var(--text-on-light);
+	}
+
+	.gallery-feature--terracotta {
+		background: var(--color-terracotta);
+	}
+
+	.gallery-feature--mustard {
+		background: var(--color-mustard);
+	}
+
+	.gallery-feature--sage {
+		background: var(--color-sage);
+	}
+
+	.gallery-feature__index {
+		position: absolute;
+		top: var(--space-5);
+		left: var(--space-5);
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		letter-spacing: 0.08em;
+		opacity: 0.65;
+	}
+
+	.gallery-feature__index::before {
+		content: "[";
+	}
+
+	.gallery-feature__index::after {
+		content: "]";
+	}
+
+	.gallery-feature__stat {
+		position: absolute;
+		top: calc(var(--space-8) + var(--space-3));
+		right: var(--space-6);
+		display: flex;
+		align-items: baseline;
+		gap: var(--space-2);
+	}
+
+	.gallery-feature__stat-value {
+		font-family: var(--font-poster);
+		font-weight: 700;
+		font-size: clamp(3rem, 14cqi, 7rem);
+		line-height: 0.85;
+	}
+
+	.gallery-feature__stat-label {
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		opacity: 0.75;
+	}
+
+	.gallery-feature__arrow {
+		position: absolute;
+		top: var(--space-5);
+		right: var(--space-5);
+		font-size: 1.8rem;
+		line-height: 1;
+		transition: transform 0.15s ease;
+	}
+
+	.gallery-feature:hover .gallery-feature__arrow {
+		transform: translate(3px, -3px);
+	}
+
+	.gallery-feature__badge {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		opacity: 0.75;
+	}
+
+	.gallery-feature__title {
+		font-family: var(--font-heading);
+		font-weight: 700;
+		font-size: clamp(2rem, 7cqi, 4rem);
+		line-height: 1.02;
+	}
+
+	.gallery-feature__subtitle {
+		margin: 0;
+		max-width: 60ch;
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		opacity: 0.8;
+		border-top: 1px solid currentColor;
+		padding-top: var(--space-3);
+	}
+</style>

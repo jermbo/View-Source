@@ -22,10 +22,18 @@ const { hero } = Astro.props;
 		opacity: 0.6;
 	}
 
+	.hero-rail__index::before {
+		content: "[";
+	}
+
+	.hero-rail__index::after {
+		content: "]";
+	}
+
 	.hero-rail__mark {
 		position: absolute;
 		bottom: var(--space-5);
-		left: var(--space-5);
+		right: var(--space-5);
 		font-family: var(--font-mono);
 		font-weight: 700;
 		font-size: 1.1rem;

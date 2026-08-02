@@ -1,0 +1,67 @@
+---
+import type { GalleryPlaceholderItem } from "./gallery";
+
+interface Props {
+	item: GalleryPlaceholderItem;
+}
+
+const { item } = Astro.props;
+---
+
+<div class="gallery-card-placeholder">
+	<span class="gallery-card-placeholder__index">{item.indexLabel}</span>
+	<span class="gallery-card-placeholder__label">TBD</span>
+	<span class="gallery-card-placeholder__subtitle">Not started</span>
+</div>
+
+<style>
+	.gallery-card-placeholder {
+		container-type: inline-size;
+		position: relative;
+		flex: 0 0 240px;
+		height: 100%;
+		border-radius: var(--radius-panel);
+		border: 1px dashed color-mix(in srgb, var(--text-on-dark) 35%, transparent);
+		padding: var(--space-5);
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		gap: var(--space-2);
+		color: var(--text-on-dark);
+		opacity: 0.5;
+		scroll-snap-align: start;
+	}
+
+	.gallery-card-placeholder__index {
+		position: absolute;
+		top: var(--space-5);
+		left: var(--space-5);
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		letter-spacing: 0.08em;
+	}
+
+	.gallery-card-placeholder__index::before {
+		content: "[";
+	}
+
+	.gallery-card-placeholder__index::after {
+		content: "]";
+	}
+
+	.gallery-card-placeholder__label {
+		font-family: var(--font-heading);
+		font-weight: 600;
+		font-size: clamp(1.2rem, 10cqi, 1.9rem);
+		line-height: 1.05;
+	}
+
+	.gallery-card-placeholder__subtitle {
+		font-family: var(--font-mono);
+		font-size: 0.7rem;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		border-top: 1px dashed currentColor;
+		padding-top: var(--space-2);
+	}
+</style>

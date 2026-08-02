@@ -31,6 +31,7 @@ const hero: HeroContent = {
 const tones = ["terracotta", "mustard", "sage"] as const;
 
 const galleryItems = world.projects.map((project, index) => ({
+	kind: "world" as const,
 	indexLabel: String(index + 1).padStart(2, "0"),
 	title: project.name,
 	subtitle: project.pitch,
@@ -41,7 +42,7 @@ const galleryItems = world.projects.map((project, index) => ({
 const hasProjects = galleryItems.length > 0;
 ---
 
-<MetaLayout title={`${world.name} — View-Source`}>
+<MetaLayout title={`${world.name} · View-Source`}>
 	<HeroSplit hero={hero} />
 	{hasProjects && <GalleryBand items={galleryItems} />}
 	{!hasProjects && <GalleryEmpty message={`${world.name}'s first project is still being built.`} />}
