@@ -1,0 +1,73 @@
+---
+import type { HeroContent } from "./hero";
+
+interface Props {
+	hero: HeroContent;
+}
+
+const { hero } = Astro.props;
+---
+
+<div class="hero-panel">
+	<p class="hero-panel__kicker">{hero.kicker}</p>
+	<h1 class="hero-panel__title">
+		<span>{hero.titleLine1}</span>
+		<span class="hero-panel__title-accent">{hero.titleLine2}</span>
+	</h1>
+	<p class="hero-panel__description">{hero.description}</p>
+	<p class="hero-panel__meta">{hero.meta}</p>
+</div>
+
+<style>
+	.hero-panel {
+		height: 100%;
+		padding: var(--space-8) var(--space-6) var(--space-6);
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		gap: var(--space-4);
+	}
+
+	.hero-panel__kicker {
+		margin: 0;
+		font-family: var(--font-mono);
+		letter-spacing: 0.12em;
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		opacity: 0.7;
+	}
+
+	.hero-panel__title {
+		font-family: var(--font-display);
+		font-weight: 900;
+		font-size: clamp(2rem, 11cqi, 4.5rem);
+		line-height: 0.98;
+		letter-spacing: -0.01em;
+		display: flex;
+		flex-direction: column;
+		margin: 0;
+	}
+
+	.hero-panel__title-accent {
+		color: var(--accent-primary);
+	}
+
+	.hero-panel__description {
+		margin: 0;
+		max-width: 46ch;
+		font-size: 1rem;
+		line-height: 1.6;
+		opacity: 0.85;
+	}
+
+	.hero-panel__meta {
+		margin: 0;
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		opacity: 0.6;
+		border-top: 1px solid currentColor;
+		padding-top: var(--space-3);
+	}
+</style>

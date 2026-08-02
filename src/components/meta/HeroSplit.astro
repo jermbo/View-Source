@@ -1,0 +1,28 @@
+---
+import type { HeroContent } from "./hero";
+import HeroRail from "./HeroRail.astro";
+import HeroPanel from "./HeroPanel.astro";
+
+interface Props {
+	hero: HeroContent;
+}
+
+const { hero } = Astro.props;
+---
+
+<section class="hero-card">
+	<HeroRail hero={hero} />
+	<HeroPanel hero={hero} />
+</section>
+
+<style>
+	.hero-card {
+		container-type: inline-size;
+		position: relative;
+		background: var(--surface-hero);
+		color: var(--text-on-dark);
+		border-radius: var(--radius-panel);
+		overflow: hidden;
+		min-height: 0;
+	}
+</style>

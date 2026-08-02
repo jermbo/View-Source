@@ -1,0 +1,35 @@
+---
+import type { HeroContent } from "./hero";
+
+interface Props {
+	hero: HeroContent;
+}
+
+const { hero } = Astro.props;
+---
+
+<span class="hero-rail__index">{hero.indexLabel}</span>
+<span class="hero-rail__mark">VS</span>
+
+<style>
+	.hero-rail__index {
+		position: absolute;
+		top: var(--space-5);
+		left: var(--space-5);
+		font-family: var(--font-mono);
+		font-size: 0.85rem;
+		letter-spacing: 0.08em;
+		opacity: 0.6;
+	}
+
+	.hero-rail__mark {
+		position: absolute;
+		bottom: var(--space-5);
+		left: var(--space-5);
+		font-family: var(--font-mono);
+		font-weight: 700;
+		font-size: 1.1rem;
+		letter-spacing: 0.15em;
+		opacity: 0.6;
+	}
+</style>

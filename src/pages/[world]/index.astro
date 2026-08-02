@@ -1,0 +1,48 @@
+---
+import MetaLayout from "../../layouts/MetaLayout.astro";
+import HeroSplit from "../../components/meta/HeroSplit.astro";
+import GalleryBand from "../../components/meta/GalleryBand.astro";
+import GalleryEmpty from "../../components/meta/GalleryEmpty.astro";
+import type { HeroContent } from "../../components/meta/hero";
+import { worlds, type World } from "../../data/worlds";
+
+export function getStaticPaths() {
+	return worlds.map((world) => ({
+		params: { world: world.slug },
+		props: { world },
+	}));
+}
+
+interface Props {
+	world: World;
+}
+
+const { world } = Astro.props;
+
+const hero: HeroContent = {
+	indexLabel: world.indexLabel,
+	kicker: world.name,
+	titleLine1: world.titleLine1,
+	titleLine2: world.titleLine2,
+	description: world.philosophy,
+	meta: world.tagline,
+};
+
+const tones = ["terracotta", "mustard", "sage"] as const;
+
+const galleryItems = world.projects.map((project, index) => ({
+	indexLabel: String(index + 1).padStart(2, "0"),
+	title: project.name,
+	subtitle: project.pitch,
+	href: `/${world.slug}/${project.slug}/`,
+	tone: tones[index % tones.length],
+}));
+
+const hasProjects = galleryItems.length > 0;
+---
+
+<MetaLayout title={`${world.name} — View-Source`}>
+	<HeroSplit hero={hero} />
+	{hasProjects && <GalleryBand items={galleryItems} />}
+	{!hasProjects && <GalleryEmpty message={`${world.name}'s first project is still being built.`} />}
+</MetaLayout>

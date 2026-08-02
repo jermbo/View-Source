@@ -1,17 +1,42 @@
 ---
+import MetaLayout from "../layouts/MetaLayout.astro";
+import HeroSplit from "../components/meta/HeroSplit.astro";
+import GalleryBand from "../components/meta/GalleryBand.astro";
+import GalleryEmpty from "../components/meta/GalleryEmpty.astro";
+import type { HeroContent } from "../components/meta/hero";
+import { worlds } from "../data/worlds";
 
+const hero: HeroContent = {
+	indexLabel: "00",
+	kicker: "View-Source",
+	titleLine1: "Design,",
+	titleLine2: "unaveraged.",
+	description:
+		"An experiment in rediscovering visual design in the age of agents. Every world below is a fully isolated fictional client — its own markup, its own CSS, its own rules — built to see what design looks like when an agent stops defaulting to the middle of the road.",
+	meta: `${worlds.length} worlds · growing`,
+};
+
+const tones = ["terracotta", "mustard", "sage"] as const;
+
+const galleryItems = worlds.map((world, index) => {
+	const subtitle = world.projects.length
+		? `${world.projects.length} project${world.projects.length === 1 ? "" : "s"}`
+		: "in progress";
+
+	return {
+		indexLabel: String(index + 1).padStart(2, "0"),
+		title: world.name,
+		subtitle,
+		href: `/${world.slug}/`,
+		tone: tones[index % tones.length],
+	};
+});
+
+const hasWorlds = galleryItems.length > 0;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MetaLayout title="View-Source">
+	<HeroSplit hero={hero} />
+	{hasWorlds && <GalleryBand items={galleryItems} />}
+	{!hasWorlds && <GalleryEmpty message="No worlds yet." />}
+</MetaLayout>
