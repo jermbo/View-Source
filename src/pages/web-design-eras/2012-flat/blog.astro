@@ -1,0 +1,93 @@
+---
+import Era2012Layout from "../../../projects/web-design-eras/2012-flat/Era2012Layout.astro";
+import { base } from "../../../projects/web-design-eras/2012-flat/nav";
+
+const posts = [
+	{
+		category: "Design",
+		title: "Why we deleted every gradient",
+		image: "hero image:\nold UI and new UI, side by side",
+		excerpt:
+			"The old site had one hundred and forty separate gradients in its stylesheet. We counted. Not one of them was telling a user anything they could not have worked out from a colour and a label.",
+		meta: "14 March 2013 &middot; Marisol Achterberg",
+	},
+	{
+		category: "Engineering",
+		title: "Delta sync, and the 200 MB deck",
+		image: "hero image:\nnetwork graph, flat turquoise",
+		excerpt:
+			"Moving a whole file every time somebody nudges a slide is the kind of thing that seems fine until your customers start opening large files. Here is what we changed, and what it cost us to change it.",
+		meta: "28 February 2013 &middot; Kwabena Ruiz-Sørensen",
+	},
+	{
+		category: "Company",
+		title: "Responsive is not a project",
+		image: "hero image:\nsame page at three widths",
+		excerpt:
+			"We shipped the responsive rebuild in eleven weeks, and then spent the next eleven months finding places it had not reached. The rebuild was the easy half.",
+		meta: "6 February 2013 &middot; Adaeze Whitlock",
+	},
+	{
+		category: "Design",
+		title: "The long, sad death of the skeuomorph",
+		image: "hero image:\nlinen texture, crossed out",
+		excerpt:
+			"Three years ago we spent eleven weeks drawing a canvas satchel for a menu bar icon. This year we replaced it with a circle and a line. Both decisions were correct at the time, which is the uncomfortable part.",
+		meta: "22 January 2013 &middot; Marisol Achterberg",
+	},
+	{
+		category: "Engineering",
+		title: "Our stylesheet is now 40% smaller",
+		image: "hero image:\nbar chart, two bars",
+		excerpt:
+			"Removing decoration removes code. No bevels, no inner shadows, no nine-slice images for buttons that could have been a border. The whole design system is now four colours and one typeface at three weights.",
+		meta: "9 January 2013 &middot; Kwabena Ruiz-Sørensen",
+	},
+	{
+		category: "Company",
+		title: "Four million people, and a smaller team",
+		image: "hero image:\nteam photo, desaturated",
+		excerpt:
+			"We passed four million accounts in December with fewer engineers than we had in 2011. Everything below is what we would tell a friend starting a company this year, minus the parts that were luck.",
+		meta: "19 December 2012 &middot; Adaeze Whitlock",
+	},
+];
+---
+
+<Era2012Layout title="Blog · GLOBEX" currentHref={`${base}blog/`}>
+	<Fragment slot="hero">
+		<div class="eyebrow" style="color: rgba(255,255,255,0.5);">Blog</div>
+		<h1 class="hero__title">Notes from the rebuild.</h1>
+		<div class="rule rule--accent"></div>
+	</Fragment>
+
+	<section class="section section--clouds">
+		<div class="container">
+			<div class="section-head">
+				<div class="eyebrow">Latest</div>
+				<h2 class="headline">What we shipped, and why.</h2>
+				<div class="rule"></div>
+			</div>
+			<div class="posts">
+				{
+					posts.map((post) => (
+						<div class="posts__cell">
+							<article class="post">
+								<div class="post__image">{post.image}</div>
+								<div class="post__body">
+									<div class="post__category">{post.category}</div>
+									<h3 class="post__title">{post.title}</h3>
+									<p class="post__excerpt">{post.excerpt}</p>
+									<div class="post__meta" set:html={post.meta} />
+								</div>
+							</article>
+						</div>
+					))
+				}
+			</div>
+			<div class="section-head" style="margin-top: 20px;">
+				<span class="btn btn--ghost-dark btn--sm">Older posts</span>
+			</div>
+		</div>
+	</section>
+</Era2012Layout>

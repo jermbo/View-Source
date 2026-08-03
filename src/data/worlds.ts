@@ -61,14 +61,14 @@ export const worlds: World[] = [
 				slug: "2008-skeuomorphic",
 				meta: "2008 — 2012",
 				pitch: "Letterpress type, linen texture, and stitching on things that were never sewn.",
-				built: false,
+				built: true,
 			},
 			{
 				name: "Flat",
 				slug: "2012-flat",
 				meta: "2012 — 2016",
 				pitch: "Every shadow deleted in one release, replaced with a great deal of scrolling.",
-				built: false,
+				built: true,
 			},
 			{
 				name: "SaaS Gradient",

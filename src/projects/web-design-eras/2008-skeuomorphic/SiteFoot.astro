@@ -1,0 +1,26 @@
+---
+import { footerColumns } from "./nav";
+---
+
+<footer class="sitefoot">
+	<div class="sitefoot__inner">
+		{
+			footerColumns.map((column) => (
+				<div class="sitefoot__column">
+					<div class="sitefoot__heading">{column.heading}</div>
+					{column.links.map((link) => (
+						<>
+							{link.href && <a href={link.href}>{link.label}</a>}
+							{!link.href && <span class="sitefoot__dead">{link.label}</span>}
+						</>
+					))}
+				</div>
+			))
+		}
+		<div class="colophon">
+			Designed in California.<br />
+			Built to last.<br />
+			<span class="colophon__legal">&copy; 2010 Globex Software Company</span>
+		</div>
+	</div>
+</footer>

@@ -1,0 +1,86 @@
+---
+import Era2008Layout from "../../../projects/web-design-eras/2008-skeuomorphic/Era2008Layout.astro";
+import { base } from "../../../projects/web-design-eras/2008-skeuomorphic/nav";
+
+const features = [
+	{
+		glyph: "●",
+		title: "Sync, quietly",
+		body: "Changes travel in the background over an encrypted channel. No spinning beach balls, no dialogs to dismiss.",
+	},
+	{
+		glyph: "▣",
+		title: "A month of undo",
+		body: "Every version of every file is kept for thirty days. Roll back a document, or an entire folder, in one click.",
+	},
+	{
+		glyph: "◆",
+		title: "Shared, not scattered",
+		body: "Hand a folder to a colleague and it appears on their desktop. Take it back just as easily.",
+	},
+];
+---
+
+<Era2008Layout title="Globex · Your files. Everywhere you are." currentHref={base}>
+	<div class="ribbon">New in 3.2</div>
+
+	<div class="hero">
+		<div class="hero__copy">
+			<h1 class="hero__headline">Your files.<br />Everywhere you are.</h1>
+			<p class="hero__sub">
+				Globex keeps a beautifully organised copy of everything you care about: on your Mac, on your PC, and now in
+				your pocket. Set it up once and forget it forever.
+			</p>
+			<div class="hero__get">
+				<span class="btn btn--felt">Download for Mac</span>
+				<div class="hero__fine">
+					<div>Version 3.2 &middot; 14.6 MB &middot; Mac OS X 10.6+</div>
+					<div>Also for <span class="dead-link">Windows</span> and <span class="dead-link">Linux</span></div>
+				</div>
+			</div>
+			<div class="store-row">
+				<span class="store-badge">Available on the<br /><b>App Store</b></span>
+				<span class="store-badge">Get it on<br /><b>Android Market</b></span>
+			</div>
+		</div>
+		<div class="hero__shot">
+			<div class="print">
+				<div class="print__plate">product photo:<br />phone + laptop on walnut desk</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="band band--sunk">
+		<div class="feature-grid">
+			{
+				features.map((feature) => (
+					<div class="feature">
+						<div class="medallion">{feature.glyph}</div>
+						<h2 class="feature__title">{feature.title}</h2>
+						<p class="feature__body">{feature.body}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+
+	<div class="band">
+		<div class="pitch-row">
+			<div class="taped">
+				<p class="quote">
+					&ldquo;I stopped emailing myself attachments three years ago and I have never looked back. Globex is the
+					rare piece of software I actively enjoy paying for.&rdquo;
+				</p>
+				<div class="byline">
+					<div class="byline__portrait"></div>
+					<div class="byline__who"><b>Marguerite Okonjo</b><br />Creative Director, Halden &amp; Co.</div>
+				</div>
+			</div>
+			<div class="pitch">
+				<div class="label">Try it free for 30 days</div>
+				<div class="pitch__price">$6 a month.<br />Cancel anytime.</div>
+				<span class="btn btn--paper">Start my free trial</span>
+			</div>
+		</div>
+	</div>
+</Era2008Layout>

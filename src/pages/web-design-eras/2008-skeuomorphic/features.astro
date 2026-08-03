@@ -1,0 +1,126 @@
+---
+import Era2008Layout from "../../../projects/web-design-eras/2008-skeuomorphic/Era2008Layout.astro";
+import { base } from "../../../projects/web-design-eras/2008-skeuomorphic/nav";
+
+const features = [
+	{
+		glyph: "●",
+		title: "Sync, quietly",
+		body: "Changes travel in the background over an encrypted channel. No spinning beach balls, no dialogs to dismiss.",
+	},
+	{
+		glyph: "▣",
+		title: "A month of undo",
+		body: "Every version of every file is kept for thirty days. Roll back a document, or an entire folder, in one click.",
+	},
+	{
+		glyph: "◆",
+		title: "Shared, not scattered",
+		body: "Hand a folder to a colleague and it appears on their desktop. Take it back just as easily.",
+	},
+	{
+		glyph: "◐",
+		title: "Selective sync",
+		body: "Keep the archive on the desktop and only this quarter on the laptop. Tick the folders you want on each machine.",
+	},
+	{
+		glyph: "✻",
+		title: "In your pocket",
+		body: "The Globex app for iPhone and Android reads every file you own, and marks a few as favourites for the aeroplane.",
+	},
+	{
+		glyph: "❖",
+		title: "A folder, not an app",
+		body: "Globex lives in the Finder and in Explorer. There is no window to open, and nothing new to learn.",
+	},
+];
+
+const specs = [
+	{ label: "Mac OS X", value: "10.6 Snow Leopard or later, Intel only", size: "14.6 MB" },
+	{ label: "Windows", value: "XP SP3, Vista, or Windows 7", size: "12.1 MB" },
+	{ label: "Linux", value: "Ubuntu 10.04+, Fedora 13+, headless daemon available", size: "9.8 MB" },
+	{ label: "iPhone", value: "iOS 4.2 or later, on the App Store", size: "4.4 MB" },
+	{ label: "Android", value: "2.2 Froyo or later, on Android Market", size: "3.9 MB" },
+];
+---
+
+<Era2008Layout title="Features · Globex" currentHref={`${base}features/`}>
+	<div class="page-head">
+		<h1 class="page-title">Everything it does, and nothing it doesn't.</h1>
+		<p class="page-sub">
+			Globex 3.2 does one job: it keeps a copy of your work on every machine you sit down at. Here is the whole of
+			it, written out plainly.
+		</p>
+	</div>
+
+	<div class="band band--sunk">
+		<div class="feature-grid">
+			{
+				features.map((feature) => (
+					<div class="feature">
+						<div class="medallion">{feature.glyph}</div>
+						<h2 class="feature__title">{feature.title}</h2>
+						<p class="feature__body">{feature.body}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+
+	<div class="band">
+		<div class="pitch-row">
+			<div style="flex: 1;">
+				<h2 class="section-title">What it runs on</h2>
+				<p class="feature__body" style="margin-bottom: 16px;">
+					One account, every machine in the house. The desktop client is the same on all three platforms, down to
+					the icon in the menu bar.
+				</p>
+				<table class="specs">
+					<thead>
+						<tr>
+							<th>Platform</th>
+							<th>Requirements</th>
+							<th>Download</th>
+						</tr>
+					</thead>
+					<tbody>
+						{
+							specs.map((spec) => (
+								<tr>
+									<td><b>{spec.label}</b></td>
+									<td>{spec.value}</td>
+									<td>{spec.size}</td>
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
+			<div style="width: 300px; flex: none;">
+				<div class="print print--right">
+					<div class="print__plate print__plate--short">product photo:<br />menu bar icon, mid-sync</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="band band--sunk">
+		<div class="pitch-row">
+			<div class="taped">
+				<p class="quote quote--sm">
+					&ldquo;We put the whole studio on Globex in an afternoon. The best part is that nobody has mentioned it
+					since. That is the highest praise I can give a piece of software.&rdquo;
+				</p>
+				<div class="byline">
+					<div class="byline__portrait"></div>
+					<div class="byline__who"><b>Teodor Vance</b><br />Studio Manager, Ashgrove Type Foundry</div>
+				</div>
+			</div>
+			<div class="pitch">
+				<div class="label">Thirty days, no card</div>
+				<div class="pitch__price">$6 a month<br />after that.</div>
+				<span class="btn btn--felt btn--felt-sm">Start my free trial</span>
+			</div>
+		</div>
+	</div>
+</Era2008Layout>

@@ -1,0 +1,114 @@
+---
+import Era2008Layout from "../../../projects/web-design-eras/2008-skeuomorphic/Era2008Layout.astro";
+import { base } from "../../../projects/web-design-eras/2008-skeuomorphic/nav";
+
+const materials = [
+	{ label: "Linen ground", style: "background: #3d3832; border-color: #241f1b;" },
+	{ label: "Paper #F7F1E4", style: "background: #f7f1e4;" },
+	{ label: "Felt green", style: "background: linear-gradient(#8fbb4f, #5e8b21); border-color: #4a7015;" },
+	{ label: "Denim blue", style: "background: linear-gradient(#5ea3c4, #2d6f92); border-color: #205a78;" },
+	{ label: "Ribbon red", style: "background: linear-gradient(#c4553a, #9c3a24); border-color: #8a3018;" },
+	{ label: "Ink #4A3F30", style: "background: #4a3f30; border-color: #342c21;" },
+];
+---
+
+<Era2008Layout title="The Style Manual · Globex" currentHref={`${base}kit/`}>
+	<div class="page-head">
+		<h1 class="page-title">The Style Manual</h1>
+		<p class="page-sub" style="font-style: italic; color: #8a7a63;">
+			Globex Software Company &middot; third edition &middot; revised November 2010
+		</p>
+		<p class="page-sub">
+			For anyone setting a Globex page, box, or printed insert. The rule underneath all of it: every light source in
+			our work comes from directly above, and nothing on the page may contradict that.
+		</p>
+	</div>
+
+	<div class="band band--tight">
+		<div class="kit-section">
+			<div class="label" style="margin-bottom: 8px;">Materials</div>
+			<div class="swatches">
+				{
+					materials.map((material) => (
+						<div>
+							<div class="swatch__chip" style={material.style} />
+							<div class="swatch__label">{material.label}</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+
+		<div class="kit-section">
+			<div class="label" style="margin-bottom: 8px;">Lettering</div>
+			<div class="kit-panel">
+				<div class="entry__title" style="font-size: 26px; margin-bottom: 6px;">Arvo, letterpressed</div>
+				<p class="feature__body" style="font-size: 15px;">
+					Georgia at 15px carries the body. Warm, wordy, a little bit editorial, and never set below 13px.
+				</p>
+				<p class="quote quote--sm" style="margin-top: 6px;">Italic Georgia for pull quotes.</p>
+				<div class="label" style="margin-top: 10px;">Helvetica caps for labels</div>
+			</div>
+		</div>
+
+		<div class="kit-section">
+			<div class="label" style="margin-bottom: 8px;">Controls</div>
+			<div class="kit-row" style="margin-bottom: 12px;">
+				<span class="btn btn--felt btn--felt-sm">Download</span>
+				<span class="btn btn--paper">Secondary</span>
+				<span class="btn btn--denim">Sign in</span>
+				<span class="btn btn--denim btn--sunk">Unavailable</span>
+			</div>
+			<div class="kit-row">
+				<div style="flex: 1;"><input class="field" type="text" aria-label="Sample field" value="Inset field" /></div>
+				<div class="toggle"><div class="toggle__knob"></div></div>
+				<div class="toggle toggle--off"><div class="toggle__knob"></div></div>
+			</div>
+			<p class="feature__body" style="margin-top: 10px;">
+				Anything you press is raised: a highlight along its top edge, a hard shadow beneath it standing in for the
+				thickness of the thing. Anything you type into is sunk, with the shadow inside and along the top.
+			</p>
+		</div>
+
+		<div class="kit-section">
+			<div class="label" style="margin-bottom: 8px;">Ornament</div>
+			<div class="kit-row">
+				<span
+					class="sans"
+					style="background: linear-gradient(#c4553a, #9c3a24); color: #ffeede; font-size: 10px; font-weight: bold; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 14px; box-shadow: 0 2px 4px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.25); text-shadow: 0 -1px 0 rgba(0,0,0,0.35);"
+					>Ribbon</span
+				>
+				<span class="medallion medallion--sm">●</span>
+				<span class="store-badge" style="font-size: 9px; padding: 6px 12px;"
+					>Available on the<br /><b style="font-size: 12px;">App Store</b></span
+				>
+				<span class="byline__portrait"></span>
+			</div>
+		</div>
+
+		<div class="kit-section">
+			<div class="label" style="margin-bottom: 8px;">Photographs</div>
+			<div class="kit-row" style="align-items: flex-start;">
+				<div style="width: 220px;">
+					<div class="print">
+						<div class="print__plate print__plate--short">photo: as it is set on the page</div>
+					</div>
+				</div>
+				<p class="feature__body" style="flex: 1; min-width: 260px;">
+					A photograph is a print, not an image. It gets a 10px white border, a shadow, and a degree of rotation,
+					because a print left on a desk is never square to the desk. Rotation alternates in direction down the
+					page and never exceeds 1.5 degrees.
+				</p>
+			</div>
+		</div>
+
+		<div class="kit-section">
+			<div class="label" style="margin-bottom: 8px;">House rules</div>
+			<div class="note">
+				980px sheet floating on linen &middot; every light source is above &middot; text on light takes a white
+				shadow below, text on dark a black shadow above &middot; photographs get a 10px white border and a degree
+				of rotation &middot; the page does not reflow, because the window is 1024 wide and always will be.
+			</div>
+		</div>
+	</div>
+</Era2008Layout>
