@@ -1,0 +1,98 @@
+---
+import Era2012Layout from "../../../projects/web-design-eras/2012-flat/Era2012Layout.astro";
+import { base } from "../../../projects/web-design-eras/2012-flat/nav";
+
+const grid = [
+	{ glyph: "☁", title: "Sync", body: "Every device, always current. Conflict resolution that actually resolves." },
+	{ glyph: "★", title: "Responsive", body: "A single fluid grid, from 320 pixels wide to whatever comes next." },
+	{ glyph: "⚖", title: "Secure", body: "256-bit encryption at rest and in transit. Two-factor as standard." },
+	{ glyph: "◯", title: "Open", body: "A documented REST API and integrations with the tools you already use." },
+	{ glyph: "⌁", title: "Fast", body: "Delta sync moves the change, not the file. A 200 MB deck costs you a few KB." },
+	{ glyph: "⧉", title: "Versioned", body: "Ninety days of history on every plan, restorable from any device." },
+	{ glyph: "◍", title: "Team-shaped", body: "Groups, roles and shared folders that match how your company is already organised." },
+	{ glyph: "⬡", title: "Audited", body: "Every action logged, exportable, and searchable from the admin console." },
+];
+---
+
+<Era2012Layout title="Features · GLOBEX" currentHref={`${base}features/`}>
+	<Fragment slot="hero">
+		<div class="eyebrow" style="color: rgba(255,255,255,0.5);">Features</div>
+		<h1 class="hero__title">Built flat. Built fast.</h1>
+		<div class="rule rule--accent"></div>
+	</Fragment>
+
+	<section class="section">
+		<div class="container">
+			<div class="section-head">
+				<div class="eyebrow">The whole product</div>
+				<h2 class="headline">One workspace, eight good reasons.</h2>
+				<div class="rule"></div>
+			</div>
+			<div class="quad">
+				{
+					grid.map((item) => (
+						<div class="quad__cell">
+							<div class="icon-ring">{item.glyph}</div>
+							<h3 class="quad__title">{item.title}</h3>
+							<p class="quad__body">{item.body}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="section section--clouds">
+		<div class="container">
+			<div class="section-head section-head--left">
+				<div class="eyebrow">Responsive</div>
+				<h2 class="headline headline--sm">One grid, every screen.</h2>
+				<div class="rule"></div>
+			</div>
+			<div class="split">
+				<div class="split__copy">
+					<p class="lede">
+						The old site had a desktop version and a stripped-down mobile version, and the mobile one was always
+						three releases behind. This one is a single fluid grid that steps down at 1200, 992 and 768. There is
+						no mobile site any more, because there is no desktop site either.
+					</p>
+					<span class="btn btn--ghost-dark btn--sm">See the grid</span>
+				</div>
+				<div class="split__shot">screenshot:<br />the same page at 1440, 768 and 375</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section--midnight">
+		<div class="container">
+			<div class="section-head section-head--left">
+				<div class="eyebrow">Open</div>
+				<h2 class="headline headline--sm">A documented API, and no surprises.</h2>
+				<div class="rule"></div>
+			</div>
+			<div class="split">
+				<div class="split__shot">screenshot:<br />API reference, endpoint list</div>
+				<div class="split__copy">
+					<p class="lede">
+						Everything the web app can do, a token can do. Rate limits are published, deprecations get twelve
+						months, and the changelog is the same one our own engineers read.
+					</p>
+					<span class="btn btn--ghost-light btn--sm">Read the docs</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="stats stats--parallax">
+		<div class="container">
+			<div class="section-head">
+				<div class="eyebrow">Ready when you are</div>
+				<h2 class="headline">Start in about ninety seconds.</h2>
+				<div class="hero__actions">
+					<span class="btn btn--accent">Get started</span>
+					<a class="btn btn--ghost-light" href={`${base}#pricing`}>See pricing</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Era2012Layout>

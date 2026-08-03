@@ -1,0 +1,37 @@
+---
+import { footerColumns } from "./nav";
+---
+
+<footer class="sitefoot">
+	<div class="container">
+		<div class="sitefoot__inner">
+			<div class="sitefoot__about">
+				<div class="wordmark" style="font-size: 17px;">GLOBEX</div>
+				<p class="sitefoot__blurb">
+					Globex Inc. &middot; 1100 Folsom Street, San Francisco. Proudly hosted on renewable energy.
+				</p>
+				<div class="social-row">
+					<span class="social-dot"></span>
+					<span class="social-dot"></span>
+					<span class="social-dot"></span>
+					<span class="social-dot"></span>
+				</div>
+			</div>
+			<div class="sitefoot__columns">
+				{
+					footerColumns.map((column) => (
+						<div class="sitefoot__column">
+							<div class="sitefoot__heading">{column.heading}</div>
+							{column.links.map((link) => (
+								<>
+									{link.href && <a href={link.href}>{link.label}</a>}
+									{!link.href && <span class="sitefoot__dead">{link.label}</span>}
+								</>
+							))}
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</footer>

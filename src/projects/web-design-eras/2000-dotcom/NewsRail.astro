@@ -1,33 +1,50 @@
 ---
 const headlines = [
-	{ date: "06/04/01", text: "Nimbus ships 10,000th NX-4400 chassis." },
+	{ date: "06/04/01", text: "Globex ships 10,000th GX-4400 chassis." },
 	{ date: "05/22/01", text: "Strategic alliance announced with Corwin Data Systems." },
-	{ date: "04/09/01", text: "NimbusWare 3.0 wins Editor's Choice." },
+	{ date: "04/09/01", text: "GlobexWare 3.0 wins Editor's Choice." },
 ];
 
 const visitorCount = "0084291";
 ---
 
 <div class="bar bar--alert">LATEST NEWS</div>
-<div class="newsrail__list">
-	{
-		headlines.map((headline) => (
-			<div>
-				<span class="newsrail__date">{headline.date}</span>
+<table class="newsrail__list">
+	<tbody>
+		{
+			headlines.map((headline) => (
+				<tr>
+					<td class="newsrail__date">{headline.date}</td>
+					<td class="newsrail__headline">
+						{headline.text} <span class="newsrail__more">[more]</span>
+					</td>
+				</tr>
+			))
+		}
+	</tbody>
+</table>
+<table class="newsrail__counter">
+	<tbody>
+		<tr>
+			<td>You are visitor number:</td>
+		</tr>
+		<tr>
+			<td>
+				<table class="counter">
+					<tbody>
+						<tr>
+							{Array.from(visitorCount).map((digit) => <td>{digit}</td>)}
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td class="newsrail__links">
+				Sign our Guestbook!
 				<br />
-				{headline.text} <span class="newsrail__more">[more]</span>
-			</div>
-		))
-	}
-</div>
-<div class="newsrail__counter">
-	<span>You are visitor number:</span>
-	<span class="counter">
-		{Array.from(visitorCount).map((digit) => <span>{digit}</span>)}
-	</span>
-	<div class="newsrail__links">
-		Sign our Guestbook!
-		<br />
-		Join our Mailing List
-	</div>
-</div>
+				Join our Mailing List
+			</td>
+		</tr>
+	</tbody>
+</table>

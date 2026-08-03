@@ -1,0 +1,46 @@
+---
+import { navLinks } from "./nav";
+
+interface Props {
+	currentHref: string;
+}
+
+const { currentHref } = Astro.props;
+
+const items = navLinks.map((item) => ({
+	label: item.label,
+	href: item.href,
+	isLink: Boolean(item.href),
+	isCurrent: item.href === currentHref,
+}));
+---
+
+{/*
+  The checkbox, the label and the nav are siblings on purpose: the collapsed
+  state is driven by `.nav-toggle:checked ~ .nav`, which is how a 2013 site
+  opened a mobile menu without shipping a line of JavaScript.
+*/}
+<input class="nav-toggle" type="checkbox" id="nav-toggle" />
+<label class="nav-burger" for="nav-toggle" aria-label="Menu">
+	<span></span>
+	<span></span>
+	<span></span>
+</label>
+<nav class="nav">
+	{
+		items.map((item) => (
+			<>
+				{item.isLink && (
+					<a
+						class:list={["nav__item", item.isCurrent && "nav__item--current"]}
+						href={item.href}
+						aria-current={item.isCurrent ? "page" : undefined}
+					>
+						{item.label}
+					</a>
+				)}
+				{!item.isLink && <span class="nav__item nav__item--dead">{item.label}</span>}
+			</>
+		))
+	}
+</nav>

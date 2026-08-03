@@ -11,24 +11,26 @@ const palette = [
 	{ hex: "#551A8B", use: "Link - visited" },
 ];
 
+const paletteRows = [palette.slice(0, 3), palette.slice(3, 6)];
+
 const typeScale = [
 	{ sample: "Page Heading", spec: "Times New Roman bold 22px / #000080", className: "type-sample--heading" },
 	{ sample: "Section rule heading", spec: "Times New Roman bold 16px / #000080", className: "heading-rule" },
 	{ sample: "Body copy sits here at thirteen and a half pixels.", spec: "Times New Roman 13.5px / 1.55", className: "type-sample--body" },
 	{ sample: "Interface and navigation label", spec: "Verdana 11px", className: "type-sample--ui" },
-	{ sample: "NX-4400 :: 00842911", spec: "Courier New 11px", className: "type-sample--data" },
+	{ sample: "GX-4400 :: 00842911", spec: "Courier New 11px", className: "type-sample--data" },
 ];
 ---
 
 <Era2000Layout
-	title="Style Guide - Nimbus Systems, Inc. - Web Standards, Colors, Typefaces, Controls"
+	title="Style Guide - Globex Systems, Inc. - Web Standards, Colors, Typefaces, Controls"
 	currentHref={`${base}kit/`}
 	updated="06/07/2001"
 >
 	<h1 class="page-heading">Style Guide</h1>
 	<div class="prose">
 		<p>
-			This page documents the approved presentation standards for nimbussystems.net, as prepared by Verity Interactive.
+			This page documents the approved presentation standards for globexsystems.net, as prepared by Verity Interactive.
 			All departmental pages must conform. Colors are drawn from the 216-color web-safe palette. Do not substitute
 			typefaces: the three faces below are the only ones guaranteed to be installed on both Windows and Macintosh.
 		</p>
@@ -36,20 +38,26 @@ const typeScale = [
 
 	<div class="kit-section">
 		<div class="bar">COLOR PALETTE (WEB SAFE)</div>
-		<div class="swatches" style="margin-top: 6px;">
-			{
-				palette.map((color) => (
-					<div class="swatch">
-						<div class="swatch__chip" style={`background: ${color.hex};`} />
-						<div class="swatch__label">
-							{color.hex}
-							<br />
-							{color.use}
-						</div>
-					</div>
-				))
-			}
-		</div>
+		<table class="swatches" style="margin-top: 6px;">
+			<tbody>
+				{
+					paletteRows.map((row) => (
+						<tr>
+							{row.map((color) => (
+								<td class="swatch">
+									<div class="swatch__chip" style={`background: ${color.hex};`} />
+									<div class="swatch__label">
+										{color.hex}
+										<br />
+										{color.use}
+									</div>
+								</td>
+							))}
+						</tr>
+					))
+				}
+			</tbody>
+		</table>
 	</div>
 
 	<div class="kit-section">
@@ -79,16 +87,24 @@ const typeScale = [
 	<div class="kit-section">
 		<div class="bar">BUTTONS &amp; CONTROLS</div>
 		<div class="kit-panel" style="margin-top: 6px;">
-			<div class="kit-row">
-				<span class="btn btn--bold">Submit</span>
-				<span class="btn">Reset</span>
-				<span class="btn btn--pressed">Pressed</span>
-				<span class="btn btn--disabled">Disabled</span>
-			</div>
-			<div class="kit-row">
-				<input class="field" type="text" aria-label="Text field example" />
-				<span class="btn btn--small">Go!</span>
-			</div>
+			<table class="kit-row">
+				<tbody>
+					<tr>
+						<td><span class="btn btn--bold">Submit</span></td>
+						<td><span class="btn">Reset</span></td>
+						<td><span class="btn btn--pressed">Pressed</span></td>
+						<td><span class="btn btn--disabled">Disabled</span></td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="kit-row">
+				<tbody>
+					<tr>
+						<td><input class="field" type="text" aria-label="Text field example" /></td>
+						<td><span class="btn btn--small">Go!</span></td>
+					</tr>
+				</tbody>
+			</table>
 			<p class="fineprint" style="margin: 0;">
 				Buttons use a 2px outset border on #D4D0C8. Pressed state swaps the border to inset. Never use an image for a
 				button where a bordered element will do: it costs an extra HTTP request.
@@ -99,26 +115,32 @@ const typeScale = [
 	<div class="kit-section">
 		<div class="bar">LINKS &amp; BULLETS</div>
 		<div class="kit-panel" style="margin-top: 6px;">
-			<div class="type-sample--ui" style="line-height: 1.8;">
-				<div>
-					<a href={`${base}kit/`}>Unvisited link</a> &nbsp; <span style="color: #551a8b; text-decoration: underline;">
-						Visited link
-					</span>
-				</div>
-				<div>
-					<span class="sidenav__bullet">&raquo;</span> Navigation item <span class="badge-new">NEW!</span>
-				</div>
-			</div>
+			<table class="kit-stack type-sample--ui" style="line-height: 1.8;">
+				<tbody>
+					<tr>
+						<td>
+							<a href={`${base}kit/`}>Unvisited link</a> &nbsp; <span style="color: #551a8b; text-decoration: underline;">
+								Visited link
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td><span class="sidenav__bullet">&raquo;</span> Navigation item <span class="badge-new">NEW!</span></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 
 	<div class="kit-section">
 		<div class="bar">SECTION HEADERS</div>
-		<div class="kit-stack" style="margin-top: 6px;">
-			<div class="bar">PRIMARY BAR</div>
-			<div class="bar bar--alert">ALERT BAR</div>
-			<div class="heading-rule">Page Heading Rule</div>
-		</div>
+		<table class="kit-stack" style="margin-top: 6px;">
+			<tbody>
+				<tr><td class="bar">PRIMARY BAR</td></tr>
+				<tr><td class="bar bar--alert">ALERT BAR</td></tr>
+				<tr><td class="heading-rule">Page Heading Rule</td></tr>
+			</tbody>
+		</table>
 	</div>
 
 	<div class="kit-section">

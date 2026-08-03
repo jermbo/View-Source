@@ -15,21 +15,26 @@ const items = topNav.map((item) => ({
 }));
 ---
 
-<div class="navbar">
-	{
-		items.map((item) => (
-			<>
-				{item.isLink && (
-					<a
-						class:list={["navbar__item", item.isCurrent && "navbar__item--current"]}
-						href={item.href}
-						aria-current={item.isCurrent ? "page" : undefined}
-					>
-						{item.label}
-					</a>
-				)}
-				{!item.isLink && <span class="navbar__item navbar__item--dead">{item.label}</span>}
-			</>
-		))
-	}
-</div>
+<table class="navbar">
+	<tbody>
+		<tr>
+			{
+				items.map((item) => (
+					<td class="navbar__cell">
+						{item.isLink && (
+							<a
+								class:list={["navbar__item", item.isCurrent && "navbar__item--current"]}
+								href={item.href}
+								aria-current={item.isCurrent ? "page" : undefined}
+							>
+								{item.label}
+							</a>
+						)}
+						{!item.isLink && <span class="navbar__item navbar__item--dead">{item.label}</span>}
+					</td>
+				))
+			}
+			<td class="navbar__filler">&nbsp;</td>
+		</tr>
+	</tbody>
+</table>

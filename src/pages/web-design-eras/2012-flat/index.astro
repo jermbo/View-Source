@@ -1,0 +1,138 @@
+---
+import Era2012Layout from "../../../projects/web-design-eras/2012-flat/Era2012Layout.astro";
+import { base } from "../../../projects/web-design-eras/2012-flat/nav";
+
+const features = [
+	{
+		glyph: "☁",
+		title: "Sync",
+		body: "Every device, always current. Conflict resolution that actually resolves.",
+	},
+	{
+		glyph: "★",
+		title: "Responsive",
+		body: "A single fluid grid, from 320 pixels wide to whatever comes next.",
+	},
+	{
+		glyph: "⚖",
+		title: "Secure",
+		body: "256-bit encryption at rest and in transit. Two-factor as standard.",
+	},
+	{
+		glyph: "◯",
+		title: "Open",
+		body: "A documented REST API and integrations with the tools you already use.",
+	},
+];
+
+const stats = [
+	{ figure: "4.2M", label: "Users" },
+	{ figure: "99.98%", label: "Uptime" },
+	{ figure: "31", label: "Countries" },
+	{ figure: "18", label: "Integrations" },
+];
+
+const plans = [
+	{
+		name: "Solo",
+		price: "$0",
+		lines: ["5 GB storage", "2 devices", "Community support"],
+		isFeatured: false,
+	},
+	{
+		name: "Team",
+		price: "$9",
+		lines: ["1 TB storage", "Unlimited devices", "Priority email support"],
+		isFeatured: true,
+	},
+	{
+		name: "Company",
+		price: "$24",
+		lines: ["Unlimited storage", "SSO and audit log", "Dedicated manager"],
+		isFeatured: false,
+	},
+];
+---
+
+<Era2012Layout title="GLOBEX · Cloud storage, beautifully simple." currentHref={base} isLanding>
+	<Fragment slot="hero">
+		<h1 class="hero__title">Cloud storage,<br />beautifully simple.</h1>
+		<div class="rule rule--accent"></div>
+		<p class="hero__sub">
+			One workspace for your whole team. Responsive, retina-ready and built for the way modern companies actually
+			work.
+		</p>
+		<div class="hero__actions">
+			<span class="btn btn--accent">Get started</span>
+			<span class="btn btn--ghost-light">Watch the video</span>
+		</div>
+	</Fragment>
+
+	<section class="section" id="features">
+		<div class="container">
+			<div class="section-head">
+				<div class="eyebrow">What we do</div>
+				<h2 class="headline">Everything you need. Nothing you don't.</h2>
+				<div class="rule"></div>
+				<p class="lede" style="text-align: center;">
+					We rebuilt Globex from the ground up this year. Flatter, faster and fully responsive from your phone to
+					your 27-inch display.
+				</p>
+			</div>
+			<div class="quad">
+				{
+					features.map((feature) => (
+						<div class="quad__cell">
+							<div class="icon-ring">{feature.glyph}</div>
+							<h3 class="quad__title">{feature.title}</h3>
+							<p class="quad__body">{feature.body}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="stats">
+		<div class="container">
+			<div class="stats__row">
+				{
+					stats.map((stat) => (
+						<div class="stats__cell">
+							<div class="stats__figure">{stat.figure}</div>
+							<div class="stats__label">{stat.label}</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="section section--clouds" id="pricing">
+		<div class="container">
+			<div class="section-head">
+				<div class="eyebrow">Plans</div>
+				<h2 class="headline">Simple, flat pricing</h2>
+			</div>
+			<div class="plans">
+				{
+					plans.map((plan) => (
+						<div class="plans__cell">
+							<div class:list={["plan", plan.isFeatured && "plan--featured"]}>
+								<div class="plan__name">{plan.name}</div>
+								<div class="plan__price">{plan.price}</div>
+								<ul class="plan__list">
+									{plan.lines.map((line) => (
+										<li>{line}</li>
+									))}
+								</ul>
+								{plan.isFeatured && <span class="btn btn--accent btn--sm">Choose</span>}
+								{!plan.isFeatured && <span class="btn btn--ghost-mute btn--sm">Choose</span>}
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+</Era2012Layout>

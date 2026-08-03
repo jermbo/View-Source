@@ -1,0 +1,85 @@
+---
+import Era2008Layout from "../../../projects/web-design-eras/2008-skeuomorphic/Era2008Layout.astro";
+import { base } from "../../../projects/web-design-eras/2008-skeuomorphic/nav";
+
+const entries = [
+	{
+		month: "Nov",
+		day: "18",
+		year: "2010",
+		title: "Globex 3.2, and the case for a slower release",
+		meta: "Posted by Adaeze Whitlock, Head of Product &middot; 6 comments",
+		text: "Version 3.2 has been in the hands of about four hundred of you since September, which is a long beta by anyone's measure. We could have shipped in October. We did not, because selective sync was still asking people to think about which machine a file lived on, and the entire point of this company is that you should never have to think about that again.",
+	},
+	{
+		month: "Oct",
+		day: "04",
+		year: "2010",
+		title: "A note on last Tuesday",
+		meta: "Posted by Kwabena Ruiz-Sørensen, Operations &middot; 41 comments",
+		text: "For two hours and eleven minutes on Tuesday morning, uploads queued and did not clear. No data was lost and no file was corrupted, but plenty of you sat watching an icon spin, which is its own kind of loss. The cause was a full disk on a metadata node that our own monitoring was not watching. It is watching now.",
+	},
+	{
+		month: "Aug",
+		day: "27",
+		year: "2010",
+		title: "Why the icon is a canvas satchel",
+		meta: "Posted by Marisol Achterberg, Design &middot; 88 comments",
+		text: "The new menu bar icon took eleven weeks, which is indefensible on any spreadsheet and obvious the moment you see it at 16 pixels. We drew a folder first, then a cloud, then a folder in a cloud, and hated all three. A satchel is a thing you already own, already trust, and already carry between two places. That is the whole product in one object.",
+	},
+	{
+		month: "Jun",
+		day: "09",
+		year: "2010",
+		title: "The Globex app is on the App Store",
+		meta: "Posted by Adaeze Whitlock, Head of Product &middot; 154 comments",
+		text: "It is free, it is universal, and it took four submissions to get through review. Everything you own is now readable from a phone, and a file you mark as a favourite is kept on the device for the flight. We are told this is the most requested feature in the history of our support forum, which is a polite way of saying we took too long.",
+	},
+];
+---
+
+<Era2008Layout title="The Journal · Globex" currentHref={`${base}journal/`}>
+	<div class="page-head">
+		<h1 class="page-title">The Journal</h1>
+		<p class="page-sub">
+			Notes on what we shipped, what broke, and what we spent an unreasonable amount of time drawing. Updated
+			roughly once a month, honestly rather more like once a quarter.
+		</p>
+	</div>
+
+	<div class="band">
+		{
+			entries.map((entry) => (
+				<article class="entry">
+					<div class="datestamp">
+						<div class="datestamp__month">{entry.month}</div>
+						<div class="datestamp__day">{entry.day}</div>
+						<div class="datestamp__year">{entry.year}</div>
+					</div>
+					<div class="entry__body">
+						<h2 class="entry__title">{entry.title}</h2>
+						<div class="entry__meta" set:html={entry.meta} />
+						<p class="entry__text">{entry.text}</p>
+						<span class="entry__more dead-link">Continue reading &rsaquo;</span>
+					</div>
+				</article>
+			))
+		}
+	</div>
+
+	<div class="band band--sunk">
+		<div class="pitch-row">
+			<div style="flex: 1;">
+				<h2 class="section-title">Subscribe</h2>
+				<p class="feature__body">
+					The Journal is available as an RSS feed, by email, or not at all. We will not write to you about anything
+					else.
+				</p>
+			</div>
+			<div style="width: 300px; flex: none; display: flex; gap: 8px; align-items: center;">
+				<input class="field" type="text" aria-label="Email address" placeholder="you@example.com" />
+				<span class="btn btn--felt btn--felt-sm">Sign up</span>
+			</div>
+		</div>
+	</div>
+</Era2008Layout>

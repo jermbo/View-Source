@@ -1,0 +1,863 @@
+/*
+ * Globex Software Company — 2008-2012.
+ * A 980px cream paper sheet floating on a dark linen ground. Every light source
+ * in this design is directly above: text on light takes a white shadow below,
+ * text on dark takes a black shadow above, and every raised surface gets a
+ * highlight on its top edge and a shadow under its bottom one.
+ *
+ * No responsive behavior. Responsive design was an article in May 2010 and a
+ * practice years after that; a 2010 marketing site was 980px and stayed 980px.
+ * See docs/adr/web-design-eras/0001-period-accurate-css-in-era-projects.md.
+ *
+ * Imported by exactly one project (ADR 0001). Nothing here is shared.
+ */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	color: #4a3f30;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 15px;
+	line-height: 1.6;
+
+	/* Linen: a flat brown ground with two opposed diagonal weaves over it. */
+	background-color: #3d3832;
+	background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.022) 0 1px, transparent 1px 3px),
+		repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 0 1px, transparent 1px 3px);
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol {
+	margin: 0;
+}
+
+a {
+	color: #2d6f92;
+}
+
+/* ---------- lettering ---------- */
+
+.slab {
+	font-family: Arvo, Rockwell, "Courier Bold", Georgia, serif;
+	font-weight: 700;
+	color: #4a3f30;
+	letter-spacing: -0.01em;
+}
+
+/* Letterpress: pressed into paper, so the highlight falls below the stroke. */
+.pressed {
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9), 0 -1px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* Engraved: raised off a dark surface, so the shadow falls above the stroke. */
+.engraved {
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7), 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.label {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: #9a8a70;
+}
+
+/* A link the era advertises but this build does not ship. Looks live, isn't. */
+.dead-link {
+	color: #2d6f92;
+	text-decoration: underline;
+	cursor: default;
+}
+
+.sans {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* ---------- chrome ---------- */
+
+.chrome {
+	background: linear-gradient(#4c453c, #332e28);
+	border-bottom: 3px solid #221e1a;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.chrome__inner {
+	width: 980px;
+	margin: 0 auto;
+	padding: 20px 24px;
+	display: flex;
+	align-items: center;
+	gap: 26px;
+}
+
+.brand {
+	display: flex;
+	align-items: baseline;
+	gap: 8px;
+	text-decoration: none;
+}
+
+.brand__word {
+	font-family: Arvo, Rockwell, Georgia, serif;
+	font-weight: 700;
+	font-size: 30px;
+	color: #f4ead6;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7), 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.brand__est {
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-size: 13px;
+	color: #b3a68f;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
+}
+
+.nav {
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.nav__item {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12.5px;
+	letter-spacing: 0.04em;
+	padding: 8px 15px;
+	border-radius: 5px;
+	color: #c4b8a2;
+	text-decoration: none;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
+}
+
+.nav__item:hover {
+	color: #f0e6d4;
+}
+
+/* The current tab is lit from above, like a pressed physical button. */
+.nav__item--current {
+	font-weight: bold;
+	color: #f0e6d4;
+	background: linear-gradient(rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03));
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.nav__item--dead {
+	color: #8d8069;
+	cursor: default;
+}
+
+.nav__item--dead:hover {
+	color: #8d8069;
+}
+
+/* ---------- the sheet ---------- */
+
+.sheet-wrap {
+	width: 980px;
+	margin: 0 auto;
+	padding: 34px 0 44px;
+}
+
+.sheet {
+	position: relative;
+	background: #f7f1e4;
+	background-image: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.012) 0 1px, transparent 1px 3px);
+	border: 1px solid #cbbfa8;
+	border-radius: 7px;
+	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.25), 0 14px 30px rgba(0, 0, 0, 0.45);
+	overflow: hidden;
+}
+
+.band {
+	padding: 38px 44px;
+	border-bottom: 1px solid #ddd2bd;
+}
+
+.band:last-child {
+	border-bottom: none;
+}
+
+.band--sunk {
+	background: linear-gradient(#f9f4e9, #f2ebdb);
+}
+
+.band--tight {
+	padding-bottom: 26px;
+}
+
+/* Ribbon: runs off the right edge of the sheet, folded end and all. */
+.ribbon {
+	position: absolute;
+	top: 22px;
+	right: -6px;
+	background: linear-gradient(#c4553a, #9c3a24);
+	color: #ffeede;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	padding: 7px 16px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- page headings ---------- */
+
+.page-head {
+	padding: 40px 44px 30px;
+	border-bottom: 1px solid #ddd2bd;
+}
+
+.page-title {
+	font-family: Arvo, Rockwell, Georgia, serif;
+	font-weight: 700;
+	font-size: 34px;
+	line-height: 1.14;
+	color: #4a3f30;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9), 0 -1px 0 rgba(0, 0, 0, 0.12);
+}
+
+.page-sub {
+	font-family: Georgia, serif;
+	font-size: 16px;
+	line-height: 1.65;
+	color: #6b5c48;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+	max-width: 640px;
+	margin-top: 12px;
+}
+
+.section-title {
+	font-family: Arvo, Rockwell, Georgia, serif;
+	font-weight: 700;
+	font-size: 22px;
+	color: #4a3f30;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+	margin-bottom: 6px;
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+	padding: 46px 44px 40px;
+	display: flex;
+	gap: 44px;
+	align-items: center;
+	border-bottom: 1px solid #ddd2bd;
+}
+
+.hero__copy {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+
+.hero__headline {
+	font-family: Arvo, Rockwell, Georgia, serif;
+	font-weight: 700;
+	font-size: 40px;
+	line-height: 1.12;
+	color: #4a3f30;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9), 0 -1px 0 rgba(0, 0, 0, 0.12);
+}
+
+.hero__sub {
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 17px;
+	line-height: 1.6;
+	color: #6b5c48;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.hero__get {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-top: 4px;
+}
+
+.hero__fine {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 11.5px;
+	line-height: 1.5;
+	color: #8a7a63;
+}
+
+.hero__shot {
+	width: 372px;
+	flex: none;
+}
+
+/* ---------- photographs ---------- */
+
+/* Every photo is a physical print: white border, drop shadow, off-square. */
+.print {
+	background: #fff;
+	padding: 10px 10px 34px;
+	border: 1px solid #cfc3ac;
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+	transform: rotate(-1.2deg);
+}
+
+.print--right {
+	transform: rotate(1deg);
+}
+
+.print__plate {
+	height: 250px;
+	background: repeating-linear-gradient(45deg, #d9d1c0 0 8px, #e8e1d2 8px 16px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 11px;
+	line-height: 1.5;
+	color: #6b5c48;
+	padding: 0 12px;
+}
+
+.print__plate--short {
+	height: 150px;
+}
+
+/* ---------- buttons ---------- */
+
+.btn {
+	display: inline-block;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+/* Felt green: the 3px hard shadow is the side of the button, not a glow. */
+.btn--felt {
+	background: linear-gradient(#8fbb4f, #5e8b21);
+	border: 1px solid #4a7015;
+	border-radius: 26px;
+	padding: 14px 30px;
+	color: #fff;
+	font-size: 17px;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.14),
+		0 3px 0 #3f5e11, 0 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+.btn--felt-sm {
+	padding: 11px 22px;
+	font-size: 14px;
+	border-radius: 24px;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 3px 0 #3f5e11, 0 5px 8px rgba(0, 0, 0, 0.22);
+}
+
+.btn--paper {
+	background: linear-gradient(#f4e9d2, #ded1b4);
+	border: 1px solid #bfae8e;
+	border-radius: 22px;
+	padding: 11px 24px;
+	color: #5c4c37;
+	font-size: 14px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 3px rgba(0, 0, 0, 0.14);
+}
+
+.btn--denim {
+	background: linear-gradient(#5ea3c4, #2d6f92);
+	border: 1px solid #205a78;
+	border-radius: 6px;
+	padding: 9px 18px;
+	color: #fff;
+	font-size: 12.5px;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.35);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+.btn--sunk {
+	background: linear-gradient(#ded5c0, #eae2ce);
+	border: 1px solid #c4b79c;
+	color: #a0917a;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+	box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.14);
+	cursor: default;
+}
+
+/* ---------- store badges ---------- */
+
+.store-row {
+	display: flex;
+	gap: 10px;
+	margin-top: 6px;
+}
+
+.store-badge {
+	background: linear-gradient(#3a3a3c, #16161a);
+	border: 1px solid #000;
+	border-radius: 7px;
+	padding: 8px 16px;
+	color: #fff;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	line-height: 1.25;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+	cursor: default;
+}
+
+.store-badge b {
+	font-size: 15px;
+}
+
+/* ---------- feature medallions ---------- */
+
+.feature-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 34px;
+}
+
+.feature {
+	display: flex;
+	flex-direction: column;
+	gap: 11px;
+}
+
+/* Inset medallion: highlight above, shadow below, stamped into the paper. */
+.medallion {
+	width: 54px;
+	height: 54px;
+	border-radius: 50%;
+	background: linear-gradient(#e9e0cc, #cfc3ab);
+	box-shadow: inset 0 2px 3px rgba(255, 255, 255, 0.9), inset 0 -2px 3px rgba(0, 0, 0, 0.12),
+		0 1px 0 rgba(255, 255, 255, 0.7);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: Arvo, Rockwell, Georgia, serif;
+	font-size: 22px;
+	color: #7d6c53;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+	flex: none;
+}
+
+.medallion--sm {
+	width: 46px;
+	height: 46px;
+	font-size: 18px;
+}
+
+.feature__title {
+	font-family: Arvo, Rockwell, Georgia, serif;
+	font-weight: 700;
+	font-size: 18px;
+	color: #4a3f30;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.feature__body {
+	font-family: Georgia, serif;
+	font-size: 14px;
+	line-height: 1.6;
+	color: #6f6049;
+}
+
+/* ---------- testimonial ---------- */
+
+.pitch-row {
+	display: flex;
+	gap: 34px;
+	align-items: center;
+}
+
+/* Taped card: the tape is a translucent strip sitting over the top edge. */
+.taped {
+	flex: 1;
+	position: relative;
+	background: #fffdf6;
+	border: 1px solid #ddd2bd;
+	padding: 26px 28px;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+	transform: rotate(-0.6deg);
+}
+
+.taped::before {
+	content: "";
+	position: absolute;
+	top: -11px;
+	left: 50%;
+	margin-left: -42px;
+	width: 84px;
+	height: 22px;
+	background: rgba(226, 214, 180, 0.75);
+	border-left: 1px solid rgba(255, 255, 255, 0.5);
+	border-right: 1px solid rgba(0, 0, 0, 0.06);
+	transform: rotate(-2deg);
+}
+
+.quote {
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-size: 19px;
+	line-height: 1.55;
+	color: #4a3f30;
+}
+
+.quote--sm {
+	font-size: 16px;
+}
+
+.byline {
+	display: flex;
+	align-items: center;
+	gap: 11px;
+	margin-top: 18px;
+}
+
+.byline__portrait {
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+	background: repeating-linear-gradient(45deg, #d9d1c0 0 6px, #e8e1d2 6px 12px);
+	box-shadow: inset 0 0 0 3px #fff, 0 1px 3px rgba(0, 0, 0, 0.2);
+	flex: none;
+}
+
+.byline__who {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12.5px;
+	line-height: 1.4;
+	color: #6f6049;
+}
+
+.byline__who b {
+	color: #4a3f30;
+}
+
+.pitch {
+	width: 300px;
+	flex: none;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	align-items: flex-start;
+}
+
+.pitch__price {
+	font-family: Arvo, Rockwell, Georgia, serif;
+	font-size: 26px;
+	line-height: 1.15;
+	color: #4a3f30;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* ---------- inset panels & fields ---------- */
+
+.note {
+	background: #fffdf6;
+	border: 1px solid #ddd2bd;
+	padding: 14px 16px;
+	font-family: Georgia, serif;
+	font-size: 13px;
+	line-height: 1.65;
+	color: #6b5c48;
+}
+
+.field {
+	height: 30px;
+	border-radius: 5px;
+	background: #fffdf6;
+	border: 1px solid #c4b79c;
+	box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.12);
+	padding: 0 10px;
+	font-family: Georgia, serif;
+	font-size: 13px;
+	color: #4a3f30;
+	width: 100%;
+}
+
+/* Toggle: an iOS-era switch, thrown to the on position. */
+.toggle {
+	width: 46px;
+	height: 26px;
+	border-radius: 14px;
+	background: linear-gradient(#8fbb4f, #6a991f);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25);
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding: 0 2px;
+	flex: none;
+}
+
+.toggle--off {
+	background: linear-gradient(#cfc3ab, #b8ab91);
+	justify-content: flex-start;
+}
+
+.toggle__knob {
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	background: linear-gradient(#fff, #e4dcc9);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- specs table ---------- */
+
+.specs {
+	width: 100%;
+	border-collapse: collapse;
+	font-family: Georgia, serif;
+	font-size: 14px;
+	color: #6b5c48;
+}
+
+.specs th,
+.specs td {
+	text-align: left;
+	padding: 11px 14px;
+	border-bottom: 1px solid #e4dbc8;
+}
+
+.specs th {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: #9a8a70;
+}
+
+.specs tr:last-child td {
+	border-bottom: none;
+}
+
+.specs tbody tr:nth-child(odd) {
+	background: rgba(255, 255, 255, 0.45);
+}
+
+/* ---------- journal ---------- */
+
+.entry {
+	display: flex;
+	gap: 30px;
+	padding: 30px 0;
+	border-bottom: 1px solid #e4dbc8;
+}
+
+.entry:first-child {
+	padding-top: 0;
+}
+
+.entry:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+/* Date block styled as a torn calendar leaf. */
+.datestamp {
+	width: 74px;
+	flex: none;
+	text-align: center;
+	background: #fffdf6;
+	border: 1px solid #ddd2bd;
+	border-radius: 4px;
+	padding: 8px 0 10px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.datestamp__month {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: #c4553a;
+}
+
+.datestamp__day {
+	font-family: Arvo, Rockwell, Georgia, serif;
+	font-weight: 700;
+	font-size: 26px;
+	line-height: 1.1;
+	color: #4a3f30;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.datestamp__year {
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-size: 11px;
+	color: #9a8a70;
+}
+
+.entry__body {
+	flex: 1;
+}
+
+.entry__title {
+	font-family: Arvo, Rockwell, Georgia, serif;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 1.25;
+	color: #4a3f30;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
+	margin-bottom: 4px;
+}
+
+.entry__meta {
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-size: 12.5px;
+	color: #9a8a70;
+	margin-bottom: 10px;
+}
+
+.entry__text {
+	font-family: Georgia, serif;
+	font-size: 14.5px;
+	line-height: 1.7;
+	color: #6b5c48;
+}
+
+.entry__more {
+	display: inline-block;
+	margin-top: 10px;
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-size: 13.5px;
+	color: #2d6f92;
+}
+
+/* ---------- style manual (UI kit) ---------- */
+
+.kit-section {
+	margin-bottom: 26px;
+}
+
+.kit-section:last-child {
+	margin-bottom: 0;
+}
+
+.kit-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 30px;
+}
+
+.swatches {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 10px;
+}
+
+.swatch__chip {
+	height: 44px;
+	border-radius: 4px;
+	border: 1px solid #cbbfa8;
+}
+
+.swatch__label {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 9.5px;
+	color: #8a7a63;
+	padding-top: 4px;
+}
+
+.kit-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	align-items: center;
+}
+
+.kit-panel {
+	background: #fffdf6;
+	border: 1px solid #ddd2bd;
+	padding: 16px;
+}
+
+/* ---------- footer ---------- */
+
+.sitefoot {
+	background: linear-gradient(#332e28, #221e1a);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	padding: 28px 24px 34px;
+}
+
+.sitefoot__inner {
+	width: 980px;
+	margin: 0 auto;
+	display: flex;
+	align-items: flex-start;
+	gap: 60px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	line-height: 1.95;
+	color: #a2957f;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
+}
+
+.sitefoot__heading {
+	color: #e6d9c1;
+	font-weight: bold;
+	letter-spacing: 0.1em;
+	font-size: 10.5px;
+	text-transform: uppercase;
+	margin-bottom: 6px;
+}
+
+.sitefoot__column a {
+	color: #a2957f;
+	text-decoration: none;
+	display: block;
+}
+
+.sitefoot__column a:hover {
+	color: #e6d9c1;
+	text-decoration: underline;
+}
+
+.sitefoot__dead {
+	display: block;
+	color: #6f6555;
+}
+
+.colophon {
+	margin-left: auto;
+	text-align: right;
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-size: 12.5px;
+	color: #8d8069;
+}
+
+.colophon__legal {
+	font-style: normal;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.print,
+	.print--right,
+	.taped,
+	.taped::before {
+		transform: none;
+	}
+}

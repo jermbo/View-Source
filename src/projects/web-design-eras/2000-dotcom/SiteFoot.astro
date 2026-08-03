@@ -15,19 +15,25 @@ const items = footerLinks.map((item) => ({
 ---
 
 <div class="sitefoot">
-	<div class="sitefoot__links">
-		{
-			items.map((item, index) => (
-				<>
-					{index > 0 && <span>|</span>}
-					{item.isLink && <a href={item.href}>{item.label}</a>}
-					{!item.isLink && <span>{item.label}</span>}
-				</>
-			))
-		}
-	</div>
+	<table class="sitefoot__links">
+		<tbody>
+			<tr>
+				{
+					items.map((item, index) => (
+						<>
+							{index > 0 && <td>|</td>}
+							<td>
+								{item.isLink && <a href={item.href}>{item.label}</a>}
+								{!item.isLink && <span>{item.label}</span>}
+							</td>
+						</>
+					))
+				}
+			</tr>
+		</tbody>
+	</table>
 	<p>
-		Copyright &copy; 1997-2001 Nimbus Systems, Inc. All Rights Reserved. NimbusWare is a trademark of Nimbus Systems,
+		Copyright &copy; 1997-2001 Globex Systems, Inc. All Rights Reserved. GlobexWare is a trademark of Globex Systems,
 		Inc.
 	</p>
 	<p>This site is best viewed at 800 x 600 resolution using Microsoft Internet Explorer 5.0 or Netscape Navigator 4.7.</p>

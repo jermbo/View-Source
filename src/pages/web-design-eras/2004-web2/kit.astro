@@ -1,0 +1,99 @@
+---
+import Era2004Layout from "../../../projects/web-design-eras/2004-web2/Era2004Layout.astro";
+import { base } from "../../../projects/web-design-eras/2004-web2/nav";
+
+const palette = [
+	{ hex: "#2F7DC0", label: "sky", bordered: false },
+	{ hex: "#5AA617", label: "go", bordered: false },
+	{ hex: "#E8811A", label: "rss", bordered: false },
+	{ hex: "#1A4E7A", label: "deep", bordered: false },
+	{ hex: "#CFEAFB", label: "wash", bordered: true },
+	{ hex: "#E6EDF3", label: "chrome", bordered: true },
+];
+---
+
+<Era2004Layout title="style guide. - globex. - brand colors, type, buttons, badges" currentHref={`${base}kit/`}>
+	<div class="section section--tight">
+		<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+			<h1 class="page-title" style="margin: 0;">style guide<span style="color: #f28f1c;">.</span></h1>
+			<span class="beta-badge" style="font-size: 9px; padding: 5px 6px;">v2.0</span>
+		</div>
+		<p class="page-sub">
+			Internal reference for anyone building a Globex page, widget, or partner badge. 960px grid, radius 6&ndash;9px,
+			every surface gets a top-light gradient plus a 1px white inner highlight. Copy is lowercase and says
+			&ldquo;free&rdquo; at least twice.
+		</p>
+	</div>
+
+	<div class="section" style="padding-top: 0;">
+		<div class="kit-section">
+			<div class="kit-label">PALETTE</div>
+			<div class="kit-swatches">
+				{
+					palette.map((color) => (
+						<div>
+							<div
+								class:list={["swatch__chip", color.bordered && "swatch__chip--bordered"]}
+								style={`background: ${color.hex};`}
+							/>
+							<div class="swatch__label">
+								{color.hex} &middot; {color.label}
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+
+		<div class="kit-section">
+			<div class="kit-label">TYPE</div>
+			<div class="kit-panel">
+				<div class="type-sample--display">Big friendly headline</div>
+				<p class="type-sample--sub" style="margin: 8px 0;">
+					Sub-head, Lucida Grande 15&ndash;16px, the tone is chatty and reassuring.
+				</p>
+				<p class="type-sample--small" style="margin: 0;">Small print &middot; 12px &middot; used for social proof</p>
+			</div>
+		</div>
+
+		<div class="kit-section">
+			<div class="kit-label">BUTTONS</div>
+			<div class="kit-panel">
+				<div class="kit-row">
+					<span class="btn btn--go-lg">Sign up free!</span>
+					<span class="btn btn--go">Go</span>
+					<span class="btn btn--blue">Secondary</span>
+					<span class="btn btn--blue btn--small">Small</span>
+					<span class="btn btn--disabled">Disabled</span>
+				</div>
+				<p class="type-sample--small" style="margin: 10px 0 0;">
+					Every button gets a gradient fill, a 1px darker border, and an inset top highlight. Rounded corners scale
+					with size: 6px for compact controls, 9px for the hero CTA.
+				</p>
+			</div>
+		</div>
+
+		<div class="kit-section">
+			<div class="kit-label">BADGES &amp; BITS</div>
+			<div class="kit-panel">
+				<div class="kit-row">
+					<span class="beta-badge">BETA</span>
+					<span class="rss-chip">RSS</span>
+					<span class="feature__icon feature__icon--blue" style="width: 40px; height: 40px; font-size: 16px;">1</span>
+					<span class="chip">bookmark this</span>
+					<span style="font-size: 22px; color: #2f7dc0;">tag</span>
+					<span style="font-size: 13px; color: #85a8c2;">smaller tag</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="kit-section">
+			<div class="kit-label">GRID SPEC</div>
+			<div class="kit-panel kit-panel--note">
+				Canvas 960px, centered &middot; 12-column grid, but nobody actually built a real grid system yet &middot;
+				radius 6&ndash;9px &middot; reflections on logos and screenshots, opacity 0.22&ndash;0.35 &middot; target
+				resolution 1024 x 768.
+			</div>
+		</div>
+	</div>
+</Era2004Layout>

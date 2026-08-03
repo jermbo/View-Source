@@ -1,5 +1,5 @@
 /*
- * Nimbus Systems, Inc. — 2000-2004.
+ * Globex Systems, Inc. — 2000-2004.
  * Deliberately period-accurate: 780px fixed canvas, table layout, web-safe palette,
  * Verdana/Times/Courier only, beveled outset borders instead of anything modern.
  * This file is imported by exactly one project (ADR 0001). Nothing here is shared.
@@ -36,17 +36,24 @@ a:visited {
 /* ---------- masthead ---------- */
 
 .masthead {
-	display: flex;
-	align-items: stretch;
+	width: 100%;
+	border-collapse: collapse;
 	background: linear-gradient(180deg, #4a6da7 0%, #000080 100%);
 	border-bottom: 2px solid #000000;
 }
 
 .masthead__brand {
 	padding: 14px 16px;
-	display: flex;
-	flex-direction: column;
-	gap: 2px;
+	vertical-align: middle;
+	text-align: left;
+}
+
+.masthead__brand-table {
+	border-collapse: collapse;
+}
+
+.masthead__tagline-cell {
+	padding-top: 2px;
 }
 
 .masthead__logo {
@@ -77,23 +84,31 @@ a:visited {
 }
 
 .masthead__search {
-	margin-left: auto;
+	width: 1%;
+	white-space: nowrap;
 	padding: 14px 16px;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	gap: 5px;
+	vertical-align: middle;
+	text-align: right;
+}
+
+.masthead__search-table {
+	margin-left: auto;
+	border-collapse: collapse;
 }
 
 .masthead__search-label {
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 10px;
 	color: #ffffff;
+	padding-bottom: 5px;
 }
 
 .masthead__search-row {
-	display: flex;
-	gap: 4px;
+	border-collapse: collapse;
+}
+
+.masthead__search-row td {
+	padding: 0 2px;
 }
 
 /* ---------- controls ---------- */
@@ -145,14 +160,24 @@ textarea.field {
 /* ---------- top nav ---------- */
 
 .navbar {
-	display: flex;
-	gap: 3px;
+	width: 100%;
+	border-spacing: 3px 0;
+	border-collapse: separate;
 	padding: 4px;
 	background: #d4d0c8;
 	border-bottom: 1px solid #808080;
 }
 
+.navbar__cell {
+	padding: 0;
+}
+
+.navbar__filler {
+	width: 100%;
+}
+
 .navbar__item {
+	display: inline-block;
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 11px;
 	padding: 3px 14px;
@@ -253,12 +278,16 @@ textarea.field {
 /* ---------- side navigation ---------- */
 
 .sidenav__list {
+	width: 100%;
+	border-spacing: 0 5px;
+	border-collapse: separate;
 	padding: 8px 6px;
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 11px;
+}
+
+.sidenav__list td {
+	padding: 0;
 }
 
 .sidenav__bullet {
@@ -283,21 +312,18 @@ textarea.field {
 }
 
 .sidenav__badges {
+	margin: 0 auto;
 	border-top: 1px solid #808080;
-	padding: 10px 6px;
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-	align-items: center;
+	border-spacing: 0 8px;
+	border-collapse: separate;
+	padding: 10px 6px 2px;
 }
 
 .webbadge {
 	width: 88px;
 	height: 31px;
 	border: 1px solid #000000;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	vertical-align: middle;
 	text-align: center;
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 8px;
@@ -417,23 +443,23 @@ textarea.field {
 /* ---------- notice block ---------- */
 
 .notice {
+	width: 100%;
 	margin-top: 14px;
 	border-top: 1px solid #c0c0c0;
+	border-collapse: collapse;
+}
+
+.notice td {
 	padding-top: 10px;
-	display: flex;
-	gap: 10px;
-	align-items: flex-start;
 }
 
 .photo-slot {
 	width: 90px;
 	height: 62px;
-	flex: none;
+	padding-right: 10px;
 	border: 2px inset #d4d0c8;
 	background: repeating-linear-gradient(45deg, #cfd8e6 0 5px, #e6ecf4 5px 10px);
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	vertical-align: middle;
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 8px;
 	color: #444455;
@@ -442,6 +468,7 @@ textarea.field {
 }
 
 .notice__text {
+	vertical-align: top;
 	font-family: "Times New Roman", Times, serif;
 	font-size: 12.5px;
 	line-height: 1.5;
@@ -451,39 +478,51 @@ textarea.field {
 /* ---------- news rail ---------- */
 
 .newsrail__list {
+	width: 100%;
+	border-spacing: 0 9px;
+	border-collapse: separate;
 	padding: 8px 7px;
-	display: flex;
-	flex-direction: column;
-	gap: 9px;
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 10px;
 	line-height: 1.45;
 }
 
 .newsrail__date {
+	width: 1%;
+	white-space: nowrap;
+	vertical-align: top;
+	padding-right: 6px;
 	color: #cc0000;
 	font-weight: bold;
 }
 
+.newsrail__headline {
+	vertical-align: top;
+}
+
 .newsrail__counter {
+	margin: 0 auto;
 	border-top: 1px dashed #999999;
-	padding: 9px 7px;
-	display: flex;
-	flex-direction: column;
-	gap: 6px;
-	align-items: center;
+	border-spacing: 0 6px;
+	border-collapse: separate;
+	padding: 9px 7px 0;
 	font-family: Verdana, Geneva, sans-serif;
 	font-size: 9px;
 	color: #333333;
 	text-align: center;
 }
 
-.counter {
-	display: flex;
-	gap: 1px;
+.newsrail__counter td {
+	text-align: center;
 }
 
-.counter span {
+.counter {
+	margin: 0 auto;
+	border-spacing: 1px 0;
+	border-collapse: separate;
+}
+
+.counter td {
 	background: #000000;
 	color: #00ff00;
 	font-family: "Courier New", Courier, monospace;
@@ -510,11 +549,9 @@ textarea.field {
 }
 
 .sitefoot__links {
-	display: flex;
-	gap: 6px;
-	justify-content: center;
-	flex-wrap: wrap;
-	margin-bottom: 6px;
+	margin: 0 auto 6px;
+	border-spacing: 6px 0;
+	border-collapse: separate;
 }
 
 .sitefoot p {
@@ -528,14 +565,16 @@ textarea.field {
 }
 
 .swatches {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 4px;
+	width: 100%;
+	border-spacing: 4px;
+	border-collapse: separate;
 }
 
 .swatch {
+	width: 33%;
 	border: 2px inset #d4d0c8;
 	background: #ffffff;
+	vertical-align: top;
 }
 
 .swatch__chip {
@@ -565,17 +604,18 @@ textarea.field {
 }
 
 .kit-row {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 6px;
-	align-items: center;
+	border-spacing: 6px 0;
+	border-collapse: separate;
 	margin-bottom: 8px;
 }
 
+.kit-row td {
+	vertical-align: middle;
+}
+
 .kit-stack {
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
+	border-spacing: 0 4px;
+	border-collapse: separate;
 }
 
 .type-sample--heading {

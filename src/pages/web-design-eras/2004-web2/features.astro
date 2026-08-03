@@ -1,0 +1,100 @@
+---
+import Era2004Layout from "../../../projects/web-design-eras/2004-web2/Era2004Layout.astro";
+import { base } from "../../../projects/web-design-eras/2004-web2/nav";
+
+const features = [
+	{
+		icon: "☁",
+		iconClass: "feature__icon--blue",
+		title: "1 GB of storage, free",
+		body: "Every account starts with a full gigabyte at no cost. Need more? Globex Pro bumps you up to 25 GB.",
+	},
+	{
+		icon: "✦",
+		iconClass: "feature__icon--orange",
+		title: "AJAX uploader",
+		body: "Drag files straight from your desktop. No Java applet, no page refresh — built on the same technology as our friends at Google.",
+	},
+	{
+		icon: "#",
+		iconClass: "feature__icon--green",
+		title: "Tags, not folders",
+		body: "Organize your stuff the Web 2.0 way. One file, as many tags as you like, zero filing cabinets.",
+	},
+	{
+		icon: "▶",
+		iconClass: "feature__icon--blue",
+		title: "Instant previews",
+		body: "Photos, MP3s and PDFs render right in the browser. Flash Player 8 required for audio playback.",
+	},
+	{
+		icon: "➡",
+		iconClass: "feature__icon--orange",
+		title: "One-click sharing",
+		body: "Every file gets its own permalink. Drop it in an email, a MySpace comment, wherever your people are.",
+	},
+	{
+		icon: "⚙",
+		iconClass: "feature__icon--green",
+		title: "Open REST API",
+		body: "Build against Globex in your own mashup. Full documentation and a Flickr-style auth token, no OAuth yet.",
+	},
+];
+
+const testimonials = [
+	{
+		quote: "I dumped my entire iPhoto library into Globex over a weekend and never looked back. It just works.",
+		who: "— posted to a personal blog, syndicated via our RSS feed",
+	},
+	{
+		quote: "Finally, file sharing that doesn't feel like enterprise software. The tag cloud alone is worth signing up for.",
+		who: "— quoted with permission from our support forum",
+	},
+];
+---
+
+<Era2004Layout title="Features - globex. - tags, AJAX uploads, and a REST API" currentHref={`${base}features/`}>
+	<div class="section section--tight">
+		<h1 class="page-title">Everything you need. Nothing you don't.</h1>
+		<p class="page-sub">
+			Globex keeps getting better — that's the whole point of staying in beta. Here's what's live today.
+		</p>
+	</div>
+
+	<div class="feature-grid">
+		{
+			features.map((feature) => (
+				<div class="feature">
+					<div class:list={["feature__icon", feature.iconClass]}>{feature.icon}</div>
+					<h2 class="feature__title">{feature.title}</h2>
+					<p class="feature__body">{feature.body}</p>
+				</div>
+			))
+		}
+	</div>
+
+	<div class="section section--tight">
+		<div class="tags-label">WHAT PEOPLE ARE SAYING</div>
+	</div>
+	<div class="testimonial-grid">
+		{
+			testimonials.map((testimonial) => (
+				<div class="testimonial">
+					<p class="testimonial__quote">&ldquo;{testimonial.quote}&rdquo;</p>
+					<p class="testimonial__who">{testimonial.who}</p>
+				</div>
+			))
+		}
+	</div>
+
+	<div class="section" style="padding-top: 0;">
+		<div class="tags-label">GRAB THE WIDGET</div>
+		<p class="page-sub" style="margin-bottom: 14px;">
+			Put a live badge of your latest uploads on your blog or MySpace page. Copy, paste, done.
+		</p>
+		<div class="embed-box">
+			&lt;script src="http://globex.com/widget.js?u=yourname"&gt;&lt;/script&gt;<br />
+			&lt;div id="globex-badge"&gt;&lt;/div&gt;
+		</div>
+	</div>
+</Era2004Layout>

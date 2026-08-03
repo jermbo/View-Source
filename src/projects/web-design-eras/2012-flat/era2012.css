@@ -1,0 +1,913 @@
+/*
+ * GLOBEX — 2012-2016.
+ * Flat: every shadow, gradient, bevel and rounded corner deleted in one release.
+ * The only radius left in the file is 50%, on circles. Sections are full-bleed
+ * and alternate white / #ECF0F1 / #2C3E50, each opening with a tracked eyebrow,
+ * a 300-weight heading and a 2px rule.
+ *
+ * This is the first era that reflows. Responsive was the headline feature of
+ * 2013, so the breakpoints here are Bootstrap 3's (1200 / 992 / 768) and the
+ * mechanism is viewport media queries, not container queries, which did not
+ * exist for another decade. See
+ * docs/adr/web-design-eras/0001-period-accurate-css-in-era-projects.md.
+ *
+ * Imported by exactly one project (ADR 0001). Nothing here is shared.
+ */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: #fff;
+	color: #7f8c8d;
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	font-size: 15px;
+	line-height: 1.8;
+}
+
+h1,
+h2,
+h3,
+p,
+ul,
+figure {
+	margin: 0;
+}
+
+a {
+	color: #1abc9c;
+	text-decoration: none;
+}
+
+/* ---------- the 1170 grid ---------- */
+
+.container {
+	width: 100%;
+	max-width: 1170px;
+	margin: 0 auto;
+	padding: 0 24px;
+}
+
+.section {
+	padding: 84px 0;
+}
+
+.section--tight {
+	padding: 62px 0;
+}
+
+.section--clouds {
+	background: #ecf0f1;
+}
+
+.section--midnight {
+	background: #2c3e50;
+}
+
+/* ---------- section openers ---------- */
+
+.eyebrow {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	font-weight: 400;
+	letter-spacing: 0.32em;
+	text-transform: uppercase;
+	color: #1abc9c;
+}
+
+.headline {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	font-size: 40px;
+	line-height: 1.25;
+	color: #2c3e50;
+}
+
+.headline--sm {
+	font-size: 30px;
+}
+
+.section--midnight .headline {
+	color: #fff;
+}
+
+.rule {
+	width: 44px;
+	height: 2px;
+	background: #dfe4e6;
+}
+
+.rule--accent {
+	width: 60px;
+	height: 3px;
+	background: #1abc9c;
+}
+
+.lede {
+	font-size: 15.5px;
+	line-height: 1.8;
+	color: #7f8c8d;
+	max-width: 640px;
+}
+
+.section-head {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 18px;
+	text-align: center;
+}
+
+.section-head--left {
+	align-items: flex-start;
+	text-align: left;
+}
+
+/* ---------- header ---------- */
+
+.masthead {
+	position: relative;
+	z-index: 2;
+	padding: 30px 0;
+}
+
+.masthead__inner {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+}
+
+.wordmark {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 700;
+	font-size: 22px;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+.nav {
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+	gap: 34px;
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 11.5px;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+}
+
+.nav__item {
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.nav__item:hover {
+	color: #fff;
+}
+
+.nav__item--current {
+	color: #1abc9c;
+}
+
+.nav__item--dead {
+	color: rgba(255, 255, 255, 0.35);
+	cursor: default;
+}
+
+/*
+ * The checkbox hack: a 2013 site collapsed its nav without JavaScript by
+ * hanging the open state off a hidden checkbox next to the label.
+ */
+.nav-toggle {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.nav-burger {
+	display: none;
+	flex-direction: column;
+	gap: 4px;
+	cursor: pointer;
+	padding: 6px 0;
+	margin-left: auto;
+}
+
+.nav-burger span {
+	display: block;
+	width: 22px;
+	height: 2px;
+	background: #fff;
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+	position: relative;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	/* Stands in for the desaturated team-at-a-long-desk photograph. */
+	background-color: #4a5b6a;
+	background-image: repeating-linear-gradient(45deg, #4a5b6a 0 10px, #55677a 10px 20px);
+}
+
+/* The flat colour overlay: the photograph is only ever a texture under it. */
+.hero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: rgba(44, 62, 80, 0.86);
+}
+
+.hero--short {
+	min-height: 0;
+}
+
+.hero__body {
+	position: relative;
+	z-index: 1;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 26px;
+	padding: 60px 24px 90px;
+	text-align: center;
+}
+
+.hero--short .hero__body {
+	padding: 40px 24px 70px;
+	gap: 20px;
+}
+
+.hero__title {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 100;
+	font-size: 74px;
+	line-height: 1.05;
+	letter-spacing: -0.01em;
+	color: #fff;
+	max-width: 900px;
+}
+
+.hero--short .hero__title {
+	font-size: 52px;
+}
+
+.hero__sub {
+	font-size: 17px;
+	letter-spacing: 0.06em;
+	line-height: 1.7;
+	color: rgba(255, 255, 255, 0.75);
+	max-width: 620px;
+}
+
+.hero__actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 16px;
+	margin-top: 8px;
+}
+
+.hero__credit {
+	position: absolute;
+	bottom: 14px;
+	left: 18px;
+	z-index: 1;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 10px;
+	color: rgba(255, 255, 255, 0.35);
+}
+
+.scroll-cue {
+	position: relative;
+	z-index: 1;
+	padding-bottom: 26px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 6px;
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	letter-spacing: 0.3em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.scroll-cue__chevron {
+	font-size: 20px;
+	line-height: 0.6;
+}
+
+/* ---------- buttons ---------- */
+
+/* Ghost buttons: 2px border, tracked caps, no fill, no radius. */
+.btn {
+	display: inline-block;
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12.5px;
+	font-weight: 400;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	padding: 16px 38px;
+	border: 2px solid transparent;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.btn--accent {
+	background: #1abc9c;
+	border-color: #1abc9c;
+	color: #fff;
+}
+
+.btn--ghost-light {
+	border-color: rgba(255, 255, 255, 0.7);
+	color: #fff;
+}
+
+.btn--ghost-dark {
+	border-color: #2c3e50;
+	color: #2c3e50;
+}
+
+.btn--ghost-mute {
+	border-color: #bdc3c7;
+	color: #7f8c8d;
+	cursor: default;
+}
+
+.btn--sm {
+	font-size: 11px;
+	padding: 13px 30px;
+}
+
+/* ---------- feature quad ---------- */
+
+.quad {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 54px;
+}
+
+.quad__cell {
+	width: 25%;
+	padding: 0 22px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 16px;
+	text-align: center;
+}
+
+/* The outline circle: the one place a radius survived the flattening. */
+.icon-ring {
+	width: 88px;
+	height: 88px;
+	border-radius: 50%;
+	border: 2px solid #1abc9c;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 30px;
+	line-height: 1;
+	color: #1abc9c;
+	flex: none;
+}
+
+.icon-ring--mute {
+	border-color: #bdc3c7;
+	color: #bdc3c7;
+}
+
+.icon-ring--sm {
+	width: 60px;
+	height: 60px;
+	font-size: 22px;
+}
+
+.quad__title {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: #2c3e50;
+}
+
+.quad__body {
+	font-size: 13.5px;
+	line-height: 1.75;
+	color: #95a5a6;
+}
+
+/* ---------- stat band ---------- */
+
+.stats {
+	background: #1abc9c;
+	padding: 62px 0;
+}
+
+/*
+ * background-attachment: fixed was the whole of "parallax" in 2013.
+ */
+.stats--parallax {
+	background-color: #2c3e50;
+	background-image: linear-gradient(rgba(44, 62, 80, 0.88), rgba(44, 62, 80, 0.88)),
+		repeating-linear-gradient(45deg, #4a5b6a 0 10px, #55677a 10px 20px);
+	background-attachment: fixed;
+}
+
+.stats__row {
+	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+	color: #fff;
+}
+
+.stats__cell {
+	width: 25%;
+	padding: 15px;
+}
+
+.stats__figure {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 100;
+	font-size: 52px;
+	line-height: 1.1;
+}
+
+.stats__label {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 10.5px;
+	letter-spacing: 0.26em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.8);
+	margin-top: 8px;
+}
+
+/* ---------- plans ---------- */
+
+.plans {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 42px -13px 0;
+	width: calc(100% + 26px);
+}
+
+.plans__cell {
+	width: 33.3333%;
+	padding: 0 13px;
+	margin-bottom: 26px;
+	display: flex;
+}
+
+.plan {
+	background: #fff;
+	padding: 40px 32px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 14px;
+	text-align: center;
+	width: 100%;
+}
+
+.plan--featured {
+	background: #2c3e50;
+}
+
+.plan__name {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	letter-spacing: 0.26em;
+	text-transform: uppercase;
+	color: #95a5a6;
+}
+
+.plan--featured .plan__name {
+	color: #1abc9c;
+}
+
+.plan__price {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 100;
+	font-size: 56px;
+	line-height: 1.1;
+	color: #2c3e50;
+}
+
+.plan--featured .plan__price {
+	color: #fff;
+}
+
+.plan__list {
+	list-style: none;
+	padding: 0;
+	font-size: 13.5px;
+	line-height: 2;
+	color: #7f8c8d;
+	flex: 1;
+}
+
+.plan--featured .plan__list {
+	color: rgba(255, 255, 255, 0.7);
+}
+
+/* ---------- blog ---------- */
+
+.posts {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 42px -13px 0;
+	width: calc(100% + 26px);
+}
+
+.posts__cell {
+	width: 33.3333%;
+	padding: 0 13px;
+	margin-bottom: 34px;
+	display: flex;
+}
+
+.post {
+	background: #fff;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.post__image {
+	height: 190px;
+	background: repeating-linear-gradient(45deg, #dfe4e6 0 10px, #ecf0f1 10px 20px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 0 16px;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 10.5px;
+	line-height: 1.5;
+	color: #95a5a6;
+}
+
+.post__body {
+	padding: 26px 28px 30px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	flex: 1;
+}
+
+.post__category {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	letter-spacing: 0.26em;
+	text-transform: uppercase;
+	color: #1abc9c;
+}
+
+.post__title {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	font-size: 21px;
+	line-height: 1.35;
+	color: #2c3e50;
+}
+
+.post__excerpt {
+	font-size: 13.5px;
+	line-height: 1.8;
+	color: #95a5a6;
+	flex: 1;
+}
+
+.post__meta {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: #bdc3c7;
+}
+
+/* ---------- feature rows ---------- */
+
+.split {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 60px;
+	margin-top: 54px;
+}
+
+.split__copy {
+	flex: 1;
+	min-width: 280px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	align-items: flex-start;
+}
+
+.split__shot {
+	flex: 1;
+	min-width: 280px;
+	height: 300px;
+	background: repeating-linear-gradient(45deg, #dfe4e6 0 10px, #ecf0f1 10px 20px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 0 20px;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 11px;
+	line-height: 1.6;
+	color: #95a5a6;
+}
+
+.section--midnight .split__shot {
+	background: repeating-linear-gradient(45deg, #34495e 0 10px, #3d566e 10px 20px);
+	color: #7f8c8d;
+}
+
+.section--midnight .lede {
+	color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- kit ---------- */
+
+.kit-block {
+	margin-top: 42px;
+}
+
+.kit-label {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	letter-spacing: 0.24em;
+	text-transform: uppercase;
+	color: #95a5a6;
+	margin-bottom: 12px;
+}
+
+.kit-swatches {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.kit-swatches > div {
+	width: 16.6666%;
+}
+
+.swatch__chip {
+	height: 62px;
+}
+
+.swatch__chip--bordered {
+	border: 1px solid #ecf0f1;
+}
+
+.swatch__label {
+	font-size: 10px;
+	color: #95a5a6;
+	padding: 6px 0;
+}
+
+.kit-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	align-items: center;
+}
+
+.kit-row--dark {
+	background: #2c3e50;
+	padding: 20px;
+}
+
+.kit-note {
+	background: #ecf0f1;
+	padding: 18px 20px;
+	font-size: 13px;
+	line-height: 1.8;
+	color: #7f8c8d;
+}
+
+.type-100 {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 100;
+	font-size: 46px;
+	line-height: 1.1;
+	color: #2c3e50;
+}
+
+.type-300 {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	font-size: 24px;
+	color: #2c3e50;
+	margin-top: 8px;
+}
+
+/* ---------- footer ---------- */
+
+.sitefoot {
+	background: #2c3e50;
+	padding: 54px 0;
+}
+
+.sitefoot__inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 60px;
+}
+
+.sitefoot__about {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	max-width: 300px;
+}
+
+.sitefoot__blurb {
+	font-size: 13px;
+	line-height: 1.8;
+	color: #7f8c8d;
+}
+
+.social-row {
+	display: flex;
+	gap: 9px;
+	margin-top: 6px;
+}
+
+.social-dot {
+	width: 34px;
+	height: 34px;
+	border-radius: 50%;
+	border: 1px solid #46596b;
+}
+
+.sitefoot__columns {
+	margin-left: auto;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 56px;
+	font-size: 13px;
+	line-height: 2.1;
+	color: #95a5a6;
+}
+
+.sitefoot__heading {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 10.5px;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: #fff;
+	margin-bottom: 8px;
+}
+
+.sitefoot__column a {
+	display: block;
+	color: #95a5a6;
+}
+
+.sitefoot__column a:hover {
+	color: #1abc9c;
+}
+
+.sitefoot__dead {
+	display: block;
+	color: #5d7183;
+}
+
+/*
+ * Bootstrap 3 breakpoints, max-width flavour: the grid steps down at 1200,
+ * 992 and 768, and the nav collapses at 768.
+ */
+
+@media (max-width: 1199px) {
+	.hero__title {
+		font-size: 62px;
+	}
+}
+
+@media (max-width: 991px) {
+	.section {
+		padding: 62px 0;
+	}
+
+	.hero__title {
+		font-size: 52px;
+	}
+
+	.hero--short .hero__title {
+		font-size: 40px;
+	}
+
+	.headline {
+		font-size: 32px;
+	}
+
+	.quad__cell {
+		width: 50%;
+		margin-bottom: 44px;
+	}
+
+	.stats__cell {
+		width: 50%;
+	}
+
+	.plans__cell,
+	.posts__cell {
+		width: 100%;
+		max-width: 460px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.kit-swatches > div {
+		width: 33.3333%;
+	}
+
+	.split {
+		gap: 34px;
+	}
+
+	.sitefoot__columns {
+		gap: 40px;
+	}
+}
+
+@media (max-width: 767px) {
+	.nav {
+		display: none;
+		width: 100%;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0;
+		margin: 18px 0 0;
+	}
+
+	.nav__item {
+		display: block;
+		width: 100%;
+		padding: 13px 0;
+		border-top: 1px solid rgba(255, 255, 255, 0.12);
+	}
+
+	.nav-toggle:checked ~ .nav {
+		display: flex;
+	}
+
+	.nav-burger {
+		display: flex;
+	}
+
+	.masthead__inner {
+		flex-wrap: wrap;
+	}
+
+	.hero__credit {
+		display: none;
+	}
+
+	.hero__title {
+		font-size: 38px;
+	}
+
+	.hero--short .hero__title {
+		font-size: 32px;
+	}
+
+	.headline {
+		font-size: 26px;
+	}
+
+	.quad__cell {
+		width: 100%;
+	}
+
+	.stats__cell {
+		width: 100%;
+	}
+
+	.stats__figure {
+		font-size: 42px;
+	}
+
+	.kit-swatches > div {
+		width: 50%;
+	}
+
+	.sitefoot__columns {
+		margin-left: 0;
+	}
+}

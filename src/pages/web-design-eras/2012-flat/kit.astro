@@ -1,0 +1,131 @@
+---
+import Era2012Layout from "../../../projects/web-design-eras/2012-flat/Era2012Layout.astro";
+import { base } from "../../../projects/web-design-eras/2012-flat/nav";
+
+const palette = [
+	{ hex: "#2C3E50", name: "Midnight", isBordered: false },
+	{ hex: "#1ABC9C", name: "Turquoise", isBordered: false },
+	{ hex: "#ECF0F1", name: "Clouds", isBordered: false },
+	{ hex: "#7F8C8D", name: "Asbestos", isBordered: false },
+	{ hex: "#BDC3C7", name: "Silver", isBordered: false },
+	{ hex: "#FFFFFF", name: "White", isBordered: true },
+];
+
+const breakpoints = [
+	{ width: "1200px and up", note: "Full 1170px container, four columns across." },
+	{ width: "992 to 1199", note: "Container narrows. Hero type drops to 62px." },
+	{ width: "768 to 991", note: "Four columns become two. Plans and posts stack." },
+	{ width: "Below 768", note: "Single column. Nav collapses into the menu button." },
+];
+---
+
+<Era2012Layout title="UI Kit · GLOBEX" currentHref={`${base}kit/`}>
+	<Fragment slot="hero">
+		<div class="eyebrow" style="color: rgba(255,255,255,0.5);">Style guide</div>
+		<h1 class="hero__title">GLOBEX UI Kit</h1>
+		<div class="rule rule--accent"></div>
+	</Fragment>
+
+	<section class="section">
+		<div class="container">
+			<div class="section-head section-head--left">
+				<div class="eyebrow">Palette</div>
+				<h2 class="headline headline--sm">Four colours and two greys.</h2>
+				<div class="rule"></div>
+			</div>
+			<div class="kit-block">
+				<div class="kit-swatches">
+					{
+						palette.map((color) => (
+							<div>
+								<div
+									class:list={["swatch__chip", color.isBordered && "swatch__chip--bordered"]}
+									style={`background: ${color.hex};`}
+								/>
+								<div class="swatch__label">
+									{color.hex} &middot; {color.name}
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</div>
+
+			<div class="kit-block">
+				<div class="kit-label">Type scale</div>
+				<div class="type-100">Montserrat 100</div>
+				<div class="type-300">Light 300 for section titles</div>
+				<div class="eyebrow" style="margin-top: 10px;">Tracked label 0.2em</div>
+				<p class="lede" style="margin-top: 8px;">
+					Open Sans Light 300 at 15px, line height 1.8, for all body copy. Centred inside a hero, left-aligned
+					everywhere else.
+				</p>
+			</div>
+
+			<div class="kit-block">
+				<div class="kit-label">Buttons</div>
+				<div class="kit-row">
+					<span class="btn btn--accent btn--sm">Primary</span>
+					<span class="btn btn--ghost-dark btn--sm">Ghost</span>
+					<span class="btn btn--ghost-mute btn--sm">Disabled</span>
+				</div>
+				<div class="kit-row kit-row--dark" style="margin-top: 12px;">
+					<span class="btn btn--ghost-light btn--sm">On dark</span>
+					<span class="btn btn--accent btn--sm">Accent</span>
+				</div>
+			</div>
+
+			<div class="kit-block">
+				<div class="kit-label">Icons and dividers</div>
+				<div class="kit-row">
+					<span class="icon-ring icon-ring--sm">☁</span>
+					<span class="icon-ring icon-ring--sm icon-ring--mute">★</span>
+					<span class="social-dot" style="border-color: #bdc3c7;"></span>
+					<span class="nav-burger" style="display: flex;">
+						<span style="background: #2c3e50;"></span>
+						<span style="background: #2c3e50;"></span>
+						<span style="background: #2c3e50;"></span>
+					</span>
+				</div>
+				<div class="kit-row" style="flex-direction: column; align-items: flex-start; gap: 8px; margin-top: 16px;">
+					<div class="rule rule--accent"></div>
+					<div class="rule"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section--clouds">
+		<div class="container">
+			<div class="section-head section-head--left">
+				<div class="eyebrow">Grid</div>
+				<h2 class="headline headline--sm">1170px, twelve columns, four breakpoints.</h2>
+				<div class="rule"></div>
+			</div>
+			<div class="kit-block">
+				<div class="posts">
+					{
+						breakpoints.map((breakpoint) => (
+							<div class="posts__cell">
+								<div class="post">
+									<div class="post__body">
+										<div class="post__category">{breakpoint.width}</div>
+										<p class="post__excerpt">{breakpoint.note}</p>
+									</div>
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</div>
+			<div class="kit-block">
+				<div class="kit-label">Rules</div>
+				<div class="kit-note">
+					Bootstrap 12-column grid, 1170px &middot; sections stack full-bleed and alternate white, #ECF0F1 and
+					#2C3E50 &middot; no shadows, no gradients, no radius above 0, except circles &middot; every section opens
+					with a tracked eyebrow, a light heading and a 2px rule.
+				</div>
+			</div>
+		</div>
+	</section>
+</Era2012Layout>
