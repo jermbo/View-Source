@@ -1,0 +1,32 @@
+---
+import { footerColumns } from "./nav";
+---
+
+<footer class="sitefoot">
+	<div class="sitefoot__columns">
+		{
+			footerColumns.map((column) => (
+				<div class="sitefoot__column">
+					<div class="sitefoot__heading">{column.heading}</div>
+					{column.links.map((link) => (
+						<>
+							{link.href && <a href={link.href}>{link.label}</a>}
+							{!link.href && <span class="sitefoot__dead">{link.label}</span>}
+						</>
+					))}
+				</div>
+			))
+		}
+		<div class="sitefoot__column sitefoot__column--newsletter">
+			<div class="sitefoot__heading">Get the newsletter</div>
+			<div class="newsletter">
+				<input class="newsletter__field" type="text" aria-label="Email address" placeholder="you@example.com" />
+				<span class="btn btn--go btn--small">Go</span>
+			</div>
+			<p class="sitefoot__fine">
+				&copy; 2006 Nimbus Media Labs, Inc. &middot; Made with love in San Francisco<br />
+				Valid XHTML 1.0 Strict &middot; Valid CSS
+			</p>
+		</div>
+	</div>
+</footer>

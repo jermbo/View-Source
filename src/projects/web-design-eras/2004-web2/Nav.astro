@@ -1,0 +1,32 @@
+---
+import { navLinks } from "./nav";
+
+interface Props {
+	currentHref: string;
+}
+
+const { currentHref } = Astro.props;
+
+const items = navLinks.map((item) => ({
+	label: item.label,
+	href: item.href,
+	isLink: Boolean(item.href),
+	isCurrent: item.href === currentHref,
+}));
+---
+
+<nav class="nav">
+	{
+		items.map((item) => (
+			<>
+				{item.isLink && (
+					<a class:list={["nav__item", item.isCurrent && "nav__item--current"]} href={item.href}>
+						{item.label}
+					</a>
+				)}
+				{!item.isLink && <span class="nav__item nav__item--dead">{item.label}</span>}
+			</>
+		))
+	}
+	<span class="btn btn--go">Sign up free</span>
+</nav>

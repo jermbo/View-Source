@@ -2,16 +2,46 @@
 import { base } from "./nav";
 ---
 
-<div class="masthead">
-	<div class="masthead__brand">
-		<a class="masthead__logo" href={base}>NIMBUS SYSTEMS<span class="masthead__logo-suffix">, INC.</span></a>
-		<p class="masthead__tagline">&quot;Enterprise Network Solutions for the New Economy&quot;</p>
-	</div>
-	<div class="masthead__search">
-		<span class="masthead__search-label">Search Our Site:</span>
-		<div class="masthead__search-row">
-			<input class="field" type="text" aria-label="Search our site" />
-			<span class="btn btn--small">Go!</span>
-		</div>
-	</div>
-</div>
+<table class="masthead">
+	<tbody>
+		<tr>
+			<td class="masthead__brand">
+				<table class="masthead__brand-table">
+					<tbody>
+						<tr>
+							<td>
+								<a class="masthead__logo" href={base}>NIMBUS SYSTEMS<span class="masthead__logo-suffix">, INC.</span></a>
+							</td>
+						</tr>
+						<tr>
+							<td class="masthead__tagline-cell">
+								<p class="masthead__tagline">&quot;Enterprise Network Solutions for the New Economy&quot;</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+			<td class="masthead__search">
+				<table class="masthead__search-table">
+					<tbody>
+						<tr>
+							<td class="masthead__search-label">Search Our Site:</td>
+						</tr>
+						<tr>
+							<td>
+								<table class="masthead__search-row">
+									<tbody>
+										<tr>
+											<td><input class="field" type="text" aria-label="Search our site" /></td>
+											<td><span class="btn btn--small">Go!</span></td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+	</tbody>
+</table>

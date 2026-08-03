@@ -18,25 +18,41 @@ const items = sideNav.map((item) => ({
 ---
 
 <div class="bar">NAVIGATION</div>
-<div class="sidenav__list">
-	{
-		items.map((item) => (
-			<div>
-				<span class="sidenav__bullet">&raquo;</span>{" "}
-				{item.isLink && (
-					<a href={item.href} aria-current={item.isCurrent ? "page" : undefined}>
-						{item.label}
-					</a>
-				)}
-				{!item.isLink && <span class="sidenav__dead">{item.label}</span>}
-				{item.isNew && <span class="badge-new"> NEW!</span>}
-			</div>
-		))
-	}
-</div>
-<div class="sidenav__badges">
-	<div class="webbadge webbadge--ie">BEST VIEWED IN<br />INTERNET EXPLORER 5</div>
-	<div class="webbadge webbadge--flash">GET FLASH 5</div>
-	<div class="webbadge webbadge--html">VALID HTML 4.01</div>
-	<p class="construction">Portions of this site are<br /><strong>UNDER CONSTRUCTION</strong></p>
-</div>
+<table class="sidenav__list">
+	<tbody>
+		{
+			items.map((item) => (
+				<tr>
+					<td>
+						<span class="sidenav__bullet">&raquo;</span>{" "}
+						{item.isLink && (
+							<a href={item.href} aria-current={item.isCurrent ? "page" : undefined}>
+								{item.label}
+							</a>
+						)}
+						{!item.isLink && <span class="sidenav__dead">{item.label}</span>}
+						{item.isNew && <span class="badge-new"> NEW!</span>}
+					</td>
+				</tr>
+			))
+		}
+	</tbody>
+</table>
+<table class="sidenav__badges">
+	<tbody>
+		<tr>
+			<td class="webbadge webbadge--ie">BEST VIEWED IN<br />INTERNET EXPLORER 5</td>
+		</tr>
+		<tr>
+			<td class="webbadge webbadge--flash">GET FLASH 5</td>
+		</tr>
+		<tr>
+			<td class="webbadge webbadge--html">VALID HTML 4.01</td>
+		</tr>
+		<tr>
+			<td class="construction">
+				Portions of this site are<br /><strong>UNDER CONSTRUCTION</strong>
+			</td>
+		</tr>
+	</tbody>
+</table>

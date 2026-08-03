@@ -54,7 +54,7 @@ export const worlds: World[] = [
 				slug: "2004-web2",
 				meta: "2004 — 2008",
 				pitch: "Gloss, gradients, reflections, and a beta badge with no end date.",
-				built: false,
+				built: true,
 			},
 			{
 				name: "Skeuomorphic",

@@ -1,0 +1,101 @@
+---
+import Era2004Layout from "../../../projects/web-design-eras/2004-web2/Era2004Layout.astro";
+import { base } from "../../../projects/web-design-eras/2004-web2/nav";
+
+const steps = [
+	{
+		icon: "1",
+		iconClass: "feature__icon--blue",
+		title: "Drag. Drop. Done.",
+		body: "Upload up to 20 files at once with our brand-new AJAX uploader. No page refresh, we promise.",
+	},
+	{
+		icon: "2",
+		iconClass: "feature__icon--orange",
+		title: "Tag everything",
+		body: "Folders are so 1998. Tag your files and let the folksonomy sort itself out.",
+	},
+	{
+		icon: "3",
+		iconClass: "feature__icon--green",
+		title: "Mash it up",
+		body: "Grab our REST API, badges and widgets. Put your Nimbus files on your blog in two clicks.",
+	},
+];
+
+const tags = [
+	{ label: "photos", size: 26, color: "#2f7dc0" },
+	{ label: "mp3", size: 14, color: "#6a9fc7" },
+	{ label: "backup", size: 32, color: "#1a4e7a" },
+	{ label: "wedding", size: 16, color: "#5590bd" },
+	{ label: "podcast", size: 12, color: "#85a8c2" },
+	{ label: "vacation", size: 22, color: "#e8811a" },
+	{ label: "resume", size: 13, color: "#6a9fc7" },
+	{ label: "band demo", size: 19, color: "#2f7dc0" },
+	{ label: "taxes", size: 11, color: "#90b0c7" },
+	{ label: "screencast", size: 24, color: "#56a318" },
+];
+---
+
+<Era2004Layout title="nimbus. - share your stuff, online, for free" currentHref={base}>
+	<div class="hero">
+		<div class="hero__inner">
+			<div class="hero__copy">
+				<h1 class="hero__headline">Share your stuff.<br />With <span class="hero__accent">everyone</span>.</h1>
+				<p class="hero__sub">
+					Nimbus is the easiest way to put your files online and share them with friends, family and coworkers. No
+					software to install. It just works. And did we mention it's <b>free</b>?
+				</p>
+				<div class="hero__cta-row">
+					<span class="btn btn--go-lg">Sign up &mdash; it's free!</span>
+					<a class="hero__tour-link" href="#tour">or take the tour &raquo;</a>
+				</div>
+				<p class="hero__proof">Over <b>240,000</b> happy users &middot; 1 GB free &middot; No credit card required</p>
+			</div>
+			<div class="hero__shot">
+				<div class="shot-frame">
+					<div class="shot-frame__inner">screenshot: file manager UI</div>
+				</div>
+				<div class="shot-frame__reflection"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="feature-grid" id="tour">
+		{
+			steps.map((step) => (
+				<div class="feature">
+					<div class:list={["feature__icon", step.iconClass]}>{step.icon}</div>
+					<h2 class="feature__title">{step.title}</h2>
+					<p class="feature__body">{step.body}</p>
+				</div>
+			))
+		}
+	</div>
+
+	<div class="tags-band">
+		<div class="tags-band__inner">
+			<div>
+				<div class="tags-label">POPULAR TAGS</div>
+				<div class="tag-cloud">
+					{
+						tags.map((tag) => (
+							<span style={`font-size: ${tag.size}px; color: ${tag.color};`}>{tag.label}</span>
+						))
+					}
+				</div>
+			</div>
+			<div class="rss-row">
+				<div class="rss-subscribe">
+					<span class="rss-chip">RSS</span>
+					<span class="dead-text">Subscribe to the Nimbus blog</span>
+				</div>
+				<div class="chip-row">
+					<span class="chip">bookmark this</span>
+					<span class="chip">share</span>
+					<span class="chip">email a friend</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</Era2004Layout>

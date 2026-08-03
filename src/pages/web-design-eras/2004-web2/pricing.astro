@@ -1,0 +1,91 @@
+---
+import Era2004Layout from "../../../projects/web-design-eras/2004-web2/Era2004Layout.astro";
+import { base } from "../../../projects/web-design-eras/2004-web2/nav";
+
+const plans = [
+	{
+		name: "Free",
+		price: "$0",
+		period: "/mo",
+		features: ["1 GB storage", "Unlimited tags", "Public sharing links", "Community support"],
+		cta: "Sign up — it's free!",
+		ctaClass: "btn--go-lg",
+		featured: false,
+	},
+	{
+		name: "Plus",
+		price: "$4.99",
+		period: "/mo",
+		features: ["10 GB storage", "Custom URLs", "No ads on your public pages", "Priority email support"],
+		cta: "Upgrade to Plus",
+		ctaClass: "btn--blue",
+		featured: true,
+	},
+	{
+		name: "Pro",
+		price: "$14.99",
+		period: "/mo",
+		features: ["25 GB storage", "Full REST API access", "Team folders (up to 5 seats)", "Phone support, business hours"],
+		cta: "Upgrade to Pro",
+		ctaClass: "btn--blue",
+		featured: false,
+	},
+];
+
+const faqs = [
+	{
+		q: "Is Nimbus really free?",
+		a: "The Free plan is free forever, not a trial. We make money from Plus and Pro upgrades, not from selling your files.",
+	},
+	{
+		q: "What happens when Nimbus leaves beta?",
+		a: "Good question. We've been asking it since 2005 too. Pricing on this page will not change without notice to existing members.",
+	},
+	{
+		q: "Can I cancel anytime?",
+		a: "Yes — downgrade to Free from your account settings whenever you like. We will not play any Flash-based retention games.",
+	},
+];
+---
+
+<Era2004Layout title="Pricing - nimbus. - plans for everyone, from free to Pro" currentHref={`${base}pricing/`}>
+	<div class="section section--tight">
+		<h1 class="page-title">Simple pricing. Still in beta.</h1>
+		<p class="page-sub">Start free. Upgrade the moment you outgrow a gigabyte. Cancel with two clicks, no phone call required.</p>
+	</div>
+
+	<div class="pricing-grid">
+		{
+			plans.map((plan) => (
+				<div class:list={["plan", plan.featured && "plan--featured"]}>
+					{plan.featured && <span class="plan__ribbon">MOST POPULAR</span>}
+					<div class="plan__name">{plan.name}</div>
+					<div class="plan__price">
+						{plan.price}
+						<span>{plan.period}</span>
+					</div>
+					<ul class="plan__features">
+						{plan.features.map((feature) => (
+							<li>{feature}</li>
+						))}
+					</ul>
+					<span class:list={["btn", plan.ctaClass]}>{plan.cta}</span>
+				</div>
+			))
+		}
+	</div>
+
+	<div class="section" style="padding-top: 0;">
+		<div class="tags-label">FREQUENTLY ASKED</div>
+		<div class="faq" style="margin-top: 14px;">
+			{
+				faqs.map((faq) => (
+					<div>
+						<p class="faq__q">{faq.q}</p>
+						<p class="faq__a">{faq.a}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</Era2004Layout>
