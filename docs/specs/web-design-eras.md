@@ -4,7 +4,7 @@ Covers the Web Design Eras World page and its six era Projects. First world to b
 
 ## Premise
 
-One fictional company, played straight across six four-year design eras (2000–2026) as its site would actually have looked at each point — fonts, chrome, copywriting tics, and all. Source material: [`docs/inspiration/web-design-eras/web-design-eras.html`](../inspiration/web-design-eras/web-design-eras.html). The company is **Nimbus** — its name and market position drift with each era (Nimbus Systems, Inc. → nimbus. → Nimbus → NIMBUS → Nimbus → Nimbus Platform), which is period-accurate rebrand behavior, not an inconsistency to fix.
+One fictional company, played straight across six four-year design eras (2000–2026) as its site would actually have looked at each point — fonts, chrome, copywriting tics, and all. Source material: [`docs/inspiration/web-design-eras/web-design-eras.html`](../inspiration/web-design-eras/web-design-eras.html). The company is **Globex** — its name and market position drift with each era (Globex Systems, Inc. → globex. → Globex → GLOBEX → Globex → Globex Platform), which is period-accurate rebrand behavior, not an inconsistency to fix.
 
 No curation step here (unlike Cosmic Strawberry / Mint Panther): all six eras become projects.
 

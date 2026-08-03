@@ -1,5 +1,5 @@
 /**
- * Nav model for the Nimbus Systems (2000-2004) project.
+ * Nav model for the Globex Systems (2000-2004) project.
  *
  * A real site of this era listed far more departments than it had pages. Items with
  * no `href` are rendered as dead controls rather than links: period-accurate, and it
@@ -42,5 +42,5 @@ export const footerLinks: NavLink[] = [
 	{ label: "Style Guide", href: `${base}kit/` },
 	{ label: "Privacy Statement" },
 	{ label: "Legal" },
-	{ label: "webmaster@nimbussystems.net" },
+	{ label: "webmaster@globexsystems.net" },
 ];

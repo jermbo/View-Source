@@ -38,9 +38,9 @@ export const worlds: World[] = [
 		indexLabel: "02",
 		titleLine1: "Web Design",
 		titleLine2: "Eras",
-		tagline: "One company, Nimbus, played straight across six four-year design eras, from 2000 to 2026.",
+		tagline: "One company, Globex, played straight across six four-year design eras, from 2000 to 2026.",
 		philosophy:
-			"Anyone can do the joke version of a 2001 website. The hard part is building one straight: 780 pixels wide, nested tables, a hit counter that means it, and body copy that believes every word about the e-business marketplace. Six eras, four years each, 2000 to 2026. Nimbus is the control variable, so the only thing changing is the taste.",
+			"Anyone can do the joke version of a 2001 website. The hard part is building one straight: 780 pixels wide, nested tables, a hit counter that means it, and body copy that believes every word about the e-business marketplace. Six eras, four years each, 2000 to 2026. Globex is the control variable, so the only thing changing is the taste.",
 		projects: [
 			{
 				name: "Dot-Com Corporate",

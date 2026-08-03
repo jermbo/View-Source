@@ -1,5 +1,5 @@
 /**
- * Nav model for the nimbus. (2004-2008) project.
+ * Nav model for the globex. (2004-2008) project.
  *
  * "Tour", "Blog" and "Log in" are period-accurate dead controls: a 2005 startup's
  * header always promised more than three pages actually existed. See the kit page
@@ -27,7 +27,7 @@ export interface FooterColumn {
 
 export const footerColumns: FooterColumn[] = [
 	{
-		heading: "Nimbus",
+		heading: "Globex",
 		links: [{ label: "About us" }, { label: "Jobs" }, { label: "Press kit" }, { label: "Blog" }],
 	},
 	{
