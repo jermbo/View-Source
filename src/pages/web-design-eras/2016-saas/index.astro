@@ -1,0 +1,121 @@
+---
+import Era2016Layout from "../../../projects/web-design-eras/2016-saas/Era2016Layout.astro";
+import { base } from "../../../projects/web-design-eras/2016-saas/nav";
+
+const trustedBy = ["Halden", "CORWIN", "Petralux", "nine&co", "MERIDIAN"];
+
+const cards = [
+	{
+		icon: "▢",
+		tone: "violet",
+		title: "One source of truth",
+		body: "Every file, comment and decision lives next to the work it belongs to. Search once, find it everywhere.",
+	},
+	{
+		icon: "▲",
+		tone: "pink",
+		title: "Automate the boring parts",
+		body: "Build approval flows in a visual editor. No scripting, no ops ticket, no waiting two sprints.",
+	},
+	{
+		icon: "●",
+		tone: "mint",
+		title: "Enterprise-ready, day one",
+		body: "SSO, SCIM provisioning, granular permissions and a full audit trail on every plan.",
+	},
+];
+
+const stats = [
+	{ figure: "78%", label: "less time in status meetings" },
+	{ figure: "4.9", label: "average review score" },
+	{ figure: "2 days", label: "median approval cycle" },
+	{ figure: "120+", label: "native integrations" },
+];
+---
+
+<Era2016Layout title="Globex · The workspace where your team's work actually flows." currentHref={base} isLanding>
+	<Fragment slot="hero">
+		<div class="hero__badge">New &middot; Globex Workflows is live</div>
+		<h1 class="headline headline--display hero__title">
+			The workspace where<br />your team's work <span class="gradient-word">actually flows</span>
+		</h1>
+		<p class="hero__sub">
+			Files, tasks and approvals in one place. Globex connects the tools your team already loves &mdash; so nothing
+			gets lost between them.
+		</p>
+		<div class="hero__actions">
+			<span class="btn btn--primary">Start free &mdash; 14 days</span>
+			<span class="btn btn--link">Book a demo &rarr;</span>
+		</div>
+		<div class="hero__fineprint">No credit card required &middot; Free forever for up to 5 people</div>
+
+		<div class="hero__shot">
+			<div class="hero__shot-inner">product screenshot: workflow board</div>
+		</div>
+
+		<div class="trustbar">
+			<div class="trustbar__label">Trusted by fast-moving teams</div>
+			<div class="trustbar__logos">
+				{trustedBy.map((name) => <div class="trustbar__logo">{name}</div>)}
+			</div>
+		</div>
+	</Fragment>
+
+	<section class="section section--tint">
+		<div class="container section-head">
+			<div class="eyebrow">Why Globex</div>
+			<h2 class="headline">Built for the way teams work now</h2>
+			<div class="cards">
+				{
+					cards.map((card) => (
+						<div class="card">
+							<div class:list={["card__icon", `card__icon--${card.tone}`]}>{card.icon}</div>
+							<h3 class="card__title">{card.title}</h3>
+							<p class="card__body">{card.body}</p>
+							<span class="card__link">Learn more &rarr;</span>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container testimonial">
+			<div class="testimonial__quote">
+				<p class="testimonial__text">
+					&ldquo;We replaced four tools with Globex in a single quarter. Onboarding took an afternoon, and our
+					approval cycle went from nine days to two.&rdquo;
+				</p>
+				<div class="testimonial__attribution">
+					<div class="testimonial__avatar"></div>
+					<div><span class="testimonial__name">Dev Raghunathan</span><br />VP Operations, Petralux</div>
+				</div>
+			</div>
+			<div class="stat-grid">
+				{
+					stats.map((stat) => (
+						<div class="stat-tile">
+							<div class="stat-tile__figure">{stat.figure}</div>
+							<div class="stat-tile__label">{stat.label}</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="cta-band">
+		<div class="cta-band__inner">
+			<h2 class="cta-band__title">Ready to see where your work is stuck?</h2>
+			<p class="cta-band__sub">
+				Set up your first workspace in under ten minutes. Bring your whole team &mdash; the first five seats are
+				always free.
+			</p>
+			<div class="cta-band__actions">
+				<span class="btn btn--onlight">Start free trial</span>
+				<span class="btn btn--outline-light">Talk to sales</span>
+			</div>
+		</div>
+	</section>
+</Era2016Layout>

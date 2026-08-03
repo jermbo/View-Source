@@ -1,0 +1,108 @@
+---
+import Era2022Layout from "../../../projects/web-design-eras/2022-agent/Era2022Layout.astro";
+import { base } from "../../../projects/web-design-eras/2022-agent/nav";
+
+const surfaces = [
+	{ label: "bg .155", style: "background: oklch(0.155 0.008 265); border: 1px solid oklch(1 0 0 / 0.08);" },
+	{ label: "panel .175", style: "background: oklch(0.175 0.008 265); border: 1px solid oklch(1 0 0 / 0.08);" },
+	{ label: "raised .24", style: "background: oklch(0.24 0.006 260);" },
+	{ label: "accent 265", style: "background: oklch(0.62 0.15 265);" },
+	{ label: "ok 155", style: "background: oklch(0.72 0.16 155);" },
+	{ label: "fg .96", style: "background: oklch(0.96 0.005 260);" },
+];
+
+const breakpoints = [
+	{ width: "1200px and up", note: "Full 1180px container, three-column bento." },
+	{ width: "992 to 1199", note: "Display type steps down to 60px." },
+	{ width: "768 to 991", note: "Bento drops to two columns; docs grid to one." },
+	{ width: "Below 768", note: "Nav collapses into the checkbox menu." },
+];
+---
+
+<Era2022Layout title="UI Kit · Globex Platform" currentHref={`${base}kit/`}>
+	<Fragment slot="hero">
+		<div class="eyebrow">Primitives</div>
+		<h1 class="headline headline--display hero__title">Globex Platform UI Kit</h1>
+	</Fragment>
+
+	<section class="section">
+		<div class="container">
+			<div class="section-head section-head--left">
+				<div class="eyebrow">Surfaces</div>
+				<h2 class="headline" style="font-size: 28px;">Near-black, one accent, one ok.</h2>
+			</div>
+			<div class="kit-block">
+				<div class="kit-swatches">
+					{
+						surfaces.map((surface) => (
+							<div>
+								<div class="swatch__chip" style={surface.style} />
+								<div class="swatch__label">{surface.label}</div>
+							</div>
+						))
+					}
+				</div>
+			</div>
+
+			<div class="kit-block">
+				<div class="kit-label">Type</div>
+				<div class="headline headline--display" style="font-size: 34px;">Display &minus;0.045em</div>
+				<p class="lede" style="margin-top: 8px;">Body 15px / 1.62. Declarative, technical, no exclamation marks.</p>
+				<div class="mono" style="font-size: 12px; color: oklch(0.72 0.015 260); margin-top: 8px;">
+					IBM Plex Mono &mdash; nav, labels, data
+				</div>
+				<div class="eyebrow" style="margin-top: 6px;">Eyebrow 0.18em</div>
+			</div>
+
+			<div class="kit-block">
+				<div class="kit-label">Components</div>
+				<div class="kit-row">
+					<span class="btn btn--primary">Primary</span>
+					<span class="btn btn--ghost">Ghost</span>
+				</div>
+			</div>
+
+			<div class="kit-block">
+				<div class="kit-row">
+					<div class="hero__badge"><span class="status-dot"></span> status pill</div>
+					<span class="tag">tag</span>
+				</div>
+			</div>
+
+			<div class="kit-block">
+				<div class="install-cmd">
+					<span><span class="install-cmd__prompt">$</span> npm i @globex/agent</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section" style="padding-top: 0;">
+		<div class="container">
+			<div class="section-head section-head--left">
+				<div class="eyebrow">Grid</div>
+				<h2 class="headline" style="font-size: 28px;">1180px container, four breakpoints.</h2>
+			</div>
+			<div class="kit-block">
+				<div class="doc-grid">
+					{
+						breakpoints.map((bp) => (
+							<div class="doc-card">
+								<div class="bento__title" style="font-size: 15px;">{bp.width}</div>
+								<div class="bento__body">{bp.note}</div>
+							</div>
+						))
+					}
+				</div>
+			</div>
+			<div class="kit-block">
+				<div class="kit-label">Rules</div>
+				<div class="kit-note">
+					1180px container &middot; borders are always 1px oklch(1 0 0 / 0.08&ndash;0.14), never solid grey &middot;
+					one radial glow per page, behind the hero &middot; no drop shadows &mdash; depth comes from hairlines
+					&middot; bento cells are separated by a 1px gap over a border-coloured grid.
+				</div>
+			</div>
+		</div>
+	</section>
+</Era2022Layout>

@@ -1,0 +1,66 @@
+---
+import Era2022Layout from "../../../projects/web-design-eras/2022-agent/Era2022Layout.astro";
+import { base } from "../../../projects/web-design-eras/2022-agent/nav";
+
+const guides = [
+	{ label: "01 / Start", title: "Quickstart", body: "Install the SDK, generate a key and make your first typed read in under five minutes." },
+	{ label: "02 / Model", title: "Schemas & connectors", body: "Point Globex at Postgres, S3 or a warehouse. Every table becomes a typed tool an agent can call." },
+	{ label: "03 / Access", title: "Permissions", body: "Row-level policy attached to the data, not the prompt. An agent cannot read what its key cannot." },
+	{ label: "04 / Ops", title: "Approval gates", body: "Set a spend ceiling or a row-count threshold. Runs above it halt and wait for a human." },
+	{ label: "05 / Debug", title: "Traces", body: "Every read, tool call and write, replayable step by step from the dashboard or the API." },
+	{ label: "06 / Deploy", title: "Rollback", body: "Every write is versioned. Revert a bad run the same way you'd revert a bad deploy." },
+];
+
+const runExample = [
+	{ time: "09:14:02", op: "read", opClass: "read", rest: "customers.active", detail: "1,204 rows" },
+	{ time: "09:14:03", op: "tool", opClass: "tool", rest: "billing.forecast()", detail: "" },
+	{ time: "09:14:05", op: "write", opClass: "write", rest: "reports.q3_forecast", detail: "+1" },
+];
+---
+
+<Era2022Layout title="Docs · Globex Platform" currentHref={`${base}docs/`}>
+	<Fragment slot="hero">
+		<div class="eyebrow">Documentation</div>
+		<h1 class="headline headline--display hero__title">Everything the runtime does, typed and traced.</h1>
+		<p class="hero__sub">Six primitives. No hidden state, no undocumented behavior.</p>
+	</Fragment>
+
+	<section class="section">
+		<div class="container">
+			<div class="doc-grid">
+				{
+					guides.map((guide) => (
+						<div class="doc-card">
+							<div class="bento__label">{guide.label}</div>
+							<div class="bento__title" style="font-size: 19px;">{guide.title}</div>
+							<div class="bento__body">{guide.body}</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="section" style="padding-top: 0;">
+		<div class="container">
+			<div class="section-head section-head--left">
+				<div class="eyebrow">Example run</div>
+				<h2 class="headline" style="font-size: 28px;">A forecast job, traced end to end.</h2>
+			</div>
+			<div class="trace kit-block">
+				{
+					runExample.map((line) => (
+						<div>
+							<span class="trace__time">{line.time}</span> <span class:list={["mono", `trace__op--${line.opClass}`]}>{line.op}</span>{" "}
+							{line.rest} {line.detail && <span class="trace__detail">{line.detail}</span>}
+						</div>
+					))
+				}
+				<div>
+					<span class="trace__time">09:14:05</span> <span class="trace__op--halt">done</span>{" "}
+					<span class="trace__detail">3.1s, 0 policy violations</span>
+				</div>
+			</div>
+		</div>
+	</section>
+</Era2022Layout>

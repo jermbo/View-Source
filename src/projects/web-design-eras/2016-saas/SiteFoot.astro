@@ -1,0 +1,39 @@
+---
+import { footerColumns } from "./nav";
+---
+
+<footer class="sitefoot">
+	<div class="container">
+		<div class="sitefoot__grid">
+			<div class="sitefoot__about">
+				<div class="sitefoot__brand">
+					<div class="brand__mark"></div>
+					<div class="sitefoot__brand-word">Globex</div>
+				</div>
+				<div class="sitefoot__blurb">The workspace platform for modern teams. San Francisco &middot; Lisbon &middot; Singapore.</div>
+			</div>
+			{
+				footerColumns.map((column) => (
+					<div class="sitefoot__column">
+						<div class="sitefoot__heading">{column.heading}</div>
+						{column.links.map((link) => (
+							<>
+								{link.href && <a href={link.href}>{link.label}</a>}
+								{!link.href && <span>{link.label}</span>}
+							</>
+						))}
+					</div>
+				))
+			}
+		</div>
+		<div class="sitefoot__bottom">
+			<div>&copy; 2019 Globex Labs, Inc.</div>
+			<div class="sitefoot__legal-links">
+				<span>Privacy</span>
+				<span>Terms</span>
+				<span>Cookies</span>
+				<span>GDPR</span>
+			</div>
+		</div>
+	</div>
+</footer>

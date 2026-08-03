@@ -1,0 +1,79 @@
+---
+import Era2016Layout from "../../../projects/web-design-eras/2016-saas/Era2016Layout.astro";
+import { base } from "../../../projects/web-design-eras/2016-saas/nav";
+
+const logos = ["Halden", "CORWIN", "Petralux", "nine&co", "MERIDIAN", "Ostara", "Renwick", "Faircloth"];
+
+const stories = [
+	{
+		figure: "9 days → 2",
+		label: "median approval cycle, Petralux",
+		quote: "We replaced four tools with Globex in a single quarter. Onboarding took an afternoon.",
+		name: "Dev Raghunathan, VP Operations",
+	},
+	{
+		figure: "3.4x",
+		label: "faster new-hire onboarding, Halden",
+		quote: "New teammates find every document, decision and owner in one search instead of four.",
+		name: "Priya Okonkwo-Lindgren, Head of People",
+	},
+	{
+		figure: "$420k",
+		label: "saved on tooling in year one, Meridian",
+		quote: "We sunset three separate SaaS contracts the week after rollout finished.",
+		name: "Tomas Villanueva, VP Finance",
+	},
+	{
+		figure: "48 hrs",
+		label: "from kickoff to first workflow, Corwin",
+		quote: "No sales call, no procurement cycle. Our ops lead had the first approval flow live by Friday.",
+		name: "Adaeze Fenwick, Director of Ops",
+	},
+];
+---
+
+<Era2016Layout title="Customers · Globex" currentHref={`${base}customers/`}>
+	<Fragment slot="hero">
+		<div class="eyebrow">Customers</div>
+		<h1 class="headline headline--display hero__title">Fast-moving teams <span class="gradient-word">run on Globex</span></h1>
+		<p class="hero__sub">From eleven-person studios to thousand-person operations teams.</p>
+	</Fragment>
+
+	<section class="section">
+		<div class="container">
+			<div class="logo-wall">
+				{logos.map((name) => <div class="logo-wall__cell">{name}</div>)}
+			</div>
+		</div>
+	</section>
+
+	<section class="section section--tint">
+		<div class="container section-head section-head--left">
+			<div class="eyebrow">Case studies</div>
+			<h2 class="headline">Results, not testimonials</h2>
+			<div class="story-grid">
+				{
+					stories.map((story) => (
+						<div class="story-card">
+							<div class="story-card__figure">{story.figure}</div>
+							<div class="story-card__label">{story.label}</div>
+							<div class="story-card__quote">&ldquo;{story.quote}&rdquo;</div>
+							<div class="story-card__name">{story.name}</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="cta-band">
+		<div class="cta-band__inner">
+			<h2 class="cta-band__title">Ready to see where your work is stuck?</h2>
+			<p class="cta-band__sub">Set up your first workspace in under ten minutes. The first five seats are always free.</p>
+			<div class="cta-band__actions">
+				<span class="btn btn--onlight">Start free trial</span>
+				<span class="btn btn--outline-light">Talk to sales</span>
+			</div>
+		</div>
+	</section>
+</Era2016Layout>
