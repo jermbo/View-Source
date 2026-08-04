@@ -1,0 +1,97 @@
+---
+import Era2016Layout from "../../../projects/web-design-eras/2016-saas/Era2016Layout.astro";
+import { base } from "../../../projects/web-design-eras/2016-saas/nav";
+
+const plans = [
+	{
+		name: "Starter",
+		price: "$0",
+		note: "forever, up to 5 people",
+		lines: ["Unlimited files", "1 GB storage per person", "Community support", "Core integrations"],
+		isFeatured: false,
+	},
+	{
+		name: "Team",
+		price: "$12",
+		note: "per person / month",
+		lines: ["Unlimited storage", "Visual workflow builder", "Priority support", "120+ integrations"],
+		isFeatured: true,
+	},
+	{
+		name: "Enterprise",
+		price: "Talk to us",
+		note: "custom limits & terms",
+		lines: ["SSO & SCIM provisioning", "Granular permissions", "Full audit trail", "Dedicated success manager"],
+		isFeatured: false,
+	},
+];
+
+const faqs = [
+	{
+		q: "Can I change plans later?",
+		a: "Any time, from account settings. Upgrades take effect immediately; downgrades apply at the next billing cycle.",
+	},
+	{
+		q: "Do you offer a discount for nonprofits?",
+		a: "Yes &mdash; 30% off Team for registered nonprofits and education. Reach out to sales with proof of status.",
+	},
+	{
+		q: "What happens to my data if I cancel?",
+		a: "Everything stays exportable for 30 days after cancellation. After that it's permanently deleted from our systems.",
+	},
+];
+---
+
+<Era2016Layout title="Pricing · Globex" currentHref={`${base}pricing/`}>
+	<Fragment slot="hero">
+		<div class="eyebrow">Pricing</div>
+		<h1 class="headline headline--display hero__title">Simple pricing, <span class="gradient-word">no surprises</span></h1>
+		<p class="hero__sub">Start free. Upgrade when your team outgrows it, not before.</p>
+	</Fragment>
+
+	<section class="section">
+		<div class="container">
+			<div class="plans">
+				{
+					plans.map((plan) => (
+						<div class:list={["plan", plan.isFeatured && "plan--featured"]}>
+							<div class="plan__name">{plan.name}</div>
+							<div>
+								<span class="plan__price">{plan.price}</span>
+							</div>
+							<div class="plan__price-note">{plan.note}</div>
+							<ul class="plan__list">
+								{plan.lines.map((line) => (
+									<li>{line}</li>
+								))}
+							</ul>
+							{plan.isFeatured && <span class="btn btn--onlight">Start free trial</span>}
+							{!plan.isFeatured && <span class="btn btn--primary">Get started</span>}
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="section section--tint">
+		<div class="container section-head section-head--left">
+			<div class="eyebrow">Questions</div>
+			<h2 class="headline">Frequently asked</h2>
+			<div class="kit-block">
+				<div class="story-grid">
+					{
+						faqs.map((faq) => (
+							<div class="story-card">
+								<div class="story-card__quote" style="font-weight: 600; color: #14102b;">
+									{faq.q}
+								</div>
+								<div class="story-card__name" set:html={faq.a} />
+							</div>
+						))
+					}
+				</div>
+			</div>
+		</div>
+	</section>
+</Era2016Layout>

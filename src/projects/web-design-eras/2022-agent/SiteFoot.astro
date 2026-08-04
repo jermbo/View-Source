@@ -1,0 +1,35 @@
+---
+import { footerColumns } from "./nav";
+---
+
+<footer class="sitefoot">
+	<div class="container">
+		<div class="sitefoot__row">
+			<div class="sitefoot__about">
+				<div class="sitefoot__brand">
+					<div class="brand__mark"></div>
+					<span class="sitefoot__brand-word">Globex</span>
+				</div>
+				<div class="sitefoot__status">
+					<span class="status-dot"></span> All systems operational
+				</div>
+			</div>
+			<div class="sitefoot__columns">
+				{
+					footerColumns.map((column) => (
+						<div class="sitefoot__column">
+							<div class="sitefoot__heading">{column.heading}</div>
+							{column.links.map((link) => (
+								<>
+									{link.href && <a href={link.href}>{link.label}</a>}
+									{!link.href && <span>{link.label}</span>}
+								</>
+							))}
+						</div>
+					))
+				}
+			</div>
+		</div>
+		<div class="sitefoot__bottom">&copy; 2026 Globex Platform, Inc.</div>
+	</div>
+</footer>

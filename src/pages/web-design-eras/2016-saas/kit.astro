@@ -1,0 +1,116 @@
+---
+import Era2016Layout from "../../../projects/web-design-eras/2016-saas/Era2016Layout.astro";
+import { base } from "../../../projects/web-design-eras/2016-saas/nav";
+
+const palette = [
+	{ hex: "Brand gradient", name: "", style: "background: linear-gradient(135deg, #8b6dff, #5b3ce0);" },
+	{ hex: "#5B3CE0", name: "purple", style: "background: #5b3ce0;" },
+	{ hex: "#FF7AA8", name: "pink", style: "background: #ff7aa8;" },
+	{ hex: "#14102B", name: "ink", style: "background: #14102b;" },
+	{ hex: "#FBFAFF", name: "tint", style: "background: #fbfaff; border: 1px solid #efeaff;" },
+	{ hex: "#EFEAFF", name: "chip", style: "background: #efeaff;" },
+];
+
+const breakpoints = [
+	{ width: "1200px and up", note: "Full 1140px container, three columns across." },
+	{ width: "992 to 1199", note: "Display type steps down to 50px." },
+	{ width: "768 to 991", note: "Cards, plans and stories collapse to one column." },
+	{ width: "Below 768", note: "Nav collapses into the checkbox menu; CTA band buttons stack." },
+];
+---
+
+<Era2016Layout title="UI Kit · Globex" currentHref={`${base}kit/`}>
+	<Fragment slot="hero">
+		<div class="eyebrow">Design system</div>
+		<h1 class="headline headline--display hero__title">Globex UI Kit</h1>
+	</Fragment>
+
+	<section class="section">
+		<div class="container">
+			<div class="section-head section-head--left">
+				<div class="eyebrow">Color</div>
+				<h2 class="headline" style="font-size: 28px;">One gradient, two supporting neutrals.</h2>
+			</div>
+			<div class="kit-block">
+				<div class="kit-swatches">
+					{
+						palette.map((color) => (
+							<div>
+								<div class:list={["swatch__chip"]} style={color.style} />
+								<div class="swatch__label">
+									{color.hex} {color.name && <>&middot; {color.name}</>}
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</div>
+
+			<div class="kit-block">
+				<div class="kit-label">Type</div>
+				<div class="headline headline--display" style="font-size: 30px;">
+					Display 700 <span class="gradient-word">clipped</span>
+				</div>
+				<div style="font-size: 19px; font-weight: 600; color: #14102b; margin-top: 8px;">Card title, 600</div>
+				<p class="lede" style="margin-top: 5px;">
+					Body 15px / 1.7 in Poppins 400. Friendly, benefit-led, one idea per sentence.
+				</p>
+				<div class="card__link" style="margin-top: 6px;">Inline link &rarr;</div>
+			</div>
+
+			<div class="kit-block">
+				<div class="kit-label">Buttons</div>
+				<div class="kit-row">
+					<span class="btn btn--primary">Primary</span>
+					<span class="btn btn--onlight" style="box-shadow: 0 1px 4px rgba(0,0,0,0.15);">Outline</span>
+				</div>
+			</div>
+
+			<div class="kit-block">
+				<div class="kit-label">Badges &amp; bits</div>
+				<div class="kit-row">
+					<span class="pill-badge">Pill badge</span>
+					<span class="pastel-square card__icon--pink">▲</span>
+					<span class="pastel-square card__icon--mint">●</span>
+				</div>
+			</div>
+
+			<div class="kit-block">
+				<div class="story-card" style="max-width: 340px;">
+					<div class="story-card__quote" style="font-weight: 600; color: #14102b;">Card, radius 16&ndash;18</div>
+					<div class="story-card__name">White on #FBFAFF, shadow 0 18px 40px rgba(30,20,80,0.07).</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section--tint">
+		<div class="container">
+			<div class="section-head section-head--left">
+				<div class="eyebrow">Grid</div>
+				<h2 class="headline" style="font-size: 28px;">1140px container, four breakpoints.</h2>
+			</div>
+			<div class="kit-block">
+				<div class="story-grid">
+					{
+						breakpoints.map((breakpoint) => (
+							<div class="story-card">
+								<div class="story-card__label" style="font-weight: 600; color: #14102b; font-size: 14px;">
+									{breakpoint.width}
+								</div>
+								<div class="story-card__name">{breakpoint.note}</div>
+							</div>
+						))
+					}
+				</div>
+			</div>
+			<div class="kit-block">
+				<div class="kit-label">Rules</div>
+				<div class="kit-note">
+					1140px container, 8pt spacing &middot; every CTA is a pill &middot; one gradient word per headline, never
+					two &middot; blurred blobs sit behind the hero only &middot; social proof within 600px of the fold.
+				</div>
+			</div>
+		</div>
+	</section>
+</Era2016Layout>

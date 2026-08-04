@@ -1,0 +1,55 @@
+---
+import "./era2016.css";
+import EscapeHatch from "../../../components/EscapeHatch.astro";
+import Nav from "./Nav.astro";
+import SiteFoot from "./SiteFoot.astro";
+import { base } from "./nav";
+import { findWorld } from "../../../data/worlds";
+
+interface Props {
+	title: string;
+	currentHref: string;
+	/** Tall hero with blobs, badge and product shot on the home page; a shorter band elsewhere. */
+	isLanding?: boolean;
+}
+
+const { title, currentHref, isLanding = false } = Astro.props;
+
+const world = findWorld("web-design-eras");
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<div class:list={["hero", !isLanding && "hero--short"]}>
+			<div class="hero__blob hero__blob--a"></div>
+			<div class="hero__blob hero__blob--b"></div>
+			<header class="masthead">
+				<div class="container masthead__inner">
+					<a class="brand" href={base}>
+						<div class="brand__mark"></div>
+						<div class="brand__word">Globex</div>
+					</a>
+					<Nav currentHref={currentHref} />
+					<div class="masthead__actions">
+						<span class="masthead__login">Log in</span>
+						<span class="btn btn--primary btn--sm">Start free trial</span>
+					</div>
+				</div>
+			</header>
+			<div class="container hero__body">
+				<slot name="hero" />
+			</div>
+		</div>
+		<main>
+			<slot />
+		</main>
+		<SiteFoot />
+		{world && <EscapeHatch world={world} projectSlug="2016-saas" />}
+	</body>
+</html>

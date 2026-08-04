@@ -1,0 +1,66 @@
+---
+import Era2022Layout from "../../../projects/web-design-eras/2022-agent/Era2022Layout.astro";
+import { base } from "../../../projects/web-design-eras/2022-agent/nav";
+
+const entries = [
+	{
+		version: "v4.2",
+		date: "2026-07-11",
+		title: "Spend ceilings, per connector",
+		desc: "Approval thresholds can now be scoped to a single connector instead of the whole run. A billing agent can spend freely on reads and still halt at $25k on a write.",
+	},
+	{
+		version: "v4.1",
+		date: "2026-05-02",
+		title: "Trace replay in the dashboard",
+		desc: "Every run is now replayable step by step from the web console, not just the API. Filter by agent, connector or policy violation.",
+	},
+	{
+		version: "v4.0",
+		date: "2026-02-14",
+		title: "Agentic runtime, GA",
+		desc: "Permissions, traces and rollback are now first-class primitives instead of a layer bolted onto v3's read/write API. Migration guide in the docs.",
+	},
+	{
+		version: "v3.6",
+		date: "2025-10-30",
+		title: "EU residency",
+		desc: "Data can now be pinned to EU regions end to end, including trace storage. Existing workspaces can request migration from support.",
+	},
+	{
+		version: "v3.5",
+		date: "2025-08-19",
+		title: "19-region edge reads",
+		desc: "Read latency drops to p99 under 40ms in most regions. Writes still route to the primary for consistency.",
+	},
+];
+---
+
+<Era2022Layout title="Changelog · Globex Platform" currentHref={`${base}changelog/`}>
+	<Fragment slot="hero">
+		<div class="eyebrow">Changelog</div>
+		<h1 class="headline headline--display hero__title">What shipped, and when.</h1>
+		<p class="hero__sub">Every release, in the order the runtime actually got them.</p>
+	</Fragment>
+
+	<section class="section">
+		<div class="container">
+			<div class="kit-block">
+				{
+					entries.map((entry, index) => (
+						<div class:list={["changelog-entry", index > 0 && "hairline"]}>
+							<div class="changelog-entry__meta">
+								<div class="changelog-entry__version mono">{entry.version}</div>
+								<div class="changelog-entry__date mono">{entry.date}</div>
+							</div>
+							<div class="changelog-entry__body">
+								<div class="changelog-entry__title">{entry.title}</div>
+								<div class="changelog-entry__desc">{entry.desc}</div>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+</Era2022Layout>
